@@ -1,1 +1,3 @@
+5/12 Tiange made basic structure, 5 produce assets added, and wip title screen
+
 5/4 Repo created, Joker joined
