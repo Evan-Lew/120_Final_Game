@@ -4,7 +4,7 @@ let config = {
     type: Phaser.CANVAS,
     width: 1280,
     height: 720,
-    scene: [load, stage_one_main]
+    scene: [load, title_screen, stage_one_main]
 }
 
 var game = new Phaser.Game(config);
@@ -14,6 +14,9 @@ var borderPadding = borderUISize / 3;
 
 // input key variables
 var keyLeft, keyRight, keyR;
+
+// keys for the main menu
+var keyA, keyD, keyEnter, keyESC;
 
 
 // globle variables

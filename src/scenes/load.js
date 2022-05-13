@@ -10,11 +10,12 @@ class load extends Phaser.Scene {
         // load groceries atlas
         this.load.atlas("groceries_atlas", "test_groceries.png", "test_groceries.json");
 
-
+        // load title screen
+        this.load.image('menu_background', 'menu_background.png');
     }
 
     create() {
         // start the game
-        this.scene.start("stage_one_main");
+        this.scene.start("title_screen");
     }
 }
