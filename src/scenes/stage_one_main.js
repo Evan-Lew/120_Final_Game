@@ -29,11 +29,16 @@ class stage_one_main extends Phaser.Scene {
         this.tomato = new Groceries(this, game.config.width / 2, game.config.height / 2, "groceries_atlas", "tomato_0001", "tomato_0001", "tomato_flip_0001", "tomato_cut_0001").setOrigin(0.5).setScale(0.4).setInteractive();
         this.carrot = new Groceries(this, game.config.width / 2 - 100, game.config.height / 2, "groceries_atlas", "carrot_0001", "carrot_0001", "carrot_flip_0001", "carrot_cut_0001").setOrigin(0.5).setScale(0.4).setInteractive();
 
+        this.input.mouse.disableContextMenu();
         this.tomato.on("pointerdown", function (pointer) {
-            this.flipGoodQuality();
+            if (pointer.rightButtonDown()) {
+                this.flipGoodQuality(); 
+            }
         })
         this.carrot.on("pointerdown", function (pointer) {
-            this.flipBadQuality();
+            if (pointer.rightButtonDown()) {
+                this.flipBadQuality();
+            }
         })
 
         // end test
