@@ -1,3 +1,7 @@
+5/15
+Updated title screen and implemented cart selection
+Added 2 temp audio for title screen
+
 5/14 
 Add leftClick feature to "Make it invisible" and add to inventory
 Tomato added to belt
