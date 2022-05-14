@@ -1,5 +1,5 @@
-5/14
-Add leftClick feature to "Make is invisible" and add to inventory
+5/14 
+Add leftClick feature to "Make it invisible" and add to inventory
 Tomato added to belt
 Tomatoes are randomly spawned
 Allow tomato to be added into inventory
