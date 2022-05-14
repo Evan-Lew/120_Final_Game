@@ -3,24 +3,28 @@ class Groceries extends Phaser.GameObjects.Sprite {
     //                 texture is atlas name, for example, 'tomato_atlas'
     //                 frame is starting frame, for example, 'tomato_idle_01'
     //                 quality is defined as globle in main, -1 -> Bad,  0 -> Normal,  1 -> Good
-    constructor(scene, x, y, texture, frame, quality) {
+    constructor(scene, x, y, texture, frame, quality, ID) {
         super(scene, x, y, texture, frame);    
         scene.add.existing(this);
         this.quality = quality;
+        this.ID = ID;
+        this.leftClickFlag = false;
+        this.movedToInventory = false;
     }
 
     //function plays anime
-    flipNormalQuality(){
-        this.play("tomato_normal");
-    }
-    //function plays anime    
-    flipBadQuality() {
-        this.play("tomato_bad");
-    }
-    
-    //function plays anime   
-    flipGoodQuality() {
-        //assets not ready
+    flipGrocery(){
+        if(this.quality == 1 && this.ID == ID_GROCERY_TOMATO ){
+            //this.play("tomato_good");
+            console.log("no anime, but I am good tomato");
+        }else if(this.quality == 0 && this.ID == ID_GROCERY_TOMATO){
+            this.play("tomato_normal");
+        }else if(this.quality == -1 && this.ID == ID_GROCERY_TOMATO){
+            this.play("tomato_bad");
+        }else{
+            //remove this on final
+            console.log("Error: unable to load anime");
+        }
     }
 }
 

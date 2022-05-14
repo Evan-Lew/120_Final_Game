@@ -1,3 +1,13 @@
+5/14
+Add leftClick feature to "Make is invisible" and add to inventory
+Tomato added to belt
+Tomatoes are randomly spawned
+Allow tomato to be added into inventory
+Globle variable setup
+WARNING: the dynamic allocated memory has NOT been free yet.
+            don't run this game in potato computer, it's a perfect 
+            lesson of memory leak.
+
 5/12 Tiange made basic structure, 5 produce assets added, and wip title screen
 
 5/4 Repo created, Joker joined
