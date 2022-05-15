@@ -32,10 +32,6 @@ class stage_one_vegetables extends Phaser.Scene {
         // ------------------------------------------------------------------
 
 
-
-
-
-
         // ------------------------------------------------------------------
         // Background Layer
         // play area
@@ -44,13 +40,11 @@ class stage_one_vegetables extends Phaser.Scene {
         this.canvas_order = this.add.rectangle(940, 0, 340, 480, 0xE5AE89).setOrigin(0, 0);
         // extra
         this.canvas_inventory = this.add.rectangle(940, 480, 340, 240, 0xFFFFFFF).setOrigin(0, 0);
+        // display their text
+        this.text_display();
         // background end
         // ------------------------------------------------------------------
 
-
-        this.add.text(0, 0, "Here is the  play area", { align: 'center', fontFamily: 'Georgia', fontSize: '32px', color: '#000000', });
-        this.add.text(940, 70, "order area", { align: 'center', fontFamily: 'Georgia', fontSize: '32px', color: '#000000', });
-        this.add.text(940, 480, "Inventory", { align: 'center', fontFamily: 'Georgia', fontSize: '32px', color: '#000000', });
 
 
         // ------------------------------------------------------------------
@@ -80,14 +74,16 @@ class stage_one_vegetables extends Phaser.Scene {
 
     update() {
 
-
-
-
         this.groceries_Update();
+        this.endGame_Update();
+        if (groceries == null) {
 
-        //console.log(groceries.length);
-        //console.log(inventory.length);
+        } else {
+            console.log(groceries.length);
+            console.log(inventory.length);
 
+        }
+        //rm console.log(budget);
     }
 
     //note: helper function shouldn't be called in create(), update(), it's for function only
@@ -222,8 +218,6 @@ class stage_one_vegetables extends Phaser.Scene {
                         groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
                         //add mouse input to latest created grocery
                         this.groceries_Helper_MouseInput(groceries.length - 1);
-
-                        generation_frequency
                     }
                 }, //call back end
                 callbackScope: this,
@@ -280,22 +274,26 @@ class stage_one_vegetables extends Phaser.Scene {
                     }
                 }
 
-                //move target into inventory and display it
+                //move target into inventory and display it, reduce the budget
                 if (groceries[i].leftClickFlag && !groceries[i].moveToInventory) {
 
-
+                    budget -= groceries[i].price;
+                    this.text_display_Helper_budgetUpdate();
                     inventory.push(new Inventory(this, 980 + inventory_spacing_x, 540 + inventory_spacing_y, 'vegetables_atlas', groceries[i].idle, groceries[i].quality, groceries[i].ID).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
                     inventory[inventory.length - 1].visible = true;
                     groceries[i].movedToInventory = true;
                     groceries[i].leftClickFlag = false;
-
+                    groceries[i].destroy();
                 }
             }//for end
         }//if end
     }
 
-    phase_change(){
-        
+
+
+
+    //function that control the speed of the belt
+    phase_change() {
 
         this.beltSpeed_Easy = this.time.addEvent({
             delay: TIME_PHASE_ONE,                                               //every 3 seconds call loop below
@@ -313,10 +311,10 @@ class stage_one_vegetables extends Phaser.Scene {
             callback: () => {
                 {
                     velocity = VELOCITY_NORMAL;
-                    generation_frequency = generation_frequency/2;
+                    generation_frequency = generation_frequency / 2;
                     this.generate_timer1.delay = generation_frequency;
                     this.generate_timer2.delay = generation_frequency;
-     
+
                 }
             },
             callbackScope: this,
@@ -327,7 +325,7 @@ class stage_one_vegetables extends Phaser.Scene {
             callback: () => {
                 {
                     velocity = VELOCITY_HARD;
-                    generation_frequency = generation_frequency/2;
+                    generation_frequency = generation_frequency / 2;
                     this.generate_timer1.delay = generation_frequency;
                     this.generate_timer2.delay = generation_frequency;
 
@@ -342,17 +340,83 @@ class stage_one_vegetables extends Phaser.Scene {
             callback: () => {
                 {
                     velocity = VELOCITY_EXPERT;
-                    generation_frequency = generation_frequency/2;
+                    generation_frequency = generation_frequency / 2;
                     this.generate_timer1.delay = generation_frequency;
                     this.generate_timer2.delay = generation_frequency;
-                    
-                  
+
+
                 }
             },
             callbackScope: this,
             loop: false
         });//
+    }
 
+
+    //function used to display text and budget
+    text_display() {
+
+        let centerTextConfig = {
+            align: 'center',
+            fontFamily: 'Georgia',
+            fontSize: "32px",
+            color: "#000000",
+        }
+
+
+        this.add.text(0, 0, "Here is the  play area", centerTextConfig);
+        this.add.text(940, 70, "order area", centerTextConfig);
+        this.add.text(940, 480, "Inventory", centerTextConfig);
+        this.add.text(940, 430, "Budget:", centerTextConfig);
+
+        this.text_budget = this.add.text(1100, 430, budget, centerTextConfig);
+    }
+
+    //helper function used in grocery update to update the budget
+    text_display_Helper_budgetUpdate() {
+        let centerTextConfig = {
+            align: 'center',
+            fontFamily: 'Georgia',
+            fontSize: "32px",
+            color: "#000000",
+        }
+        this.text_budget.destroy();
+        this.text_budget = this.add.text(1100, 430, budget, centerTextConfig);
+    }
+
+    //helper function used to reset globle variable
+    endGame_Update_Helper_reset() {
+        //free memory
+        groceries = null;
+        inventory = null;
+        //reinitialize it
+        groceries = [];
+        inventory = [];
+        //reinitialize inventory
+        inventory_spacing_x = INVENTORY_SPACING_ORIGINAL_X;
+        inventory_spacing_y = INVENTORY_SPACING_ORIGINAL_Y;
+        //reinitialize budget
+        budget = BUDGET;
+        //reinitialize flag
+        gameOver = false;
+    }
+
+    //function update the endgame parameter and variable
+    endGame_Update() {
+        if (budget <= 0) {
+            gameOver = true;
+        } else {
+
+        }// if end
+
+        if (gameOver) {
+            this.endGame_Update_Helper_reset();
+            this.scene.start("title_screen");
+        } else {
+
+        }//if end
 
     }
+
 }
+

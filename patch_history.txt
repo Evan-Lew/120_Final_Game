@@ -1,9 +1,11 @@
 5/14
 Updated title screen and implemented cart selection
 Added 2 temp audio for title screen
+Added budget
 Allow generator to make multiiple types of groceies
 Allow phase change and belt speed change
 Optimization has done
+
 
 5/14 
 Add leftClick feature to "Make it invisible" and add to inventory

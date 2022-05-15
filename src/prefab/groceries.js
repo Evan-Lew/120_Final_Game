@@ -14,6 +14,7 @@ class Groceries extends Phaser.GameObjects.Sprite {
         this.idle_normal = frame_normal_idle;
         this.idle_bad = frame_bad_idle;
         this.idle_good = frame_good_idle;
+        this.price = 0;
 
         if (this.quality == QUALITY_BAD) {
             this.idle = this.idle_bad;
@@ -22,6 +23,8 @@ class Groceries extends Phaser.GameObjects.Sprite {
         } else {
             this.idle = this.idle_normal;
         }
+
+        this.setPrice();
     }
 
     //function plays anime
@@ -84,6 +87,23 @@ class Groceries extends Phaser.GameObjects.Sprite {
                 //remove this on final
                 console.log("ERROR: unable to load anime");
             }
+        }else{
+            console.log("ERROR: unable to load ID");
+        }
+    }
+
+    setPrice(){
+        if (this.ID == ID_GROCERY_TOMATO) {
+            this.price = 1;
+
+        }else if(this.ID == ID_GROCERY_CARROT){
+            this.price = 1;
+        }else if(this.ID == ID_GROCERY_ONION){
+            this.price = 1;
+        }else if(this.ID == ID_GROCERY_CORN){
+            this.price = 0.5;
+        }else if(this.ID == ID_GROCERY_POTATO){
+            this.price = 1;
         }else{
             console.log("ERROR: unable to load ID");
         }

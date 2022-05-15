@@ -31,37 +31,36 @@ var VELOCITY_HARD = 8;
 var VELOCITY_EXPERT = 10;
 
 var TIME_PHASE_ONE = 0;     //10 seconds
-var TIME_PHASE_TWO = 10000;     
-var TIME_PHASE_THREE = 20000;    
-var TIME_PHASE_FOUR = 30000;     
-var TIME_PHASE_END = 40000;     
+var TIME_PHASE_TWO = 10000;
+var TIME_PHASE_THREE = 20000;
+var TIME_PHASE_FOUR = 30000;
+var TIME_PHASE_END = 40000;
 
-var ID_GROCERY_TOMATO   = 1001;
-var ID_GROCERY_CARROT   = 1002;
-var ID_GROCERY_ONION    = 1003;
-var ID_GROCERY_CORN    = 1004;
-var ID_GROCERY_POTATO    = 1005;
-
+var ID_GROCERY_TOMATO = 1001;
+var ID_GROCERY_CARROT = 1002;
+var ID_GROCERY_ONION = 1003;
+var ID_GROCERY_CORN = 1004;
+var ID_GROCERY_POTATO = 1005;
 
 var INVENTORY_INCREMENT = 50;
+var INVENTORY_SPACING_ORIGINAL_X = -50;
+var INVENTORY_SPACING_ORIGINAL_Y = 0;
+
+var BUDGET = 10;
 
 // globle variables
 // WARNING: Dynamic varible may cause memory leak, free array before u restart the scene
 var groceries = [];
 var inventory = [];
 
-var inventory_spacing_x = -50;  //this number is -INVENTORY_INCREMENT because first time, it will increment first
-var inventory_spacing_y = 0;   //before it runs
+var inventory_spacing_x = INVENTORY_SPACING_ORIGINAL_X;  //this number is -INVENTORY_INCREMENT because first time, it will increment first
+var inventory_spacing_y = INVENTORY_SPACING_ORIGINAL_Y;   //before it runs
 
 var velocity = 0;
 var generation_frequency = 3000;   // 3 seconds
+var budget = BUDGET;
+var gameOver = false;
 
-
-/*
-var inventory_tomato_bad = 0;
-var inventory_tomato_normal = 0;
-var inventory_tomato_good = 0;
-*/
 
 
 

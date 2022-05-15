@@ -34,8 +34,8 @@ class load extends Phaser.Scene {
         this.create_Animation_aisle2();
         this.create_Animation_aisle3();
         this.create_Animation_aisle4();
-        //this.scene.start("title_screen");
-        this.scene.start("stage_one_vegetables");
+        this.scene.start("title_screen");
+        //this.scene.start("stage_one_vegetables");
 
     }
 
@@ -302,7 +302,7 @@ class load extends Phaser.Scene {
         });
 
 
-        
+
         this.anims.create({
             key: 'corn_good',
             frames: this.anims.generateFrameNames('vegetables_atlas', {
