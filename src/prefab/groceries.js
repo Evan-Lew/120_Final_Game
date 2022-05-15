@@ -3,13 +3,25 @@ class Groceries extends Phaser.GameObjects.Sprite {
     //                 texture is atlas name, for example, 'tomato_atlas'
     //                 frame is starting frame, for example, 'tomato_idle_01'
     //                 quality is defined as globle in main, -1 -> Bad,  0 -> Normal,  1 -> Good
-    constructor(scene, x, y, texture, frame, quality, ID) {
+    //                 idles are used in inventory constructor
+    constructor(scene, x, y, texture, frame, frame_bad_idle, frame_normal_idle, frame_good_idle, quality, ID) {
         super(scene, x, y, texture, frame);    
         scene.add.existing(this);
         this.quality = quality;
         this.ID = ID;
         this.leftClickFlag = false;
         this.movedToInventory = false;
+        this.idle_normal = frame_normal_idle;
+        this.idle_bad   = frame_bad_idle;
+        this.idle_good  = frame_good_idle;
+
+        if(this.quality == QUALITY_BAD){
+            this.idle =  this.idle_bad;
+        }else if(this.quality == QUALITY_GOOD){
+            this.idle =  this.idle_good;
+        }else{
+            this.idle =  this.idle_normal;
+        }
     }
 
     //function plays anime

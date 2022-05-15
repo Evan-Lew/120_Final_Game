@@ -25,7 +25,7 @@ class stage_one_vegetables extends Phaser.Scene {
 
         // ------------------------------------------------------------------
         // animation create
-        this.createAnimations();
+        // rm  this.createAnimations();
         // animation end
         // ------------------------------------------------------------------
 
@@ -66,60 +66,21 @@ class stage_one_vegetables extends Phaser.Scene {
 
 
     update() {
+
+
+
         this.groceries_Update(VELOCITY_EASY);
-    }
 
+        console.log(groceries.length);
 
-    //used to make all animation
-    createAnimations() {
+        console.log(inventory.length);
 
-        this.anims.create({
-            key: 'tomato_idle',
-            frames: this.anims.generateFrameNames('tomato_atlas', {
-                prefix: 'tomato_idle_',
-                start: 1,
-                end: 1,
-                suffix: '',
-                zeroPad: 2
-            }),
-            frameRate: 5,
-            repeat: 0,
-        });
-
-        this.anims.create({
-            key: 'tomato_normal',
-            frames: this.anims.generateFrameNames('tomato_atlas', {
-                prefix: 'tomato_normal_',
-                start: 1,
-                end: 4,
-                suffix: '',
-                zeroPad: 2
-            }),
-            frameRate: 5,
-            repeat: 0,
-        });
-
-
-        this.anims.create({
-            key: 'tomato_bad',
-            frames: this.anims.generateFrameNames('tomato_atlas', {
-                prefix: 'tomato_bad_',
-                start: 1,
-                end: 4,
-                suffix: '',
-                zeroPad: 2
-            }),
-            frameRate: 5,
-            repeat: 0,
-        });
 
     }
 
     //note: helper function shouldn't be called in create(), update(), it's for function only
     //HELPER function used in other groceries func, setting up: mouse, modify inventory, modify inventory spacing
     groceries_Helper_MouseInput(i) {
-
-
 
         if (groceries[i].ID == ID_GROCERY_TOMATO) {
             //mouse control
@@ -131,6 +92,8 @@ class stage_one_vegetables extends Phaser.Scene {
                     //case left click 
                     //currently just set grocery to invisible
                     //need to add /drag animation
+
+                    //spacing for inventory
                     if(inventory_spacing_x < 250){
                     inventory_spacing_x += INVENTORY_INCREMENT;
                     }else{
@@ -168,7 +131,7 @@ class stage_one_vegetables extends Phaser.Scene {
     groceries_Generate(ID_GROCERY_) {
         //first grocery will be init before delay time event
         this.groceries_Helper_MakeRandomQuality();
-        groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'tomato_atlas', 'tomato_idle_01', this.randomQuality, ID_GROCERY_TOMATO).setOrigin(0.5, 0.5).setScale(this.tomato_scale).setInteractive());
+        groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'vegetables_atlas', 'tomato_idle_01', 'tomato_bad_02', 'tomato_normal_02', 'tomato_good_02', this.randomQuality, ID_GROCERY_TOMATO).setOrigin(0.5, 0.5).setScale(this.tomato_scale).setInteractive());
         this.groceries_Helper_MouseInput(0);
         this.timer = this.time.addEvent({
             delay: this.generation_frequency,
@@ -176,7 +139,7 @@ class stage_one_vegetables extends Phaser.Scene {
                 {
                     if (ID_GROCERY_ == 1001) { //1001 tomato, see main.js
                         this.groceries_Helper_MakeRandomQuality();
-                        groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'tomato_atlas', 'tomato_idle_01', this.randomQuality, ID_GROCERY_TOMATO).setOrigin(0.5, 0.5).setScale(this.tomato_scale).setInteractive());
+                        groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'vegetables_atlas', 'tomato_idle_01', 'tomato_bad_02', 'tomato_normal_02', 'tomato_good_02',this.randomQuality, ID_GROCERY_TOMATO).setOrigin(0.5, 0.5).setScale(this.tomato_scale).setInteractive());
 
                         //add mouse input to latest created grocery
                         this.groceries_Helper_MouseInput(groceries.length - 1);
@@ -205,10 +168,16 @@ class stage_one_vegetables extends Phaser.Scene {
                     groceries[i].visible = false;
                 } else if (groceries[i].x < 100) {
                     groceries[i].visible = false;
+                    //free
+                    groceries[i].destroy();
+
                 } else {
                     //if it's been choosen (right click set visiblity to false)
                     if (groceries[i].leftClickFlag) {
                         groceries[i].visible = false;
+                        //free
+                        groceries[i].destroy();
+
                     } else {
                         groceries[i].visible = true;
                     }
@@ -217,26 +186,14 @@ class stage_one_vegetables extends Phaser.Scene {
                 //move target into inventory and display it
                 if (groceries[i].leftClickFlag && !groceries[i].moveToInventory) {
 
-                    if (groceries[i].ID == ID_GROCERY_TOMATO && groceries[i].quality == -1) {
-                        inventory.push(new Inventory(this, 980 + inventory_spacing_x, 540 + inventory_spacing_y, 'tomato_atlas', 'tomato_bad_02', groceries[i].quality, groceries[i].ID).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
+                    if (groceries[i].ID == ID_GROCERY_TOMATO) {
+                        inventory.push(new Inventory(this, 980 + inventory_spacing_x, 540 + inventory_spacing_y, 'vegetables_atlas', groceries[i].idle, groceries[i].quality, groceries[i].ID).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
                         inventory[inventory.length - 1].visible = true;
                         groceries[i].movedToInventory = true;
-                    } else if (groceries[i].ID == ID_GROCERY_TOMATO && groceries[i].quality == 0) {
-
-                        inventory.push(new Inventory(this, 980 + inventory_spacing_x , 540 + inventory_spacing_y, 'tomato_atlas', 'tomato_normal_02', groceries[i].quality, groceries[i].ID).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
-                        inventory[inventory.length - 1].visible = true;
-                        groceries[i].movedToInventory = true;
-                    } else if (groceries[i].ID == ID_GROCERY_TOMATO && groceries[i].quality == 1) {
-
-                        inventory.push(new Inventory(this, 980 + inventory_spacing_x, 540 + inventory_spacing_y, 'tomato_atlas', 'tomato_normal_02', groceries[i].quality, groceries[i].ID).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
-                        inventory[inventory.length - 1].visible = true;
-                        groceries[i].movedToInventory = true;
+                        groceries[i].leftClickFlag = false;
                     } else { }//display end
-
                 }
             }//for end
         }//if end
-
-
     }
 }
