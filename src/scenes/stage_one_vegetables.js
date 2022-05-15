@@ -76,14 +76,6 @@ class stage_one_vegetables extends Phaser.Scene {
 
         this.groceries_Update();
         this.endGame_Update();
-        if (groceries == null) {
-
-        } else {
-            console.log(groceries.length);
-            console.log(inventory.length);
-
-        }
-        //rm console.log(budget);
     }
 
     //note: helper function shouldn't be called in create(), update(), it's for function only
