@@ -24,14 +24,23 @@ var QUALITY_BAD = -1;
 var QUALITY_NORMAL = 0;
 var QUALITY_GOOD = 1;
 
+
 var VELOCITY_EASY = 2;
 var VELOCITY_NORMAL = 4;
 var VELOCITY_HARD = 8;
 var VELOCITY_EXPERT = 10;
 
+var TIME_PHASE_ONE = 0;     //10 seconds
+var TIME_PHASE_TWO = 10000;     
+var TIME_PHASE_THREE = 20000;    
+var TIME_PHASE_FOUR = 30000;     
+var TIME_PHASE_END = 40000;     
+
 var ID_GROCERY_TOMATO   = 1001;
 var ID_GROCERY_CARROT   = 1002;
 var ID_GROCERY_ONION    = 1003;
+var ID_GROCERY_CORN    = 1004;
+var ID_GROCERY_POTATO    = 1005;
 
 
 var INVENTORY_INCREMENT = 50;
@@ -43,6 +52,9 @@ var inventory = [];
 
 var inventory_spacing_x = -50;  //this number is -INVENTORY_INCREMENT because first time, it will increment first
 var inventory_spacing_y = 0;   //before it runs
+
+var velocity = 0;
+var generation_frequency = 3000;   // 3 seconds
 
 
 /*

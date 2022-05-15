@@ -81,6 +81,19 @@ class load extends Phaser.Scene {
             repeat: 0,
         });
 
+        this.anims.create({
+            key: 'tomato_good',
+            frames: this.anims.generateFrameNames('vegetables_atlas', {
+                prefix: 'tomato_good_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
         //potato
         this.anims.create({
             key: 'potato_idle',
@@ -122,6 +135,20 @@ class load extends Phaser.Scene {
             repeat: 0,
         });
 
+        this.anims.create({
+            key: 'potato_good',
+            frames: this.anims.generateFrameNames('vegetables_atlas', {
+                prefix: 'potato_good_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
         //carrot
         this.anims.create({
             key: 'carrot_idle',
@@ -162,6 +189,20 @@ class load extends Phaser.Scene {
             frameRate: 5,
             repeat: 0,
         });
+
+        this.anims.create({
+            key: 'carrot_good',
+            frames: this.anims.generateFrameNames('vegetables_atlas', {
+                prefix: 'carrot_good_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
 
         //onion
         this.anims.create({
@@ -205,6 +246,19 @@ class load extends Phaser.Scene {
         });
 
 
+        this.anims.create({
+            key: 'onion_good',
+            frames: this.anims.generateFrameNames('vegetables_atlas', {
+                prefix: 'onion_good_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
 
         //onion
         this.anims.create({
@@ -238,6 +292,21 @@ class load extends Phaser.Scene {
             key: 'corn_bad',
             frames: this.anims.generateFrameNames('vegetables_atlas', {
                 prefix: 'corn_bad_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+        
+        this.anims.create({
+            key: 'corn_good',
+            frames: this.anims.generateFrameNames('vegetables_atlas', {
+                prefix: 'corn_good_',
                 start: 1,
                 end: 4,
                 suffix: '',
