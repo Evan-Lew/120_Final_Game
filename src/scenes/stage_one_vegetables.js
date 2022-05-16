@@ -78,11 +78,12 @@ class stage_one_vegetables extends Phaser.Scene {
         this.endGame_Update();
 
         //use for testing
+        /*
         if(groceries.length != 0){
             console.log(groceries.length);
             console.log(inventory.length);
         }
-
+*/
 
     }
 
