@@ -36,6 +36,8 @@ class stage_one_vegetables extends Phaser.Scene {
         // Background Layer
         // play area
         this.canvas_play = this.add.rectangle(0, 0, 940, 720, 0xB1F2F2).setOrigin(0, 0);
+        this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'produce_aisle').setOrigin(0, 0);
+        this.conveyor_play = this.add.tileSprite(55, 280, 835, 100, 'conveyor_belt').setOrigin(0, 0);
         // order
         this.canvas_order = this.add.rectangle(940, 0, 340, 480, 0xE5AE89).setOrigin(0, 0);
         // extra

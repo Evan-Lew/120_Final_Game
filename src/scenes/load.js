@@ -14,11 +14,13 @@ class load extends Phaser.Scene {
 
         // -----loading assets-----
         // load groceries atlas
-        // rm  this.load.atlas("groceries_atlas", "test_groceries.png", "test_groceries.json");
-        // rm  this.load.atlas("tomato_atlas", "tomato.png", "tomato.json");
         this.load.atlas("vegetables_atlas", "vegetables.png", "vegetables_map.json");
 
+        // load produce aisle
+        this.load.image('produce_aisle', 'Produce Aisle.png');
 
+        // load conveyor belt
+        this.load.image('conveyor_belt', 'conveyor belt.png');
 
         // load cart
         this.load.image('cart', 'cart.png');
