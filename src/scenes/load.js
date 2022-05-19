@@ -19,6 +19,11 @@ class load extends Phaser.Scene {
         // load produce aisle
         this.load.image('produce_aisle', 'Produce Aisle.png');
 
+        // load the tab above the shelf
+        this.load.spritesheet('Tab_left', 'Tab_left.png', { frameWidth: 335 , frameHeight: 51 });
+        this.load.spritesheet('Tab_mid', 'Tab_mid.png', { frameWidth: 394 , frameHeight: 51 });
+        this.load.spritesheet('Tab_right', 'Tab_right.png', { frameWidth: 337, frameHeight: 51 });
+
         // load conveyor belt
         this.load.image('conveyor_belt', 'conveyor belt.png');
 
@@ -30,19 +35,69 @@ class load extends Phaser.Scene {
 
         // load title screen
         this.load.image('menu_background', 'menu_background.png');
+
+
     }
 
     create() {
         // start the game
-
+        this.create_Animation_Tabs();
         this.create_Animation_Vegetables();
         this.create_Animation_aisle2();
         this.create_Animation_aisle3();
         this.create_Animation_aisle4();
-        this.scene.start("title_screen");
-        //this.scene.start("stage_one_vegetables");
+        //this.scene.start("title_screen");
+        this.scene.start("stage_one_vegetables");
 
     }
+
+    create_Animation_Tabs(){
+        this.anims.create({
+            key: "Tab_left_idle",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('Tab_left', { start: 0, end: 0 }),
+            repeat: 1
+        });
+
+        this.anims.create({
+            key: "Tab_left_onOver",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('Tab_left', { start: 1, end: 1 }),
+            repeat: 1
+        });
+
+
+        this.anims.create({
+            key: "Tab_mid_idle",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('Tab_mid', { start: 0, end: 0 }),
+            repeat: 1
+        });
+
+        this.anims.create({
+            key: "Tab_mid_onOver",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('Tab_mid', { start: 1, end: 1 }),
+            repeat: 1
+        });
+
+        this.anims.create({
+            key: "Tab_right_idle",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('Tab_right', { start: 0, end: 0 }),
+            repeat: 1
+        });
+
+        this.anims.create({
+            key: "Tab_right_onOver",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('Tab_right', { start: 1, end: 1 }),
+            repeat: 1
+        });
+
+        
+    }
+
 
     create_Animation_Vegetables() {
         //tomato

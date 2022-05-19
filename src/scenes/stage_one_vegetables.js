@@ -40,9 +40,14 @@ class stage_one_vegetables extends Phaser.Scene {
         this.conveyor_play = this.add.tileSprite(55, 280, 835, 100, 'conveyor_belt').setOrigin(0, 0); // testing/rm later
         // order
         this.canvas_order = this.add.rectangle(940, 0, 340, 480, 0xE5AE89).setOrigin(0, 0);
+        // tabs
+        this.tab_AddTabs();
+        this.tab_makeInteractive();
         // extra
         //this.canvas_inventory = this.add.rectangle(940, 480, 340, 240, 0xFFFFFFF).setOrigin(0, 0); // old/rm later
         this.canvas_inventory = this.add.tileSprite(940, 480, 340, 240, 'inventory').setOrigin(0, 0);
+        
+        // asd
         // display their text
         this.text_display();
         // background end
@@ -77,9 +82,13 @@ class stage_one_vegetables extends Phaser.Scene {
 
     update() {
 
+ 
         this.groceries_Update();
         this.endGame_Update();
 
+
+       // console.log(game.input.mousePointer.x);
+       // console.log(game.input.mousePointer.y);
         //use for testing
         /*
         if(groceries.length != 0){
@@ -174,6 +183,7 @@ class stage_one_vegetables extends Phaser.Scene {
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
+            
         }
     }
 
@@ -399,6 +409,68 @@ class stage_one_vegetables extends Phaser.Scene {
         }
         this.text_budget.destroy();
         this.text_budget = this.add.text(1100, 430, budget, centerTextConfig);
+    }
+
+
+    //function that add threes tabs on the top and active the interaction with pointer
+    tab_AddTabs(){
+        this.tab_left = this.add.sprite(0, 0, 'Tab_left').setOrigin(0, 0);
+        this.tab_left.setInteractive();
+        this.tab_left.play("Tab_left_idle");
+        this.tab_mid = this.add.sprite(274, 0, 'Tab_mid').setOrigin(0, 0);
+        this.tab_mid.setInteractive();
+        this.tab_mid.play("Tab_mid_idle");
+        this.tab_right = this.add.sprite(604, -1, 'Tab_right').setOrigin(0, 0);
+        this.tab_right.setInteractive();
+        this.tab_right.play("Tab_right_idle");
+    }
+
+
+    //function that check the mouse position and interact with tab
+    tab_makeInteractive(){
+        // console.log(game.input.mousePointer.x);
+       // console.log(game.input.mousePointer.y);
+       
+        this.tab_left.on("pointerover", () => {
+            this.tab_left.play("Tab_left_onOver");
+        });  
+        this.tab_left.on("pointerout", () => {
+            this.tab_left.play("Tab_left_idle");
+        });        
+        this.tab_left.on("pointerdown", () => {
+            console.log("I am going to the left");
+        });   
+
+
+        
+        this.tab_mid.on("pointerover", () => {
+            this.tab_mid.play("Tab_mid_onOver");
+        });        
+        this.tab_mid.on("pointerout", () => {
+            this.tab_mid.play("Tab_mid_idle");
+        });        
+        
+        this.tab_mid.on("pointerdown", () => {
+            console.log("I am going to the mid");
+        });   
+
+
+        this.tab_right.on("pointerover", () => {
+            this.tab_right.play("Tab_right_onOver");
+        });        
+        
+        this.tab_right.on("pointerout", () => {
+            this.tab_right.play("Tab_right_idle");
+        });        
+        
+        this.tab_right.on("pointerdown", () => {
+            console.log("I am going to the right");
+        });   
+
+        
+
+        
+        
     }
 
     //helper function used to reset globle variable
