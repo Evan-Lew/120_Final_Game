@@ -22,6 +22,9 @@ class load extends Phaser.Scene {
         // load conveyor belt
         this.load.image('conveyor_belt', 'conveyor belt.png');
 
+        // load inventory
+        this.load.image('inventory', 'inventory.png');
+
         // load cart
         this.load.image('cart', 'cart.png');
 

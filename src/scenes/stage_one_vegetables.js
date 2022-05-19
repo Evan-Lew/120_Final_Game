@@ -35,13 +35,14 @@ class stage_one_vegetables extends Phaser.Scene {
         // ------------------------------------------------------------------
         // Background Layer
         // play area
-        this.canvas_play = this.add.rectangle(0, 0, 940, 720, 0xB1F2F2).setOrigin(0, 0);
+        this.canvas_play = this.add.rectangle(0, 0, 940, 720, 0xB1F2F2).setOrigin(0, 0); // old/rm later
         this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'produce_aisle').setOrigin(0, 0);
-        this.conveyor_play = this.add.tileSprite(55, 280, 835, 100, 'conveyor_belt').setOrigin(0, 0);
+        this.conveyor_play = this.add.tileSprite(55, 280, 835, 100, 'conveyor_belt').setOrigin(0, 0); // testing/rm later
         // order
         this.canvas_order = this.add.rectangle(940, 0, 340, 480, 0xE5AE89).setOrigin(0, 0);
         // extra
-        this.canvas_inventory = this.add.rectangle(940, 480, 340, 240, 0xFFFFFFF).setOrigin(0, 0);
+        //this.canvas_inventory = this.add.rectangle(940, 480, 340, 240, 0xFFFFFFF).setOrigin(0, 0); // old/rm later
+        this.canvas_inventory = this.add.tileSprite(940, 480, 340, 240, 'inventory').setOrigin(0, 0);
         // display their text
         this.text_display();
         // background end
