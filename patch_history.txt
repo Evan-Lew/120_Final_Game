@@ -1,3 +1,7 @@
+5/19 
+Add tabs
+5/18
+Add background to main
 5/14
 Updated title screen and implemented cart selection
 Added 2 temp audio for title screen
