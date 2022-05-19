@@ -78,6 +78,15 @@ class stage_one_vegetables extends Phaser.Scene {
 
         this.groceries_Update();
         this.endGame_Update();
+
+        //use for testing
+        /*
+        if(groceries.length != 0){
+            console.log(groceries.length);
+            console.log(inventory.length);
+        }
+*/
+
     }
 
     //note: helper function shouldn't be called in create(), update(), it's for function only
@@ -135,7 +144,7 @@ class stage_one_vegetables extends Phaser.Scene {
         temp = Phaser.Math.Between(ID_GROCERY_TOMATO, ID_GROCERY_ONION);
 
         if (temp == ID_GROCERY_TOMATO) {
-            //generate Grocery
+            //generate Grocery, the following data will be used in constructor
             this.randomGrocery_ID = ID_GROCERY_TOMATO;
             this.randomGrocery_frame = 'tomato_idle_01';
             this.randomGrocery_idle_bad = 'tomato_bad_02';
@@ -145,7 +154,7 @@ class stage_one_vegetables extends Phaser.Scene {
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
         } else if (temp == ID_GROCERY_CARROT) {
-            //generate Grocery
+            //generate Grocery, the following data will be used in constructor
             this.randomGrocery_ID = ID_GROCERY_CARROT;
             this.randomGrocery_frame = 'carrot_idle_01';
             this.randomGrocery_idle_bad = 'carrot_bad_02';
@@ -155,7 +164,7 @@ class stage_one_vegetables extends Phaser.Scene {
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
         } else {
-            //generate Grocery
+            //generate Grocery, the following data will be used in constructor
             this.randomGrocery_ID = ID_GROCERY_ONION;
             this.randomGrocery_frame = 'onion_idle_01';
             this.randomGrocery_idle_bad = 'onion_bad_02';
@@ -173,7 +182,7 @@ class stage_one_vegetables extends Phaser.Scene {
         temp = Phaser.Math.Between(ID_GROCERY_CORN, ID_GROCERY_POTATO);
 
         if (temp == ID_GROCERY_CORN) {
-            //generate Grocery
+            //generate Grocery, the following data will be used in constructor
             this.randomGrocery_ID = ID_GROCERY_CORN;
             this.randomGrocery_frame = 'corn_idle_01';
             this.randomGrocery_idle_bad = 'corn_bad_02';
@@ -183,7 +192,7 @@ class stage_one_vegetables extends Phaser.Scene {
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
         } else {
-            //generate Grocery
+            //generate Grocery, the following data will be used in constructor
             this.randomGrocery_ID = ID_GROCERY_POTATO;
             this.randomGrocery_frame = 'potato_idle_01';
             this.randomGrocery_idle_bad = 'potato_bad_02';
@@ -195,22 +204,23 @@ class stage_one_vegetables extends Phaser.Scene {
         }
     }
 
-    //generate Groceries on the left with ID, which should be defined as global and unique in main.js
+    //generate Groceries on the right with ID, which should be defined as global and unique in main.js
     groceries_Generate(group_num) {
 
         if (group_num == 1) {
             //first grocery will be init before delay time event
+            //group one is first belt, generate and put into temp var, then call constructor, then add mouse interact (0) because it's first one
             this.groceries_Helper_MakeRandomGrocery_group1();
-
             groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
             this.groceries_Helper_MouseInput(0);
+
             this.generate_timer1 = this.time.addEvent({
                 delay: generation_frequency,
                 callback: () => {
                     {
+                        //same three step, generate, push, and add mouse effect (groceries.length - 1), the latest groceries been added
                         this.groceries_Helper_MakeRandomGrocery_group1();
                         groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
-                        //add mouse input to latest created grocery
                         this.groceries_Helper_MouseInput(groceries.length - 1);
                     }
                 }, //call back end
@@ -220,6 +230,7 @@ class stage_one_vegetables extends Phaser.Scene {
             });//time event end
         } else {
             //first grocery will be init before delay time event
+            //group two is second belt, generate and put into temp var, then call constructor, then add mouse interact (0) because it's first one
             this.groceries_Helper_MakeRandomGrocery_group2();
 
             groceries.push(new Groceries(this, this.canvas_play.width + 250, 2 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
@@ -228,9 +239,9 @@ class stage_one_vegetables extends Phaser.Scene {
                 delay: generation_frequency,
                 callback: () => {
                     {
+                        //same three step, generate, push, and add mouse effect (groceries.length - 1), the latest groceries been added
                         this.groceries_Helper_MakeRandomGrocery_group2();
                         groceries.push(new Groceries(this, this.canvas_play.width + 250, 2 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
-                        //add mouse input to latest created grocery
                         this.groceries_Helper_MouseInput(groceries.length - 1);
                     }
                 }, //call back end
@@ -247,34 +258,41 @@ class stage_one_vegetables extends Phaser.Scene {
     groceries_Update() {
         //visibility update  
         if (groceries.length != 0) {
+            //for loop to check ALL groceries
             for (var i = 0; i < groceries.length; i++) {
+                //keep them moving
                 groceries[i].x -= velocity;
+
                 //it won't be visiable until it shows up in canvas
                 if (groceries[i].x > this.canvas_play.width - 50) {
                     groceries[i].visible = false;
+                //destroy them when they hit the edge (clean memory for optimiaztion)
                 } else if (groceries[i].x < 100) {
                     groceries[i].visible = false;
-                    //free
                     groceries[i].destroy();
-
                 } else {
                     //if it's been choosen (right click set visiblity to false)
+                    //  leftClickFlag when be on once it interacted with groceries in mouse input function
+                    //  clean memory after that
                     if (groceries[i].leftClickFlag) {
+                        //will be destroy when it's moving to inventory (couple lines of code below)
                         groceries[i].visible = false;
-                        //free
-                        groceries[i].destroy();
+                    // keep it moving if not click on it
                     } else {
                         groceries[i].visible = true;
                     }
                 }
 
                 //move target into inventory and display it, reduce the budget
+                //groceries[i].moveToInventory will be true if this step has done
                 if (groceries[i].leftClickFlag && !groceries[i].moveToInventory) {
-
+                    //update budget
                     budget -= groceries[i].price;
                     this.text_display_Helper_budgetUpdate();
+                    //push to inventory
                     inventory.push(new Inventory(this, 980 + inventory_spacing_x, 540 + inventory_spacing_y, 'vegetables_atlas', groceries[i].idle, groceries[i].quality, groceries[i].ID).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
                     inventory[inventory.length - 1].visible = true;
+                    //reset and destroy the old sprite in grocery
                     groceries[i].movedToInventory = true;
                     groceries[i].leftClickFlag = false;
                     groceries[i].destroy();
@@ -289,6 +307,7 @@ class stage_one_vegetables extends Phaser.Scene {
     //function that control the speed of the belt
     phase_change() {
 
+        //delay event used to call velocity change
         this.beltSpeed_Easy = this.time.addEvent({
             delay: TIME_PHASE_ONE,                                               //every 3 seconds call loop below
             callback: () => {
@@ -306,6 +325,7 @@ class stage_one_vegetables extends Phaser.Scene {
                 {
                     velocity = VELOCITY_NORMAL;
                     generation_frequency = generation_frequency / 2;
+                    //update generate_timer1 delay time to make them generate faster
                     this.generate_timer1.delay = generation_frequency;
                     this.generate_timer2.delay = generation_frequency;
 
@@ -320,6 +340,7 @@ class stage_one_vegetables extends Phaser.Scene {
                 {
                     velocity = VELOCITY_HARD;
                     generation_frequency = generation_frequency / 2;
+                    //update generate_timer1 delay time to make them generate faster
                     this.generate_timer1.delay = generation_frequency;
                     this.generate_timer2.delay = generation_frequency;
 
@@ -335,6 +356,7 @@ class stage_one_vegetables extends Phaser.Scene {
                 {
                     velocity = VELOCITY_EXPERT;
                     generation_frequency = generation_frequency / 2;
+                    //update generate_timer1 delay time to make them generate faster
                     this.generate_timer1.delay = generation_frequency;
                     this.generate_timer2.delay = generation_frequency;
 
