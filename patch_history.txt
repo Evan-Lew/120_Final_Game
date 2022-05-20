@@ -1,9 +1,14 @@
+5/20
+Added dairy and meat assets
+
 5/19 
 Add tabs
 Add dynamic belt
 Add dynamic basket
+
 5/18
 Add background to main
+
 5/14
 Updated title screen and implemented cart selection
 Added 2 temp audio for title screen

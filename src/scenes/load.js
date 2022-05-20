@@ -13,11 +13,15 @@ class load extends Phaser.Scene {
 
 
         // -----loading assets-----
-        // load groceries atlas
+        // load vegetables/dairy/meats atlas
         this.load.atlas("vegetables_atlas", "vegetables.png", "vegetables_map.json");
+        this.load.atlas("dairy_atlas", "dairy.png", "dairy_map.json");
+        this.load.atlas("meats_atlas", "meats.png", "meats_map.json");
 
-        // load produce aisle
-        this.load.image('produce_aisle', 'Produce Aisle.png');
+        // load produce/dairy/meat aisle
+        this.load.image('produce_aisle', 'Produce_Aisle.png');
+        this.load.image('dairy_aisle', 'Dairy_Aisle.png');
+        this.load.image('meat_aisle', 'Meat_Aisle.png');
 
         // load the tab above the shelf
         this.load.spritesheet('Tab_left', 'Tab_left.png', { frameWidth: 335 , frameHeight: 51 });
