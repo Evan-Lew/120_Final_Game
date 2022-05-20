@@ -24,8 +24,11 @@ class load extends Phaser.Scene {
         this.load.spritesheet('Tab_mid', 'Tab_mid.png', { frameWidth: 394 , frameHeight: 51 });
         this.load.spritesheet('Tab_right', 'Tab_right.png', { frameWidth: 337, frameHeight: 51 });
 
+        // load basket on left bottom
+        this.load.spritesheet('basket', 'basket.png', { frameWidth: 940 , frameHeight: 720 });
+
         // load conveyor belt
-        this.load.image('conveyor_belt', 'conveyor belt.png');
+        this.load.atlas("belt_atlas", "coveyor_belt.png", "conveyor_belt_map.json");
 
         // load inventory
         this.load.image('inventory', 'inventory.png');
@@ -42,14 +45,18 @@ class load extends Phaser.Scene {
     create() {
         // start the game
         this.create_Animation_Tabs();
+        this.create_Animation_Basket();
         this.create_Animation_Vegetables();
         this.create_Animation_aisle2();
         this.create_Animation_aisle3();
         this.create_Animation_aisle4();
+        this.create_Animation_Belt();
         //this.scene.start("title_screen");
         this.scene.start("stage_one_vegetables");
 
     }
+
+
 
     create_Animation_Tabs(){
         this.anims.create({
@@ -98,6 +105,29 @@ class load extends Phaser.Scene {
         
     }
 
+    create_Animation_Basket(){
+
+        this.anims.create({
+            key: "basket_empty",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('basket', { start: 0, end: 0 }),
+            repeat: 1
+        });
+
+        this.anims.create({
+            key: "basket_half",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('basket', { start: 1, end: 1 }),
+            repeat: 1
+        });
+
+        this.anims.create({
+            key: "basket_full",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('basket', { start: 2, end: 2 }),
+            repeat: 1
+        });
+    }
 
     create_Animation_Vegetables() {
         //tomato
@@ -390,6 +420,61 @@ class load extends Phaser.Scene {
     //rename it and than change the call func in load.js create()
     create_Animation_aisle4() {
 
+    }
+
+    //create animation for the belt
+    create_Animation_Belt(){
+        this.anims.create({
+            key: 'belt_EASY',
+            frames: this.anims.generateFrameNames('belt_atlas', {
+                prefix: 'belt_',
+                start: 1,
+                end: 11,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: -1,
+        });
+
+        this.anims.create({
+            key: 'belt_NORMAL',
+            frames: this.anims.generateFrameNames('belt_atlas', {
+                prefix: 'belt_',
+                start: 1,
+                end: 11,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 10,
+            repeat: -1,
+        });
+
+        this.anims.create({
+            key: 'belt_HARD',
+            frames: this.anims.generateFrameNames('belt_atlas', {
+                prefix: 'belt_',
+                start: 1,
+                end: 11,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 20,
+            repeat: -1,
+        });
+
+        this.anims.create({
+            key: 'belt_EXPERT',
+            frames: this.anims.generateFrameNames('belt_atlas', {
+                prefix: 'belt_',
+                start: 1,
+                end: 11,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 30,
+            repeat: -1,
+        });
     }
 
 }

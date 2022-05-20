@@ -1,12 +1,12 @@
 @font-face {
-    font-family: "PixelFont";
-    src: url("pixelFont.ttf");
+    font-family: "Lobster";
+    src: url("Lobster.ttf");
 }
 
 
 body {
     background-color: rgb(29, 29, 29);
-    font-family: "PixelFont";
+    font-family: "Lobster";
 }
 
 canvas {
@@ -15,5 +15,5 @@ canvas {
 }
 
 #game {
-    font-family: 'PixelFont';
+    font-family: 'Lobster';
 }

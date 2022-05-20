@@ -12,6 +12,7 @@ class stage_one_vegetables extends Phaser.Scene {
         // ------------------------------------------------------------------
         // local variable create
         this.scale = 0.4;   //tell me when u make some weird asset with DIFFERENT Scale 
+        this.scale_basket = 0.8;
         this.inventory_scale = 0.2;
         this.inventory_spacing = 0;
         this.inventory_spacing_increment = 20;
@@ -35,11 +36,19 @@ class stage_one_vegetables extends Phaser.Scene {
         // ------------------------------------------------------------------
         // Background Layer
         // play area
-        this.canvas_play = this.add.rectangle(0, 0, 940, 720, 0xB1F2F2).setOrigin(0, 0); // old/rm later
+        //this.canvas_play = this.add.rectangle(0, 0, 940, 720, 0xB1F2F2).setOrigin(0, 0); // old/rm later
         this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'produce_aisle').setOrigin(0, 0);
-        this.conveyor_play = this.add.tileSprite(55, 280, 835, 100, 'conveyor_belt').setOrigin(0, 0); // testing/rm later
+        //this.canvas_play_basket = this.add.Sprite(0, 0, 940, 720, 'basket').setOrigin(0, 0);
+        
+        // basket
+        this.basket_Init();
+
+        //this.conveyor_play = this.add.tileSprite(55, 280, 835, 100, 'conveyor_belt').setOrigin(0, 0); // testing/rm later
         // order
-        this.canvas_order = this.add.rectangle(940, 0, 340, 480, 0xE5AE89).setOrigin(0, 0);
+        //this.canvas_order = this.add.rectangle(940, 0, 340, 480, 0xE5AE89).setOrigin(0, 0);
+
+        // belts
+        this.belt_Init();
         // tabs
         this.tab_AddTabs();
         this.tab_makeInteractive();
@@ -47,11 +56,11 @@ class stage_one_vegetables extends Phaser.Scene {
         //this.canvas_inventory = this.add.rectangle(940, 480, 340, 240, 0xFFFFFFF).setOrigin(0, 0); // old/rm later
         this.canvas_inventory = this.add.tileSprite(940, 480, 340, 240, 'inventory').setOrigin(0, 0);
         
-        // asd
         // display their text
-        this.text_display();
+           this.text_display();
         // background end
         // ------------------------------------------------------------------
+
 
 
 
@@ -84,18 +93,21 @@ class stage_one_vegetables extends Phaser.Scene {
 
  
         this.groceries_Update();
+        this.basket_Update();
         this.endGame_Update();
 
 
        // console.log(game.input.mousePointer.x);
        // console.log(game.input.mousePointer.y);
         //use for testing
+        
         /*
         if(groceries.length != 0){
             console.log(groceries.length);
             console.log(inventory.length);
         }
-*/
+        */
+
 
     }
 
@@ -244,7 +256,7 @@ class stage_one_vegetables extends Phaser.Scene {
             //group two is second belt, generate and put into temp var, then call constructor, then add mouse interact (0) because it's first one
             this.groceries_Helper_MakeRandomGrocery_group2();
 
-            groceries.push(new Groceries(this, this.canvas_play.width + 250, 2 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
+            groceries.push(new Groceries(this, this.canvas_play.width + 250, -50 + 2 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
             this.groceries_Helper_MouseInput(1);
             this.generate_timer2 = this.time.addEvent({
                 delay: generation_frequency,
@@ -252,7 +264,7 @@ class stage_one_vegetables extends Phaser.Scene {
                     {
                         //same three step, generate, push, and add mouse effect (groceries.length - 1), the latest groceries been added
                         this.groceries_Helper_MakeRandomGrocery_group2();
-                        groceries.push(new Groceries(this, this.canvas_play.width + 250, 2 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
+                        groceries.push(new Groceries(this, this.canvas_play.width + 250, -50 + 2 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
                         this.groceries_Helper_MouseInput(groceries.length - 1);
                     }
                 }, //call back end
@@ -310,12 +322,18 @@ class stage_one_vegetables extends Phaser.Scene {
                 }
             }//for end
         }//if end
+
+    }
+
+    belt_Init(){
+        this.belt_1 = this.add.sprite(50, 30 + 1 * this.canvas_play.height / 3, 'belt_atlas').setOrigin(0, 0);
+        this.belt_1.play("belt_EASY");
+        this.belt_2 = this.add.sprite(50,  -20 + 2 * this.canvas_play.height / 3, 'belt_atlas').setOrigin(0, 0);
+        this.belt_2.play("belt_EASY");
     }
 
 
-
-
-    //function that control the speed of the belt
+    //function that control the speed of the belt and spawning
     phase_change() {
 
         //delay event used to call velocity change
@@ -339,7 +357,8 @@ class stage_one_vegetables extends Phaser.Scene {
                     //update generate_timer1 delay time to make them generate faster
                     this.generate_timer1.delay = generation_frequency;
                     this.generate_timer2.delay = generation_frequency;
-
+                    this.belt_1.play("belt_NORMAL");
+                    this.belt_2.play("belt_NORMAL");
                 }
             },
             callbackScope: this,
@@ -354,6 +373,8 @@ class stage_one_vegetables extends Phaser.Scene {
                     //update generate_timer1 delay time to make them generate faster
                     this.generate_timer1.delay = generation_frequency;
                     this.generate_timer2.delay = generation_frequency;
+                    this.belt_1.play("belt_HARD");
+                    this.belt_2.play("belt_HARD");
 
 
                 }
@@ -370,7 +391,8 @@ class stage_one_vegetables extends Phaser.Scene {
                     //update generate_timer1 delay time to make them generate faster
                     this.generate_timer1.delay = generation_frequency;
                     this.generate_timer2.delay = generation_frequency;
-
+                    this.belt_1.play("belt_EXPERT");
+                    this.belt_2.play("belt_EXPERT");
 
                 }
             },
@@ -391,9 +413,9 @@ class stage_one_vegetables extends Phaser.Scene {
         }
 
 
-        this.add.text(0, 0, "Here is the  play area", centerTextConfig);
+        //this.add.text(0, 0, "Here is the  play area", centerTextConfig);
         this.add.text(940, 70, "order area", centerTextConfig);
-        this.add.text(940, 480, "Inventory", centerTextConfig);
+        //this.add.text(940, 480, "Inventory", centerTextConfig);
         this.add.text(940, 430, "Budget:", centerTextConfig);
 
         this.text_budget = this.add.text(1100, 430, budget, centerTextConfig);
@@ -414,40 +436,85 @@ class stage_one_vegetables extends Phaser.Scene {
 
     //function that add threes tabs on the top and active the interaction with pointer
     tab_AddTabs(){
+        let tab_TextConfig = {
+            align: 'center',
+            fontFamily: 'Lobster',
+            fontSize: "45px",
+            color: "#000000",
+        }
+
+        let tab_main_TextConfig = {
+            align: 'center',
+            fontFamily: 'Lobster',
+            fontSize: "80px",
+            color: "#000814",
+        }
+
+        this.tab_main_text = this.add.text(310, 42, "Vegetables", tab_main_TextConfig);
+
         this.tab_left = this.add.sprite(0, 0, 'Tab_left').setOrigin(0, 0);
         this.tab_left.setInteractive();
         this.tab_left.play("Tab_left_idle");
+        this.tab_left_text = this.add.text(90, -3, "Dairy", tab_TextConfig);
+
         this.tab_mid = this.add.sprite(274, 0, 'Tab_mid').setOrigin(0, 0);
         this.tab_mid.setInteractive();
         this.tab_mid.play("Tab_mid_idle");
+        this.tab_mid_text = this.add.text(420, -3, "Meat", tab_TextConfig);
+
         this.tab_right = this.add.sprite(604, -1, 'Tab_right').setOrigin(0, 0);
         this.tab_right.setInteractive();
         this.tab_right.play("Tab_right_idle");
+        this.tab_right_text = this.add.text(690, -3, "Seasoning ", tab_TextConfig);
+        
     }
 
 
-    //function that check the mouse position and interact with tab
+    //function that check the mouse position and interact with tab, change tab text color
     tab_makeInteractive(){
-        // console.log(game.input.mousePointer.x);
-       // console.log(game.input.mousePointer.y);
+        let tab_colorChange_TextConfig = {
+            align: 'center',
+            fontFamily: 'Lobster',
+            fontSize: "45px",
+            color: "#B4F8C8",
+        }
+
+        let tab_TextConfig = {
+            align: 'center',
+            fontFamily: 'Lobster',
+            fontSize: "45px",
+            color: "#000000",
+        }
+
        
         this.tab_left.on("pointerover", () => {
             this.tab_left.play("Tab_left_onOver");
+            //destory the old text and add new color to it
+            this.tab_left_text.destroy();
+            this.tab_left_text = this.add.text(90, -3, "Dairy", tab_colorChange_TextConfig);
         });  
         this.tab_left.on("pointerout", () => {
             this.tab_left.play("Tab_left_idle");
+            //destory the old text and add new color to it
+            this.tab_left_text.destroy();
+            this.tab_left_text = this.add.text(90, -3, "Dairy", tab_TextConfig);
         });        
         this.tab_left.on("pointerdown", () => {
             console.log("I am going to the left");
+  
         });   
 
 
         
         this.tab_mid.on("pointerover", () => {
             this.tab_mid.play("Tab_mid_onOver");
+            this.tab_mid_text.destroy();
+            this.tab_mid_text = this.add.text(420, -3, "Meat", tab_colorChange_TextConfig);
         });        
         this.tab_mid.on("pointerout", () => {
             this.tab_mid.play("Tab_mid_idle");
+            this.tab_mid_text.destroy();
+            this.tab_mid_text = this.add.text(420, -3, "Meat", tab_TextConfig);
         });        
         
         this.tab_mid.on("pointerdown", () => {
@@ -457,20 +524,39 @@ class stage_one_vegetables extends Phaser.Scene {
 
         this.tab_right.on("pointerover", () => {
             this.tab_right.play("Tab_right_onOver");
+            this.tab_right_text.destroy();
+            this.tab_right_text = this.add.text(690, -3, "Seasoning ", tab_colorChange_TextConfig);
         });        
         
         this.tab_right.on("pointerout", () => {
             this.tab_right.play("Tab_right_idle");
+            this.tab_right_text.destroy();
+            this.tab_right_text = this.add.text(690, -3, "Seasoning ", tab_TextConfig);
         });        
         
         this.tab_right.on("pointerdown", () => {
             console.log("I am going to the right");
         });   
 
-        
+    }
 
-        
-        
+    //function that make add basket
+    basket_Init(){
+        this.basket = this.add.sprite(620, 150, 'basket').setOrigin(0, 0).setScale(this.scale_basket);
+        this.basket.play("basket_empty");
+    }
+
+    //function that update the basket sprite animation
+    basket_Update(){
+        if(inventory.length > 24){
+            gameOver = true;
+        }else if(inventory.length >= BASKET_FULL){
+            this.basket.play("basket_full");
+        }else if(inventory.length >= BASKET_HALF){
+            this.basket.play("basket_half");
+        }else{
+            this.basket.play("basket_empty");
+        }
     }
 
     //helper function used to reset globle variable
@@ -494,9 +580,10 @@ class stage_one_vegetables extends Phaser.Scene {
     endGame_Update() {
         if (budget <= 0) {
             gameOver = true;
-        } else {
+        } 
 
-        }// if end
+        // inventory.length() > 24, this will cause         gameOver = true;
+        // check detail in basket_Update
 
         if (gameOver) {
             this.endGame_Update_Helper_reset();

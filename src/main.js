@@ -4,6 +4,7 @@ let config = {
     type: Phaser.CANVAS,
     width: 1280,
     height: 720,
+    transparent: true,
     scene: [load, title_screen, stage_one_vegetables]
     // the the starter scene in load.js
 }
@@ -20,10 +21,12 @@ var keyLeft, keyRight, keyR;
 var keyA, keyD, keyEnter, keyESC;
 
 // globle constant
+var BASKET_HALF = 6;
+var BASKET_FULL = 18;
+
 var QUALITY_BAD = -1;
 var QUALITY_NORMAL = 0;
 var QUALITY_GOOD = 1;
-
 
 var VELOCITY_EASY = 2;
 var VELOCITY_NORMAL = 4;
@@ -46,7 +49,7 @@ var INVENTORY_INCREMENT = 50;
 var INVENTORY_SPACING_ORIGINAL_X = -50;
 var INVENTORY_SPACING_ORIGINAL_Y = 0;
 
-var BUDGET = 10;
+var BUDGET = 100;
 
 // globle variables
 // WARNING: Dynamic varible may cause memory leak, free array before u restart the scene
