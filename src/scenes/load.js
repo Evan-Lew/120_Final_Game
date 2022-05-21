@@ -17,6 +17,7 @@ class load extends Phaser.Scene {
         this.load.atlas("vegetables_atlas", "vegetables.png", "vegetables_map.json");
         this.load.atlas("dairy_atlas", "dairy.png", "dairy_map.json");
         this.load.atlas("meats_atlas", "meats.png", "meats_map.json");
+        this.load.atlas("slug_atlas", "Banana_Slug.png", "banana_slug_map.json");
 
         // load produce/dairy/meat aisle
         this.load.image('produce_aisle', 'Produce_Aisle.png');
@@ -53,8 +54,9 @@ class load extends Phaser.Scene {
         // start the game
         this.create_Animation_Tabs();
         this.create_Animation_Basket();
+        this.create_Animation_Slug();
         this.create_Animation_Vegetables();
-        this.create_Animation_aisle2();
+        this.create_Animation_Meat();
         this.create_Animation_aisle3();
         this.create_Animation_aisle4();
         this.create_Animation_Belt();
@@ -135,6 +137,36 @@ class load extends Phaser.Scene {
             repeat: 1
         });
     }
+
+    create_Animation_Slug(){
+        //banana slug
+        this.anims.create({
+            key: 'bananaslug_idle',
+            frames: this.anims.generateFrameNames('slug_atlas', {
+                prefix: 'bananaslug_idle_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+        this.anims.create({
+            key: 'bananaslug_normal',
+            frames: this.anims.generateFrameNames('slug_atlas', {
+                prefix: 'bananaslug_normal_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+    }
+
 
     create_Animation_Vegetables() {
         //tomato
@@ -415,7 +447,292 @@ class load extends Phaser.Scene {
     }
 
     //rename it and than change the call func in load.js create()
-    create_Animation_aisle2() {
+    create_Animation_Meat() {
+        //chicken
+        this.anims.create({
+            key: 'chicken_idle',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'chicken_idle_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+        this.anims.create({
+            key: 'chicken_normal',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'chicken_normal_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+        this.anims.create({
+            key: 'chicken_bad',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'chicken_bad_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+
+        this.anims.create({
+            key: 'chicken_good',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'chicken_good_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+        //steak
+        this.anims.create({
+            key: 'steak_idle',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'steak_idle_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+        this.anims.create({
+            key: 'steak_normal',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'steak_normal_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+        this.anims.create({
+            key: 'steak_bad',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'steak_bad_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+
+        this.anims.create({
+            key: 'steak_good',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'steak_good_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+        //fish
+        this.anims.create({
+            key: 'fish_idle',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'fish_idle_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+        this.anims.create({
+            key: 'fish_normal',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'fish_normal_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+        this.anims.create({
+            key: 'fish_bad',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'fish_bad_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+
+        this.anims.create({
+            key: 'fish_good',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'fish_good_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+
+        //beef
+        this.anims.create({
+            key: 'beef_idle',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'beef_idle_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+        this.anims.create({
+            key: 'beef_normal',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'beef_normal_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+        this.anims.create({
+            key: 'beef_bad',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'beef_bad_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+
+        this.anims.create({
+            key: 'beef_good',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'beef_good_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+        
+
+        //shrimp
+        this.anims.create({
+            key: 'shrimp_idle',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'shrimp_idle_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+        this.anims.create({
+            key: 'shrimp_normal',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'shrimp_normal_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+        this.anims.create({
+            key: 'shrimp_bad',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'shrimp_bad_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+
+
+
+        this.anims.create({
+            key: 'shrimp_good',
+            frames: this.anims.generateFrameNames('meats_atlas', {
+                prefix: 'shrimp_good_',
+                start: 1,
+                end: 4,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: 0,
+        });
+        
+
 
     }
 

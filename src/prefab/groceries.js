@@ -9,6 +9,7 @@ class Groceries extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);
         this.quality = quality;
         this.ID = ID;
+        this.key = texture;
         this.leftClickFlag = false;
         this.movedToInventory = false;
         this.idle_normal = frame_normal_idle;
@@ -29,7 +30,9 @@ class Groceries extends Phaser.GameObjects.Sprite {
 
     //function plays anime
     flipGrocery() {
-        if (this.ID == ID_GROCERY_TOMATO) {
+        if(this.ID == ID_GROCERY_SLUG){
+            this.play("bananaslug_normal");
+        }else if(this.ID == ID_GROCERY_TOMATO) {
             if (this.quality == 1) {
                 this.play("tomato_good");
             } else if (this.quality == 0) {
@@ -87,6 +90,65 @@ class Groceries extends Phaser.GameObjects.Sprite {
                 //remove this on final
                 console.log("ERROR: unable to load anime");
             }
+        }else if(this.ID == ID_GROCERY_CHICKEN){
+            if (this.quality == 1) {
+                this.play("chicken_good");
+            } else if (this.quality == 0) {
+                this.play("chicken_normal");
+            } else if (this.quality == -1) {
+                this.play("chicken_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+            
+        }else if(this.ID == ID_GROCERY_STEAK){
+            if (this.quality == 1) {
+                this.play("steak_good");
+            } else if (this.quality == 0) {
+                this.play("steak_normal");
+            } else if (this.quality == -1) {
+                this.play("steak_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+            
+        }else if(this.ID == ID_GROCERY_FISH){
+            
+            if (this.quality == 1) {
+                this.play("fish_good");
+            } else if (this.quality == 0) {
+                this.play("fish_normal");
+            } else if (this.quality == -1) {
+                this.play("fish_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+        }else if(this.ID == ID_GROCERY_BEEF){
+            
+            if (this.quality == 1) {
+                this.play("beef_good");
+            } else if (this.quality == 0) {
+                this.play("beef_normal");
+            } else if (this.quality == -1) {
+                this.play("beef_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+        }else if(this.ID == ID_GROCERY_SHRIMP){
+            if (this.quality == 1) {
+                this.play("shrimp_good");
+            } else if (this.quality == 0) {
+                this.play("shrimp_normal");
+            } else if (this.quality == -1) {
+                this.play("shrimp_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
         }else{
             console.log("ERROR: unable to load ID");
         }
@@ -104,7 +166,21 @@ class Groceries extends Phaser.GameObjects.Sprite {
             this.price = 0.5;
         }else if(this.ID == ID_GROCERY_POTATO){
             this.price = 1;
-        }else{
+        }else if(this.ID == ID_GROCERY_SLUG){
+            this.price = -2;
+        }else if(this.ID == ID_GROCERY_CHICKEN){
+            this.price = 3;
+        }else if(this.ID == ID_GROCERY_STEAK){
+            this.price = 7;
+        }else if(this.ID == ID_GROCERY_FISH){
+            this.price = 5;
+        }else if(this.ID == ID_GROCERY_BEEF){
+            this.price = 6;
+        }else if(this.ID == ID_GROCERY_SHRIMP){
+            this.price = 5;
+        }
+        
+        else{
             console.log("ERROR: unable to load ID");
         }
     }

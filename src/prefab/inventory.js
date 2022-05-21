@@ -8,7 +8,8 @@ class Inventory extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);
         this.quality = quality;
         this.ID = ID;
-
+        this.idle = frame;
+        this.key = texture;
     }
 
 
