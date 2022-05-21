@@ -39,6 +39,7 @@ class stage_one_vegetables extends Phaser.Scene {
         //this.canvas_play = this.add.rectangle(0, 0, 940, 720, 0xB1F2F2).setOrigin(0, 0); // old/rm later
         this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'produce_aisle').setOrigin(0, 0);
         //this.canvas_play_basket = this.add.Sprite(0, 0, 940, 720, 'basket').setOrigin(0, 0);
+        this.canvas_order = this.add.tileSprite(0, 0, 340, 480, 'order_background').setOrigin(0, 0);
         
         // basket
         this.basket_Init();

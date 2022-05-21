@@ -40,6 +40,9 @@ class load extends Phaser.Scene {
         // load cart
         this.load.image('cart', 'cart.png');
 
+        // load ordering canvas
+        this.load.image('order_background', 'order_background.png');
+
         // load title screen
         this.load.image('menu_background', 'menu_background.png');
 
