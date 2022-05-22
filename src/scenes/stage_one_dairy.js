@@ -817,7 +817,7 @@ class stage_one_dairy extends Phaser.Scene {
             color: "#000000",
         }
         this.text_budget.destroy();
-        this.text_budget = this.add.text(1150, 400, budget, centerTextConfig);
+        this.text_budget = this.add.text(1150, 400, budget.toFixed(1), centerTextConfig);
     }
 
 
@@ -833,7 +833,7 @@ class stage_one_dairy extends Phaser.Scene {
             color: "#000000",
         }
 
-        this.text_budget = this.add.text(1150, 400, budget, centerTextConfig);
+        this.text_budget = this.add.text(1150, 400, budget.toFixed(1), centerTextConfig);
     }
 
     //function that make add basket

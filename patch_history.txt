@@ -1,4 +1,5 @@
 5/22
+fixed prcision bug
 all aisle complete
 add ESC key for return to title
 add feature when mouse move to the basket, it allows the player to finish stage one earlier

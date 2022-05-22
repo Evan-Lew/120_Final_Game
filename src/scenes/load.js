@@ -64,7 +64,7 @@ class load extends Phaser.Scene {
         this.create_Animation_seasoning();
         this.create_Animation_Belt();
         //this.scene.start("title_screen");
-        this.scene.start("stage_one_seasoning");
+        this.scene.start("title_screen");
 
     }
 
