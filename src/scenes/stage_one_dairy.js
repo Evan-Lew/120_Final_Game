@@ -1,6 +1,8 @@
-class stage_one_meats extends Phaser.Scene {
+class stage_one_dairy extends Phaser.Scene {
     constructor() {
-        super("stage_one_meats");
+        super("stage_one_dairy");
+
+
 
 
     }
@@ -36,7 +38,7 @@ class stage_one_meats extends Phaser.Scene {
         // Canvas setup 
 
         // canvas_play
-        this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'meat_aisle').setOrigin(0, 0);
+        this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'dairy_aisle').setOrigin(0, 0);
 
         // canvas_play basket
         this.basket_Init();
@@ -55,8 +57,9 @@ class stage_one_meats extends Phaser.Scene {
 
         // ------------------------------------------------------------------
         // Inventory setup
-        this.canvas_inventory = this.add.tileSprite(940, 480, 340, 240, 'inventory').setOrigin(0, 0);
+        this.canvas_inventory = this.add.tileSprite(1110, 600, 340, 240, 'inventory').setOrigin(0.5, 0.5).setInteractive();
         this.inventory_Display();
+        this.inventory_Interaction();
         // Inventory setup end
         // ------------------------------------------------------------------
 
@@ -69,9 +72,10 @@ class stage_one_meats extends Phaser.Scene {
         // ------------------------------------------------------------------
 
         // ------------------------------------------------------------------
-        // mouse setup
+        // mouse, keyboard setup
         this.input.mouse.disableContextMenu();
-        // mouse setup end
+        keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+        // mouse, keyboard setup end
         // ------------------------------------------------------------------
 
 
@@ -98,6 +102,7 @@ class stage_one_meats extends Phaser.Scene {
         this.groceries_Update();
         this.basket_Update();
         this.endGame_Update();
+
 
         //console.log(timer);
         //console.log(timer_countDown);
@@ -166,7 +171,7 @@ class stage_one_meats extends Phaser.Scene {
             loop: true
         });//timePassed increment end
 
-        
+
     }
 
 
@@ -185,7 +190,7 @@ class stage_one_meats extends Phaser.Scene {
             fontSize: "32px",
             color: "#CA3433",
         }
- 
+
         //mouse control
         groceries[i].on('pointerdown', function (pointer) {
             if (pointer.rightButtonDown()) {
@@ -198,7 +203,7 @@ class stage_one_meats extends Phaser.Scene {
 
                 this.budgetCheck = budget - groceries[i].price;
                 //valid only if u have enough money to purchase
-                if(this.budgetCheck < 0){
+                if (this.budgetCheck < 0) {
                     //shake the screen
                     this.cameras.main.shake(200, 0.05);
                     //highlight the money
@@ -206,8 +211,8 @@ class stage_one_meats extends Phaser.Scene {
                         delay: 500,                                          //every second call loop below
                         callback: () => {
                             {
-                                 this.text_budget.destroy();
-                                 this.text_budget = this.add.text(1150, 400, budget, highlightTextConfig);                   
+                                this.text_budget.destroy();
+                                this.text_budget = this.add.text(1150, 400, budget, highlightTextConfig);
                             }
                         },
                         callbackScope: this,
@@ -217,26 +222,26 @@ class stage_one_meats extends Phaser.Scene {
                         delay: 1000,                                          //every second call loop below
                         callback: () => {
                             {
-                                 this.text_budget.destroy();
-                                 this.text_budget = this.add.text(1150, 400, budget, centerTextConfig);                 
+                                this.text_budget.destroy();
+                                this.text_budget = this.add.text(1150, 400, budget, centerTextConfig);
                             }
                         },
                         callbackScope: this,
                         repeat: 4
                     });
-                    
-                }else{
-                //will add to inventory if u can purchase it
-                //spacing for inventory
-                  if (inventory_spacing_x < 250) {
-                     inventory_spacing_x += INVENTORY_INCREMENT;
-                  } else {
+
+                } else {
+                    //will add to inventory if u can purchase it
+                    //spacing for inventory
+                    if (inventory_spacing_x < 250) {
+                        inventory_spacing_x += INVENTORY_INCREMENT;
+                    } else {
                         inventory_spacing_x = 0;
                         inventory_spacing_y += INVENTORY_INCREMENT;
                     }
 
                     groceries[i].leftClickFlag = true;
-             }
+                }
             } else {
                 //case other click (mouse mid key or side keys)
                 console.log("ERROR: Undefined key");
@@ -266,45 +271,45 @@ class stage_one_meats extends Phaser.Scene {
     groceries_Helper_MakeRandomGrocery_group1() {
         let temp = 0;
         temp = Phaser.Math.Between(1, 61);
-        if(temp == 61){
+        if (temp == 61) {
             this.randomGrocery_ID = ID_GROCERY_SLUG;
             this.randomGrocery_frame = 'bananaslug_idle_01';
             this.randomGrocery_idle_bad = 'bananaslug_normal_02';
             this.randomGrocery_idle_normal = 'bananaslug_normal_02';
             this.randomGrocery_idle_good = 'bananaslug_normal_02';
             this.randomQuality = 0;
-        }else if(temp >= 1 && temp < 21){
+        } else if (temp >= 1 && temp < 21) {
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_STEAK;
-            this.randomGrocery_frame = 'steak_idle_01';
-            this.randomGrocery_idle_bad = 'steak_bad_02';
-            this.randomGrocery_idle_normal = 'steak_normal_02';
-            this.randomGrocery_idle_good = 'steak_good_02';
+            this.randomGrocery_ID = ID_GROCERY_MILK;
+            this.randomGrocery_frame = 'milk_idle_01';
+            this.randomGrocery_idle_bad = 'milk_bad_02';
+            this.randomGrocery_idle_normal = 'milk_normal_02';
+            this.randomGrocery_idle_good = 'milk_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
-        }else if(temp >= 21 && temp < 41){
+        } else if (temp >= 21 && temp < 41) {
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_FISH;
-            this.randomGrocery_frame = 'fish_idle_01';
-            this.randomGrocery_idle_bad = 'fish_bad_02';
-            this.randomGrocery_idle_normal = 'fish_normal_02';
-            this.randomGrocery_idle_good = 'fish_good_02';
+            this.randomGrocery_ID = ID_GROCERY_EGGS;
+            this.randomGrocery_frame = 'eggs_idle_01';
+            this.randomGrocery_idle_bad = 'eggs_bad_02';
+            this.randomGrocery_idle_normal = 'eggs_normal_02';
+            this.randomGrocery_idle_good = 'eggs_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
-        }else if(temp >= 41 && temp < 61){
+        } else if (temp >= 41 && temp < 61) {
 
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_BEEF;
-            this.randomGrocery_frame = 'beef_idle_01';
-            this.randomGrocery_idle_bad = 'beef_bad_02';
-            this.randomGrocery_idle_normal = 'beef_normal_02';
-            this.randomGrocery_idle_good = 'beef_good_02';
+            this.randomGrocery_ID = ID_GROCERY_BUTTER;
+            this.randomGrocery_frame = 'butter_idle_01';
+            this.randomGrocery_idle_bad = 'butter_bad_02';
+            this.randomGrocery_idle_normal = 'butter_normal_02';
+            this.randomGrocery_idle_good = 'butter_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
-        }else{
+        } else {
             console.log("Error: undefined random number");
         }
     }
@@ -314,34 +319,34 @@ class stage_one_meats extends Phaser.Scene {
         let temp = 0;
         temp = Phaser.Math.Between(1, 61);
 
-        if(temp == 61){
+        if (temp == 61) {
             this.randomGrocery_ID = ID_GROCERY_SLUG;
             this.randomGrocery_frame = 'bananaslug_idle_01';
             this.randomGrocery_idle_bad = 'bananaslug_normal_02';
             this.randomGrocery_idle_normal = 'bananaslug_normal_02';
             this.randomGrocery_idle_good = 'bananaslug_normal_02';
             this.randomQuality = 0;
-        }else if(temp >= 1 && temp < 35){
+        } else if (temp >= 1 && temp < 35) {
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_CHICKEN;
-            this.randomGrocery_frame = 'chicken_idle_01';
-            this.randomGrocery_idle_bad = 'chicken_bad_02';
-            this.randomGrocery_idle_normal = 'chicken_normal_02';
-            this.randomGrocery_idle_good = 'chicken_good_02';
+            this.randomGrocery_ID = ID_GROCERY_CHEESE;
+            this.randomGrocery_frame = 'cheese_idle_01';
+            this.randomGrocery_idle_bad = 'cheese_bad_02';
+            this.randomGrocery_idle_normal = 'cheese_normal_02';
+            this.randomGrocery_idle_good = 'cheese_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
-        }else if(temp >= 35 && temp < 61){
+        } else if (temp >= 35 && temp < 61) {
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_SHRIMP;
-            this.randomGrocery_frame = 'shrimp_idle_01';
-            this.randomGrocery_idle_bad = 'shrimp_bad_02';
-            this.randomGrocery_idle_normal = 'shrimp_normal_02';
-            this.randomGrocery_idle_good = 'shrimp_good_02';
+            this.randomGrocery_ID = ID_GROCERY_YOGURT;
+            this.randomGrocery_frame = 'yogurt_idle_01';
+            this.randomGrocery_idle_bad = 'yogurt_bad_02';
+            this.randomGrocery_idle_normal = 'yogurt_normal_02';
+            this.randomGrocery_idle_good = 'yogurt_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
-        }else{
+        } else {
             console.log("Error: undefined random number");
         }
 
@@ -359,10 +364,10 @@ class stage_one_meats extends Phaser.Scene {
                     {
                         //same three step, generate, push, and add mouse effect (groceries.length - 1), the latest groceries been added
                         this.groceries_Helper_MakeRandomGrocery_group1();
-                        if(this.randomGrocery_ID == ID_GROCERY_SLUG){
+                        if (this.randomGrocery_ID == ID_GROCERY_SLUG) {
                             groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'slug_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
-                        }else{
-                            groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'meats_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
+                        } else {
+                            groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'dairy_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
                         }//if end
                         this.groceries_Helper_MouseInput(groceries.length - 1);
                     }
@@ -379,10 +384,10 @@ class stage_one_meats extends Phaser.Scene {
                     {
                         //same three step, generate, push, and add mouse effect (groceries.length - 1), the latest groceries been added
                         this.groceries_Helper_MakeRandomGrocery_group2();
-                        if(this.randomGrocery_ID == ID_GROCERY_SLUG){
+                        if (this.randomGrocery_ID == ID_GROCERY_SLUG) {
                             groceries.push(new Groceries(this, this.canvas_play.width + 250, -50 + 2 * this.canvas_play.height / 3, 'slug_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
-                        }else{
-                            groceries.push(new Groceries(this, this.canvas_play.width + 250, -50 + 2 * this.canvas_play.height / 3, 'meats_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
+                        } else {
+                            groceries.push(new Groceries(this, this.canvas_play.width + 250, -50 + 2 * this.canvas_play.height / 3, 'dairy_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
                         }
                         this.groceries_Helper_MouseInput(groceries.length - 1);
                     }
@@ -444,17 +449,37 @@ class stage_one_meats extends Phaser.Scene {
 
     }
 
-    inventory_Display(){
+    inventory_Display() {
         //display inventory stuffs if it's not empty
-        if(inventory.length != 0){
+        if (inventory.length != 0) {
 
-            for(var i = 0; i < inventory.length; i++){
+            for (var i = 0; i < inventory.length; i++) {
                 //make if loop to check 
-                
+
                 this.add.sprite(inventory[i].x, inventory[i].y, inventory[i].key, inventory[i].idle).setOrigin(0.5, 0.5).setScale(this.inventory_scale);
                 inventory[i].visible = true;
             }
         }
+    }
+
+    inventory_Interaction() {
+        let TextConfig = {
+            align: 'center',
+            fontFamily: 'Lobster',
+            fontSize: "60px",
+            color: "#B22222",
+        }
+        //mouse control
+        //show check out text
+        this.canvas_inventory.on('pointerover', function (pointer) {
+            this.checkout_text = this.add.text(990, 600, "Check Out", TextConfig);
+        }, this)
+        this.canvas_inventory.on("pointerout", () => {
+            this.checkout_text.destroy();
+        }, this);
+        this.canvas_inventory.on("pointerdown", () => {
+            stageOneOver = true;
+        }, this);
     }
 
     belt_Init() {
@@ -537,7 +562,7 @@ class stage_one_meats extends Phaser.Scene {
                 delay: (TIME_PHASE_END - timer),                                               //every 3 seconds call loop below
                 callback: () => {
                     {
-                        gameOver = true;
+                        stageOneOver = true;
                     }
                 },
                 callbackScope: this,
@@ -597,7 +622,7 @@ class stage_one_meats extends Phaser.Scene {
                 delay: (TIME_PHASE_END - timer),                                               //every 3 seconds call loop below
                 callback: () => {
                     {
-                        gameOver = true;
+                        stageOneOver = true;
                     }
                 },
                 callbackScope: this,
@@ -639,7 +664,7 @@ class stage_one_meats extends Phaser.Scene {
                 delay: (TIME_PHASE_END - timer),                                               //every 3 seconds call loop below
                 callback: () => {
                     {
-                        gameOver = true;
+                        stageOneOver = true;
                     }
                 },
                 callbackScope: this,
@@ -661,7 +686,7 @@ class stage_one_meats extends Phaser.Scene {
                 delay: (TIME_PHASE_END - timer),                                               //every 3 seconds call loop below
                 callback: () => {
                     {
-                        gameOver = true;
+                        stageOneOver = true;
                     }
                 },
                 callbackScope: this,
@@ -670,7 +695,7 @@ class stage_one_meats extends Phaser.Scene {
 
         } else {
             //in this case time has passed the end game time
-            gameOver = true;
+            stageOneOver = true;
         }
     }
 
@@ -692,12 +717,12 @@ class stage_one_meats extends Phaser.Scene {
             color: "#000814",
         }
 
-        this.tab_main_text = this.add.text(370, 42, "Meats", tab_main_TextConfig);
+        this.tab_main_text = this.add.text(380, 42, "Dairy", tab_main_TextConfig);
 
         this.tab_left = this.add.sprite(0, 0, 'Tab_left').setOrigin(0, 0);
         this.tab_left.setInteractive();
         this.tab_left.play("Tab_left_idle");
-        this.tab_left_text = this.add.text(50, -3, "Vegetables", tab_TextConfig);
+        this.tab_left_text = this.add.text(100, -3, "Meats", tab_TextConfig);
 
         this.tab_mid = this.add.sprite(274, 0, 'Tab_mid').setOrigin(0, 0);
         this.tab_mid.setInteractive();
@@ -707,7 +732,7 @@ class stage_one_meats extends Phaser.Scene {
         this.tab_right = this.add.sprite(604, -1, 'Tab_right').setOrigin(0, 0);
         this.tab_right.setInteractive();
         this.tab_right.play("Tab_right_idle");
-        this.tab_right_text = this.add.text(720, -3, "Dairy", tab_TextConfig);
+        this.tab_right_text = this.add.text(690, -3, "Vegetables", tab_TextConfig);
 
     }
 
@@ -733,16 +758,16 @@ class stage_one_meats extends Phaser.Scene {
             this.tab_left.play("Tab_left_onOver");
             //destory the old text and add new color to it
             this.tab_left_text.destroy();
-            this.tab_left_text = this.add.text(50, -3, "Vegetables", tab_colorChange_TextConfig);
+            this.tab_left_text = this.add.text(100, -3, "Meats", tab_colorChange_TextConfig);
         });
         this.tab_left.on("pointerout", () => {
             this.tab_left.play("Tab_left_idle");
             //destory the old text and add new color to it
             this.tab_left_text.destroy();
-            this.tab_left_text = this.add.text(50, -3, "Vegetables", tab_TextConfig);
+            this.tab_left_text = this.add.text(100, -3, "Meats", tab_TextConfig);
         });
         this.tab_left.on("pointerdown", () => {
-            this.scene.start("stage_one_vegetables");
+            this.scene.start("stage_one_meats");
         });
 
 
@@ -759,24 +784,24 @@ class stage_one_meats extends Phaser.Scene {
         });
 
         this.tab_mid.on("pointerdown", () => {
-            console.log("I am going to the mid");
+            this.scene.start("stage_one_seasoning");
         });
 
 
         this.tab_right.on("pointerover", () => {
             this.tab_right.play("Tab_right_onOver");
             this.tab_right_text.destroy();
-            this.tab_right_text = this.add.text(720, -3, "Dairy", tab_colorChange_TextConfig);
+            this.tab_right_text = this.add.text(690, -3, "Vegetables", tab_colorChange_TextConfig);
         });
 
         this.tab_right.on("pointerout", () => {
             this.tab_right.play("Tab_right_idle");
             this.tab_right_text.destroy();
-            this.tab_right_text = this.add.text(720, -3, "Dairy", tab_TextConfig);
+            this.tab_right_text = this.add.text(690, -3, "Vegetables", tab_TextConfig);
         });
 
         this.tab_right.on("pointerdown", () => {
-            console.log("I am going to the right");
+            this.scene.start("stage_one_vegetables");
         });
 
     }
@@ -820,7 +845,7 @@ class stage_one_meats extends Phaser.Scene {
     //function that update the basket sprite animation
     basket_Update() {
         if (inventory.length > 24) {
-            gameOver = true;
+            stageOneOver = true;
         } else if (inventory.length >= BASKET_FULL) {
             this.basket.play("basket_full");
         } else if (inventory.length >= BASKET_HALF) {
@@ -845,27 +870,43 @@ class stage_one_meats extends Phaser.Scene {
         budget = BUDGET;
         //reinitialize flag
         gameOver = false;
+        stageOneOver = false;
         //reinitialize timer
         timer = 0;
         timer_countDown = TIME_PHASE_END / 1000;
     }
 
+    //helper function that will be called when they finish the stage 
+    endStage_Update_Helper_reset() {
+        //free memory
+        groceries = null;
+        //reinitialize it
+        groceries = [];
+        //reinitialize flag
+        stageOneOver = false;
+        //reinitialize timer
+    }
+
     //function update the endgame parameter and variable
     endGame_Update() {
         if (budget <= 0) {
-            gameOver = true;
+            stageOneOver = true;
         }
 
+        if (Phaser.Input.Keyboard.JustDown(keyESC)) {
+            gameOver = true;
+        }
         // inventory.length() > 24, this will cause         gameOver = true;
         // check detail in basket_Update
+        if (stageOneOver) {
+            this.endStage_Update_Helper_reset();
+            this.scene.start("stage_two_cooking");
+        }
 
         if (gameOver) {
             this.endGame_Update_Helper_reset();
             this.scene.start("title_screen");
-        } else {
-
-        }//if end
-
+        } //if end
     }
 
 }

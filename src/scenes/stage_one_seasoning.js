@@ -1,6 +1,6 @@
-class stage_one_vegetables extends Phaser.Scene {
+class stage_one_seasoning extends Phaser.Scene {
     constructor() {
-        super("stage_one_vegetables");
+        super("stage_one_seasoning");
 
 
 
@@ -38,7 +38,7 @@ class stage_one_vegetables extends Phaser.Scene {
         // Canvas setup 
 
         // canvas_play
-        this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'produce_aisle').setOrigin(0, 0);
+        this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'seasoning_aisle').setOrigin(0, 0);
 
         // canvas_play basket
         this.basket_Init();
@@ -280,32 +280,32 @@ class stage_one_vegetables extends Phaser.Scene {
             this.randomQuality = 0;
         } else if (temp >= 1 && temp < 21) {
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_TOMATO;
-            this.randomGrocery_frame = 'tomato_idle_01';
-            this.randomGrocery_idle_bad = 'tomato_bad_02';
-            this.randomGrocery_idle_normal = 'tomato_normal_02';
-            this.randomGrocery_idle_good = 'tomato_good_02';
+            this.randomGrocery_ID = ID_GROCERY_PARSLEY;
+            this.randomGrocery_frame = 'parsley_idle_01';
+            this.randomGrocery_idle_bad = 'parsley_bad_02';
+            this.randomGrocery_idle_normal = 'parsley_normal_02';
+            this.randomGrocery_idle_good = 'parsley_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
         } else if (temp >= 21 && temp < 41) {
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_CARROT;
-            this.randomGrocery_frame = 'carrot_idle_01';
-            this.randomGrocery_idle_bad = 'carrot_bad_02';
-            this.randomGrocery_idle_normal = 'carrot_normal_02';
-            this.randomGrocery_idle_good = 'carrot_good_02';
+            this.randomGrocery_ID = ID_GROCERY_SOYSAUCE;
+            this.randomGrocery_frame = 'soysauce_idle_01';
+            this.randomGrocery_idle_bad = 'soysauce_bad_02';
+            this.randomGrocery_idle_normal = 'soysauce_normal_02';
+            this.randomGrocery_idle_good = 'soysauce_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
         } else if (temp >= 41 && temp < 61) {
 
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_ONION;
-            this.randomGrocery_frame = 'onion_idle_01';
-            this.randomGrocery_idle_bad = 'onion_bad_02';
-            this.randomGrocery_idle_normal = 'onion_normal_02';
-            this.randomGrocery_idle_good = 'onion_good_02';
+            this.randomGrocery_ID = ID_GROCERY_GARLIC;
+            this.randomGrocery_frame = 'garlic_idle_01';
+            this.randomGrocery_idle_bad = 'garlic_bad_02';
+            this.randomGrocery_idle_normal = 'garlic_normal_02';
+            this.randomGrocery_idle_good = 'garlic_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
@@ -328,21 +328,21 @@ class stage_one_vegetables extends Phaser.Scene {
             this.randomQuality = 0;
         } else if (temp >= 1 && temp < 35) {
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_CORN;
-            this.randomGrocery_frame = 'corn_idle_01';
-            this.randomGrocery_idle_bad = 'corn_bad_02';
-            this.randomGrocery_idle_normal = 'corn_normal_02';
-            this.randomGrocery_idle_good = 'corn_good_02';
+            this.randomGrocery_ID = ID_GROCERY_SALT;
+            this.randomGrocery_frame = 'salt_idle_01';
+            this.randomGrocery_idle_bad = 'salt_bad_02';
+            this.randomGrocery_idle_normal = 'salt_normal_02';
+            this.randomGrocery_idle_good = 'salt_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
         } else if (temp >= 35 && temp < 61) {
             //generate Grocery, the following data will be used in constructor
-            this.randomGrocery_ID = ID_GROCERY_POTATO;
-            this.randomGrocery_frame = 'potato_idle_01';
-            this.randomGrocery_idle_bad = 'potato_bad_02';
-            this.randomGrocery_idle_normal = 'potato_normal_02';
-            this.randomGrocery_idle_good = 'potato_good_02';
+            this.randomGrocery_ID = ID_GROCERY_PEPPER;
+            this.randomGrocery_frame = 'pepper_idle_01';
+            this.randomGrocery_idle_bad = 'pepper_bad_02';
+            this.randomGrocery_idle_normal = 'pepper_normal_02';
+            this.randomGrocery_idle_good = 'pepper_good_02';
 
             //generate quality
             this.groceries_Helper_MakeRandomQuality();
@@ -367,7 +367,7 @@ class stage_one_vegetables extends Phaser.Scene {
                         if (this.randomGrocery_ID == ID_GROCERY_SLUG) {
                             groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'slug_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
                         } else {
-                            groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
+                            groceries.push(new Groceries(this, this.canvas_play.width + 100, 1 * this.canvas_play.height / 3, 'seasoning_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
                         }//if end
                         this.groceries_Helper_MouseInput(groceries.length - 1);
                     }
@@ -387,7 +387,7 @@ class stage_one_vegetables extends Phaser.Scene {
                         if (this.randomGrocery_ID == ID_GROCERY_SLUG) {
                             groceries.push(new Groceries(this, this.canvas_play.width + 250, -50 + 2 * this.canvas_play.height / 3, 'slug_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
                         } else {
-                            groceries.push(new Groceries(this, this.canvas_play.width + 250, -50 + 2 * this.canvas_play.height / 3, 'vegetables_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
+                            groceries.push(new Groceries(this, this.canvas_play.width + 250, -50 + 2 * this.canvas_play.height / 3, 'seasoning_atlas', this.randomGrocery_frame, this.randomGrocery_idle_bad, this.randomGrocery_idle_normal, this.randomGrocery_idle_good, this.randomQuality, this.randomGrocery_ID).setOrigin(0.5, 0.5).setScale(this.scale).setInteractive());
                         }
                         this.groceries_Helper_MouseInput(groceries.length - 1);
                     }
@@ -435,6 +435,7 @@ class stage_one_vegetables extends Phaser.Scene {
                 if (groceries[i].leftClickFlag && !groceries[i].moveToInventory) {
                     //update budget
                     budget -= groceries[i].price;
+                    //Phaser.Math.RoundTo(budget, -1);
                     this.order_Helper_budgetUpdate();
                     //push to inventory
                     inventory.push(new Inventory(this, 980 + inventory_spacing_x, 540 + inventory_spacing_y, groceries[i].key, groceries[i].idle, groceries[i].quality, groceries[i].ID).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
@@ -716,8 +717,8 @@ class stage_one_vegetables extends Phaser.Scene {
             fontSize: "80px",
             color: "#000814",
         }
-
-        this.tab_main_text = this.add.text(310, 42, "Vegetables", tab_main_TextConfig);
+        
+        this.tab_main_text = this.add.text(310, 42, "Seasoning", tab_main_TextConfig);
 
         this.tab_left = this.add.sprite(0, 0, 'Tab_left').setOrigin(0, 0);
         this.tab_left.setInteractive();
@@ -727,7 +728,7 @@ class stage_one_vegetables extends Phaser.Scene {
         this.tab_mid = this.add.sprite(274, 0, 'Tab_mid').setOrigin(0, 0);
         this.tab_mid.setInteractive();
         this.tab_mid.play("Tab_mid_idle");
-        this.tab_mid_text = this.add.text(380, -3, "Seasoning", tab_TextConfig);
+        this.tab_mid_text = this.add.text(380, -3, "Vegetables", tab_TextConfig);
 
         this.tab_right = this.add.sprite(604, -1, 'Tab_right').setOrigin(0, 0);
         this.tab_right.setInteractive();
@@ -775,16 +776,16 @@ class stage_one_vegetables extends Phaser.Scene {
         this.tab_mid.on("pointerover", () => {
             this.tab_mid.play("Tab_mid_onOver");
             this.tab_mid_text.destroy();
-            this.tab_mid_text = this.add.text(380, -3, "Seasoning", tab_colorChange_TextConfig);
+            this.tab_mid_text = this.add.text(380, -3, "Vegetables", tab_colorChange_TextConfig);
         });
         this.tab_mid.on("pointerout", () => {
             this.tab_mid.play("Tab_mid_idle");
             this.tab_mid_text.destroy();
-            this.tab_mid_text = this.add.text(380, -3, "Seasoning", tab_TextConfig);
+            this.tab_mid_text = this.add.text(380, -3, "Vegetables", tab_TextConfig);
         });
 
         this.tab_mid.on("pointerdown", () => {
-            this.scene.start("stage_one_seasoning");
+            this.scene.start("stage_one_vegetables");
         });
 
 

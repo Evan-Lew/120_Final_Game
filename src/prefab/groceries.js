@@ -149,6 +149,127 @@ class Groceries extends Phaser.GameObjects.Sprite {
                 //remove this on final
                 console.log("ERROR: unable to load anime");
             }
+
+        }else if(this.ID == ID_GROCERY_CHEESE){
+            if (this.quality == 1) {
+                this.play("cheese_good");
+            } else if (this.quality == 0) {
+                this.play("cheese_normal");
+            } else if (this.quality == -1) {
+                this.play("cheese_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+
+        }else if(this.ID == ID_GROCERY_MILK){
+            if (this.quality == 1) {
+                this.play("milk_good");
+            } else if (this.quality == 0) {
+                this.play("milk_normal");
+            } else if (this.quality == -1) {
+                this.play("milk_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+
+        }else if(this.ID == ID_GROCERY_EGGS){
+            if (this.quality == 1) {
+                this.play("eggs_good");
+            } else if (this.quality == 0) {
+                this.play("eggs_normal");
+            } else if (this.quality == -1) {
+                this.play("eggs_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+
+        }else if(this.ID == ID_GROCERY_BUTTER){
+            if (this.quality == 1) {
+                this.play("butter_good");
+            } else if (this.quality == 0) {
+                this.play("butter_normal");
+            } else if (this.quality == -1) {
+                this.play("butter_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+
+        }else if(this.ID == ID_GROCERY_YOGURT){
+            if (this.quality == 1) {
+                this.play("yogurt_good");
+            } else if (this.quality == 0) {
+                this.play("yogurt_normal");
+            } else if (this.quality == -1) {
+                this.play("yogurt_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+
+        }else if(this.ID == ID_GROCERY_SOYSAUCE){
+            if (this.quality == 1) {
+                this.play("soysauce_good");
+            } else if (this.quality == 0) {
+                this.play("soysauce_normal");
+            } else if (this.quality == -1) {
+                this.play("soysauce_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+
+        }else if(this.ID == ID_GROCERY_PARSLEY){
+            if (this.quality == 1) {
+                this.play("parsley_good");
+            } else if (this.quality == 0) {
+                this.play("parsley_normal");
+            } else if (this.quality == -1) {
+                this.play("parsley_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+
+        }else if(this.ID == ID_GROCERY_GARLIC){
+            if (this.quality == 1) {
+                this.play("garlic_good");
+            } else if (this.quality == 0) {
+                this.play("garlic_normal");
+            } else if (this.quality == -1) {
+                this.play("garlic_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+
+        }else if(this.ID == ID_GROCERY_SALT){
+            if (this.quality == 1) {
+                this.play("salt_good");
+            } else if (this.quality == 0) {
+                this.play("salt_normal");
+            } else if (this.quality == -1) {
+                this.play("salt_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+
+        }else if(this.ID == ID_GROCERY_PEPPER){
+            if (this.quality == 1) {
+                this.play("pepper_good");
+            } else if (this.quality == 0) {
+                this.play("pepper_normal");
+            } else if (this.quality == -1) {
+                this.play("pepper_bad");
+            } else {
+                //remove this on final
+                console.log("ERROR: unable to load anime");
+            }
+            
         }else{
             console.log("ERROR: unable to load ID");
         }
@@ -163,7 +284,7 @@ class Groceries extends Phaser.GameObjects.Sprite {
         }else if(this.ID == ID_GROCERY_ONION){
             this.price = 1;
         }else if(this.ID == ID_GROCERY_CORN){
-            this.price = 0.5;
+            this.price = 0.50;
         }else if(this.ID == ID_GROCERY_POTATO){
             this.price = 1;
         }else if(this.ID == ID_GROCERY_SLUG){
@@ -178,41 +299,31 @@ class Groceries extends Phaser.GameObjects.Sprite {
             this.price = 6;
         }else if(this.ID == ID_GROCERY_SHRIMP){
             this.price = 5;
-        }
-        
-        else{
+        }else if(this.ID == ID_GROCERY_CHEESE){
+            this.price = 4;
+        }else if(this.ID == ID_GROCERY_MILK){
+            this.price = 2;
+        }else if(this.ID == ID_GROCERY_EGGS){
+            this.price = 2;
+        }else if(this.ID == ID_GROCERY_BUTTER){
+            this.price = 2;
+        }else if(this.ID == ID_GROCERY_YOGURT){
+            this.price = 1;
+        }else if(this.ID == ID_GROCERY_PARSLEY){
+            this.price = 1;
+        }else if(this.ID == ID_GROCERY_GARLIC){
+            this.price = 1;
+        }else if(this.ID == ID_GROCERY_SALT){
+            this.price = 0.2;
+        }else if(this.ID == ID_GROCERY_PEPPER){
+            this.price = 0.2;
+        }else if(this.ID == ID_GROCERY_SOYSAUCE){
+            this.price = 1;
+        }else{
             console.log("ERROR: unable to load ID");
         }
     }
 }
 
 
-
-
-/*old
-constructor(scene, x, y, texture, frame, front, goodQuality, badQuality) {
-    super(scene, x, y, texture, frame);
-    scene.add.existing(this);
-    this.front = front;
-    this.goodQuality = goodQuality;
-    this.badQuality = badQuality;
-*/
-
-/*old
-flipGoodQuality() {
-    var grocery = this;
-    grocery.setTexture(grocery.texture, grocery.goodQuality);
-    setTimeout(function() {
-        grocery.setTexture(grocery.texture, grocery.front);
-    }, 1000);
-}
-
-flipBadQuality() {
-    var grocery = this;
-    grocery.setTexture(grocery.texture, grocery.badQuality);
-    setTimeout(function () {
-        grocery.setTexture(grocery.texture, grocery.front);
-    }, 1000);
-}
-*/
 
