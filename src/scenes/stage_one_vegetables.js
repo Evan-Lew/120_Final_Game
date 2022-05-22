@@ -101,6 +101,7 @@ class stage_one_vegetables extends Phaser.Scene {
         this.basket_Update();
         this.endGame_Update();
 
+        
         //console.log(timer);
         //console.log(timer_countDown);
 

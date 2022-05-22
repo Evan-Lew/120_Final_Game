@@ -5,6 +5,15 @@ let config = {
     width: 1280,
     height: 720,
     transparent: true,
+    
+    physics: {
+        default: 'arcade',
+        arcade: {
+            fps: { forceSetTimeOut: true, target: 60 }
+        }
+    },
+
+
     scene: [load, title_screen, stage_one_vegetables, stage_one_meats]
     // the the starter scene in load.js
 }
