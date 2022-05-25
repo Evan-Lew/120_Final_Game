@@ -3,15 +3,23 @@ class Inventory extends Phaser.GameObjects.Sprite {
     //                 texture is atlas name, for example, 'tomato_atlas'
     //                 frame is starting frame, for example, 'tomato_idle_01'
     //                 quality is defined as globle in main, -1 -> Bad,  0 -> Normal,  1 -> Good
-    constructor(scene, x, y, texture, frame, quality, ID) {
+    constructor(scene, x, y, texture, frame, quality, ID, price) {
         super(scene, x, y, texture, frame);    
         scene.add.existing(this);
         this.quality = quality;
         this.ID = ID;
         this.idle = frame;
         this.key = texture;
+        this.price = price;
+
+        this.leftClickFlag = false;
     }
 
+
+    
+
+
+    
 
 }
 

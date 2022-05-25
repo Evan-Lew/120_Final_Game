@@ -437,7 +437,7 @@ class stage_one_dairy extends Phaser.Scene {
                     budget -= groceries[i].price;
                     this.order_Helper_budgetUpdate();
                     //push to inventory
-                    inventory.push(new Inventory(this, 980 + inventory_spacing_x, 540 + inventory_spacing_y, groceries[i].key, groceries[i].idle, groceries[i].quality, groceries[i].ID).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
+                    inventory.push(new Inventory(this, 980 + inventory_spacing_x, 540 + inventory_spacing_y, groceries[i].key, groceries[i].idle, groceries[i].quality, groceries[i].ID, groceries[i].price).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
                     //inventory[inventory.length - 1].visible = true;
                     //reset and destroy the old sprite in grocery
                     groceries[i].movedToInventory = true;
