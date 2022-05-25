@@ -6,12 +6,15 @@ class stage_two_cooking extends Phaser.Scene {
     }
 
     create() {
+        
+
 
         //local variable
         this.inventory_scale = 0.4;
         this.pot_scale = 0.5;
-        let pot_x = 300;
-        let inventory_sprite = [];
+
+        this.inventory_sprite = [];
+        this.inPot = [];
 
 
         this.add.rectangle(0, 0, 1280, 720, 0xFFFFFF).setOrigin(0, 0);
@@ -29,17 +32,17 @@ class stage_two_cooking extends Phaser.Scene {
 
 
         //create some groceries for testing
-      //  inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "vegetables_atlas", "tomato_normal_02", 0, ID_GROCERY_TOMATO, 1).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
-      // inventory_spacing_x = 0;
-      //  inventory_spacing_y += 2 * INVENTORY_INCREMENT;
+        //  inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "vegetables_atlas", "tomato_normal_02", 0, ID_GROCERY_TOMATO, 1).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
+        // inventory_spacing_x = 0;
+        //  inventory_spacing_y += 2 * INVENTORY_INCREMENT;
 
-       // inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "vegetables_atlas", "potato_normal_02", 0, ID_GROCERY_POTATO, 2).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
-      //  inventory_spacing_x = 0;
-      //  inventory_spacing_y += 2 * INVENTORY_INCREMENT;
+        // inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "vegetables_atlas", "potato_normal_02", 0, ID_GROCERY_POTATO, 2).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
+        //  inventory_spacing_x = 0;
+        //  inventory_spacing_y += 2 * INVENTORY_INCREMENT;
 
-      //  inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "seasoning_atlas", "salt_normal_02", 0, ID_GROCERY_SALT, 0.1).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
-      //  inventory_spacing_x = 0;
-      //  inventory_spacing_y += 2 * INVENTORY_INCREMENT;
+        //  inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "seasoning_atlas", "salt_normal_02", 0, ID_GROCERY_SALT, 0.1).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
+        //  inventory_spacing_x = 0;
+        //  inventory_spacing_y += 2 * INVENTORY_INCREMENT;
 
 
 
@@ -49,17 +52,23 @@ class stage_two_cooking extends Phaser.Scene {
         //this.potButton();
         // Pot setup end
         // ------------------------------------------------------------------
-        
-        
-        
-        
+
+
+
+
         // ------------------------------------------------------------------
         // Inventory setup
         this.inventory_Display();
-        //this.inventory_makeInteraction();
         // Inventory setup end
         // ------------------------------------------------------------------
 
+
+
+        // ------------------------------------------------------------------
+        // Inventory setup
+        this.potCook();
+        // Inventory setup end
+        // ------------------------------------------------------------------
 
 
 
@@ -78,6 +87,12 @@ class stage_two_cooking extends Phaser.Scene {
         this.text = this.add.text(600, 650, "Press enter to return", TextConfig);
 
 
+        //performance debugging
+        console.log("inventory length is " + inventory.length);
+        console.log("inventory sprite length is " + this.inventory_sprite.length);
+        console.log("pot length is " + this.inPot.length);
+
+
 
     }
 
@@ -92,15 +107,18 @@ class stage_two_cooking extends Phaser.Scene {
 
 
     }
-    
-    
+
+    //helper function used in display to do the interaction
     inventory_Helper_onClick(i) {
         this.inventory_sprite[i].on('pointerdown', function (pointer) {
             if (pointer.leftButtonDown()) {
-                console.log("hello");
-                inventory_sprite[i].visible = false;
-                inPot.push(new Inventory(this, 800 + POT_SPACING_ORIGINAL_X, 110 + POT_SPACING_ORIGINAL_Y, inventory[i].key, inventory[i].idle, inventory[i].quality, inventory[i].ID, inventory[i].price).setOrigin(0.5, 0.5).setScale(this.pot_scale));
-                POT_SPACING_ORIGINAL_Y += POT_INCREMENT;
+                if (this.inPot.length < 4) {
+                    this.inventory_sprite[i].visible = false;
+                    this.inPot.push(new Inventory(this, POT_SPACING_ORIGINAL_X, POT_SPACING_ORIGINAL_Y, inventory[i].key, inventory[i].idle, inventory[i].quality, inventory[i].ID, inventory[i].price).setOrigin(0.5, 0.5).setScale(this.pot_scale));
+                    POT_SPACING_ORIGINAL_Y += POT_INCREMENT;
+                } else {
+                    console.log("too many ingredients");
+                }
             }
         }, this)
     }// for end
@@ -113,40 +131,25 @@ class stage_two_cooking extends Phaser.Scene {
 
             for (var i = 0; i < inventory.length; i++) {
                 //make if loop to check 
-                inventory_sprite[i] = this.add.sprite(inventory[i].x - 900, inventory[i].y - 300, inventory[i].key, inventory[i].idle).setOrigin(0.5, 0.5).setScale(this.inventory_scale).setInteractive();
-                //inventory[i].visible = true;
-                //inventory[i].setInteractive();
+                this.inventory_sprite[i] = this.add.sprite(inventory_stage2_spacing_x, inventory_stage2_spacing_y, inventory[i].key, inventory[i].idle).setOrigin(0.5, 0.5).setScale(this.inventory_scale).setInteractive();
+                inventory_stage2_spacing_x += INVENTORY_STAGE2_INCREMENT;
+                if (inventory_stage2_spacing_x > 500) {
+                    inventory_stage2_spacing_y += INVENTORY_STAGE2_INCREMENT;
+                    inventory_stage2_spacing_x -= 500;
+                }
                 this.inventory_Helper_onClick(i);
             }//for end
         }//if end
     }
 
 
-    /*
-    inventory_makeInteraction() {
-        //make every inventory groceries interactive with right lick
-        //  also display them
-        if (inventory.length != 0) {
-            for (var i = 0; i < inventory.length; i++) {
-                //     inventory[i] = this.add.sprite(inventory[i].x, inventory[i].y, inventory[i].key, inventory[i].idle).setOrigin(0.5, 0.5).setScale(this.inventory_scale);
-                inventory[i].setInteractive();
-                this.inventory_Helper_onClick(i);
-            }//for end
-        }
+    //helper function reset the pot array
+    potCook_Helper_reset(){
+        this.inPot = null;
+        this.inPot = [];
     }
 
-    inventory_Helper_onClick(i) {
-        inventory[i].on('pointerdown', function (pointer) {
-            if (pointer.leftButtonDown()) {
-                inventory[i].visible = false;
-                inPot.push(new Inventory(this, 800 + POT_SPACING_ORIGINAL_X, 110 + POT_SPACING_ORIGINAL_Y, inventory[i].key, inventory[i].idle, inventory[i].quality, inventory[i].ID, inventory[i].price).setOrigin(0.5, 0.5).setScale(this.pot_scale));
-                POT_SPACING_ORIGINAL_Y += POT_INCREMENT;
-            }
-        }, this)
-    }// for end
-
-
-    potButton(){
+    potCook(){
 
         let TextConfig = {
             align: 'center',
@@ -155,20 +158,27 @@ class stage_two_cooking extends Phaser.Scene {
             color: "#000000",
         }
 
-
-
         this.cook_text = this.add.text(200, 600, "Click here to cook", TextConfig);
         this.cook_text.setInteractive();
         this.cook_text.on('pointerdown', function (pointer) {
         if (pointer.leftButtonDown()) {
-            console.log("shut up!!! I am cooking");
+
+            for(var i = 0; i < this.inPot.length; i++){
+                console.log("I am ID: " + this.inPot[i].ID + " With quaility " + this.inPot[i].quality);
+                this.inPot[i].destroy();
+            }//for end
+
+            //clean the pot up
+            this.potCook_Helper_reset();
+
+            console.log("Cook");
             }
         }, this)
 
 
     }
 
-    */
+    
 
 
     //helper function used to reset globle variable

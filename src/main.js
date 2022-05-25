@@ -84,9 +84,13 @@ var INVENTORY_INCREMENT = 50;
 var INVENTORY_SPACING_ORIGINAL_X = -50;
 var INVENTORY_SPACING_ORIGINAL_Y = 0;
 
+var INVENTORY_STAGE2_INCREMENT = 100;
+var INVENTORY_STAGE2_ORIGINAL_X = 100;
+var INVENTORY_STAGE2_ORIGINAL_Y = 100;
+
 var POT_INCREMENT = 120;
-var POT_SPACING_ORIGINAL_X = 0;
-var POT_SPACING_ORIGINAL_Y = 50;
+var POT_SPACING_ORIGINAL_X = 800;
+var POT_SPACING_ORIGINAL_Y = 170;
 
 var BUDGET = 20;
 
@@ -94,11 +98,13 @@ var BUDGET = 20;
 // WARNING: Dynamic varible may cause memory leak, free array before u restart the scene
 var groceries = [];
 var inventory = [];
-var inPot = [];
+
 
 var inventory_spacing_x = INVENTORY_SPACING_ORIGINAL_X;   //this number is -INVENTORY_INCREMENT because first time, it will increment first
 var inventory_spacing_y = INVENTORY_SPACING_ORIGINAL_Y;   //before it runs
-var pot_spacing_x = POT_SPACING_ORIGINAL_X;         //this number is -INVENTORY_INCREMENT because first time, it will increment first
+var inventory_stage2_spacing_x = INVENTORY_STAGE2_ORIGINAL_X;                 //this number is -INVENTORY_INCREMENT because first time, it will increment first
+var inventory_stage2_spacing_y = INVENTORY_STAGE2_ORIGINAL_Y; 
+var pot_spacing_x = POT_SPACING_ORIGINAL_X;                 //this number is -INVENTORY_INCREMENT because first time, it will increment first
 var pot_spacing_y = POT_SPACING_ORIGINAL_Y; 
 
 var velocity = 0;

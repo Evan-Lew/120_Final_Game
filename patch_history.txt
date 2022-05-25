@@ -1,3 +1,6 @@
+5/25
+add feature to cook
+
 5/22
 fixed prcision bug
 all aisle complete
