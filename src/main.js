@@ -118,9 +118,11 @@ var gameOver = false;
 var stageOneOver = false;
 
 
+/* Submission Description
 
+Credit:
+https://pixabay.com/music/elevator-music-elevator-music-5805/ - music used for the store bgm, we changed the reverb
 
+https://pixabay.com/music/traditional-jazz-cool-jazz-loops-2641/ - music used for the title bgm, we changed the reverb
 
-
-
-
+*/

@@ -8,9 +8,13 @@ class load extends Phaser.Scene {
         this.load.path = "./assets/";
 
         // -----loading audio-----
+        // sounds effects
         this.load.audio('sfx_door', 'door_open.wav');
         this.load.audio('sfx_cart', 'rolling_cart.mp3');
 
+        // background music
+        this.load.audio('store_bgm', 'store_music.mp3');
+        this.load.audio('title_bgm', 'jazz_music.mp3');
 
         // -----loading assets-----
         // load vegetables/dairy/meats atlas
@@ -21,7 +25,7 @@ class load extends Phaser.Scene {
         this.load.atlas("slug_atlas", "Banana_Slug.png", "banana_slug_map.json");
 
 
-        // load produce/dairy/meat aisle/seasoning
+        // load produce/dairy/meat/seasoning aisles
         this.load.image('produce_aisle', 'Produce_Aisle.png');
         this.load.image('dairy_aisle', 'Dairy_Aisle.png');
         this.load.image('meat_aisle', 'Meat_Aisle.png');
@@ -64,8 +68,8 @@ class load extends Phaser.Scene {
         this.create_Animation_seasoning();
         this.create_Animation_Belt();
         //this.scene.start("stage_two_cooking");
-        //this.scene.start("title_screen");
-        this.scene.start("stage_one_dairy");
+        this.scene.start("title_screen");
+        //this.scene.start("stage_one_dairy");
 
     }
 

@@ -19,6 +19,10 @@ class title_screen extends Phaser.Scene {
         // intialize the cart
         this.cart = new menu_cart(this, 155, 575, 'cart').setOrigin(0, 0);
 
+        // initialize the bgm
+        this.title_bgm = this.sound.add('title_bgm', { volume: 0.5 });
+        this.title_bgm.play();
+
     }
 
     update() {
@@ -29,6 +33,11 @@ class title_screen extends Phaser.Scene {
         // enter key interaction
         if (Phaser.Input.Keyboard.JustDown(keyEnter)) {
             if (this.cart.locate == 1) {
+                // stop title screen bgm and start store bgm
+                this.title_bgm.stop();
+                this.store_bgm = this.sound.add('store_bgm', { volume: 0.5 });
+                this.store_bgm.play();
+                // play door sfx
                 this.sound.play('sfx_door');
                 this.scene.start("stage_one_vegetables");
             }
