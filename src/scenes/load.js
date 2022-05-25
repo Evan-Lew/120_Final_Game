@@ -64,7 +64,8 @@ class load extends Phaser.Scene {
         this.create_Animation_seasoning();
         this.create_Animation_Belt();
         //this.scene.start("stage_two_cooking");
-        this.scene.start("title_screen");
+        //this.scene.start("title_screen");
+        this.scene.start("stage_one_dairy");
 
     }
 
@@ -1321,8 +1322,8 @@ class load extends Phaser.Scene {
             key: 'belt_EASY',
             frames: this.anims.generateFrameNames('belt_atlas', {
                 prefix: 'belt_',
-                start: 1,
-                end: 11,
+                start: 11,
+                end: 1,
                 suffix: '',
                 zeroPad: 2
             }),
@@ -1334,8 +1335,8 @@ class load extends Phaser.Scene {
             key: 'belt_NORMAL',
             frames: this.anims.generateFrameNames('belt_atlas', {
                 prefix: 'belt_',
-                start: 1,
-                end: 11,
+                start: 11,
+                end: 1,
                 suffix: '',
                 zeroPad: 2
             }),
@@ -1347,8 +1348,8 @@ class load extends Phaser.Scene {
             key: 'belt_HARD',
             frames: this.anims.generateFrameNames('belt_atlas', {
                 prefix: 'belt_',
-                start: 1,
-                end: 11,
+                start: 11,
+                end: 1,
                 suffix: '',
                 zeroPad: 2
             }),
@@ -1360,8 +1361,8 @@ class load extends Phaser.Scene {
             key: 'belt_EXPERT',
             frames: this.anims.generateFrameNames('belt_atlas', {
                 prefix: 'belt_',
-                start: 1,
-                end: 11,
+                start: 11,
+                end: 1,
                 suffix: '',
                 zeroPad: 2
             }),

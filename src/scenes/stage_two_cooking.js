@@ -11,6 +11,7 @@ class stage_two_cooking extends Phaser.Scene {
         this.inventory_scale = 0.4;
         this.pot_scale = 0.5;
         let pot_x = 300;
+        let inventory_sprite = [];
 
 
         this.add.rectangle(0, 0, 1280, 720, 0xFFFFFF).setOrigin(0, 0);
@@ -54,6 +55,7 @@ class stage_two_cooking extends Phaser.Scene {
         
         // ------------------------------------------------------------------
         // Inventory setup
+        this.inventory_Display();
         //this.inventory_makeInteraction();
         // Inventory setup end
         // ------------------------------------------------------------------
@@ -91,6 +93,35 @@ class stage_two_cooking extends Phaser.Scene {
 
     }
     
+    
+    inventory_Helper_onClick(i) {
+        this.inventory_sprite[i].on('pointerdown', function (pointer) {
+            if (pointer.leftButtonDown()) {
+                console.log("hello");
+                inventory_sprite[i].visible = false;
+                inPot.push(new Inventory(this, 800 + POT_SPACING_ORIGINAL_X, 110 + POT_SPACING_ORIGINAL_Y, inventory[i].key, inventory[i].idle, inventory[i].quality, inventory[i].ID, inventory[i].price).setOrigin(0.5, 0.5).setScale(this.pot_scale));
+                POT_SPACING_ORIGINAL_Y += POT_INCREMENT;
+            }
+        }, this)
+    }// for end
+
+
+
+    inventory_Display() {
+        //display inventory stuffs if it's not empty and make them interactive
+        if (inventory.length != 0) {
+
+            for (var i = 0; i < inventory.length; i++) {
+                //make if loop to check 
+                inventory_sprite[i] = this.add.sprite(inventory[i].x - 900, inventory[i].y - 300, inventory[i].key, inventory[i].idle).setOrigin(0.5, 0.5).setScale(this.inventory_scale).setInteractive();
+                //inventory[i].visible = true;
+                //inventory[i].setInteractive();
+                this.inventory_Helper_onClick(i);
+            }//for end
+        }//if end
+    }
+
+
     /*
     inventory_makeInteraction() {
         //make every inventory groceries interactive with right lick

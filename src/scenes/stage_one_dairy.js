@@ -455,7 +455,6 @@ class stage_one_dairy extends Phaser.Scene {
 
             for (var i = 0; i < inventory.length; i++) {
                 //make if loop to check 
-
                 this.add.sprite(inventory[i].x, inventory[i].y, inventory[i].key, inventory[i].idle).setOrigin(0.5, 0.5).setScale(this.inventory_scale);
                 inventory[i].visible = true;
             }
