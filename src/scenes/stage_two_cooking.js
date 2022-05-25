@@ -28,24 +28,24 @@ class stage_two_cooking extends Phaser.Scene {
 
 
         //create some groceries for testing
-        inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "vegetables_atlas", "tomato_normal_02", 0, ID_GROCERY_TOMATO, 1).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
-        inventory_spacing_x = 0;
-        inventory_spacing_y += 2 * INVENTORY_INCREMENT;
+      //  inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "vegetables_atlas", "tomato_normal_02", 0, ID_GROCERY_TOMATO, 1).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
+      // inventory_spacing_x = 0;
+      //  inventory_spacing_y += 2 * INVENTORY_INCREMENT;
 
-        inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "vegetables_atlas", "potato_normal_02", 0, ID_GROCERY_POTATO, 2).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
-        inventory_spacing_x = 0;
-        inventory_spacing_y += 2 * INVENTORY_INCREMENT;
+       // inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "vegetables_atlas", "potato_normal_02", 0, ID_GROCERY_POTATO, 2).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
+      //  inventory_spacing_x = 0;
+      //  inventory_spacing_y += 2 * INVENTORY_INCREMENT;
 
-        inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "seasoning_atlas", "salt_normal_02", 0, ID_GROCERY_SALT, 0.1).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
-        inventory_spacing_x = 0;
-        inventory_spacing_y += 2 * INVENTORY_INCREMENT;
+      //  inventory.push(new Inventory(this, 300 + inventory_spacing_x, 200 + inventory_spacing_y, "seasoning_atlas", "salt_normal_02", 0, ID_GROCERY_SALT, 0.1).setOrigin(0.5, 0.5).setScale(this.inventory_scale));
+      //  inventory_spacing_x = 0;
+      //  inventory_spacing_y += 2 * INVENTORY_INCREMENT;
 
 
 
         // ------------------------------------------------------------------
         // Pot setup
         this.add.rectangle(600, 100, 400, 550, 0xEFC0C0).setOrigin(0, 0);
-        this.potButton();
+        //this.potButton();
         // Pot setup end
         // ------------------------------------------------------------------
         
@@ -54,7 +54,7 @@ class stage_two_cooking extends Phaser.Scene {
         
         // ------------------------------------------------------------------
         // Inventory setup
-        this.inventory_makeInteraction();
+        //this.inventory_makeInteraction();
         // Inventory setup end
         // ------------------------------------------------------------------
 
@@ -90,7 +90,8 @@ class stage_two_cooking extends Phaser.Scene {
 
 
     }
-
+    
+    /*
     inventory_makeInteraction() {
         //make every inventory groceries interactive with right lick
         //  also display them
@@ -135,6 +136,8 @@ class stage_two_cooking extends Phaser.Scene {
 
 
     }
+
+    */
 
 
     //helper function used to reset globle variable
