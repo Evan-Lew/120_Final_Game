@@ -212,7 +212,7 @@ class stage_one_seasoning extends Phaser.Scene {
                         callback: () => {
                             {
                                 this.text_budget.destroy();
-                                this.text_budget = this.add.text(1150, 400, budget, highlightTextConfig);
+                                this.text_budget = this.add.text(1150, 400, budget.toFixed(1), highlightTextConfig);
                             }
                         },
                         callbackScope: this,
@@ -223,7 +223,7 @@ class stage_one_seasoning extends Phaser.Scene {
                         callback: () => {
                             {
                                 this.text_budget.destroy();
-                                this.text_budget = this.add.text(1150, 400, budget, centerTextConfig);
+                                this.text_budget = this.add.text(1150, 400, budget.toFixed(1), centerTextConfig);
                             }
                         },
                         callbackScope: this,
@@ -717,7 +717,7 @@ class stage_one_seasoning extends Phaser.Scene {
             fontSize: "80px",
             color: "#000814",
         }
-        
+
         this.tab_main_text = this.add.text(310, 42, "Seasoning", tab_main_TextConfig);
 
         this.tab_left = this.add.sprite(0, 0, 'Tab_left').setOrigin(0, 0);
@@ -828,14 +828,65 @@ class stage_one_seasoning extends Phaser.Scene {
     order_Init() {
         this.canvas_order = this.add.tileSprite(960, 10, 310, 450, 'order_background').setOrigin(0, 0);
 
+        let size_recipeIngre = 0.2;
+        let recipe_TextConfig = {
+            align: 'center',
+            fontFamily: 'Lobster',
+            fontSize: "30px",
+            color: "#383737",
+        }
+
+        this.recipe1_text = this.add.text(1010, 90, randomMenu[0].Name, recipe_TextConfig);
+        if (randomMenu[0].ingredient1 != 0) {
+            this.recipe1_ingredient1 = this.add.sprite(1020, 130, randomMenu[0].ingredient1_texture, randomMenu[0].ingredient1_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+        if (randomMenu[0].ingredient2 != 0) {
+            this.recipe1_ingredient2 = this.add.sprite(1070, 130, randomMenu[0].ingredient2_texture, randomMenu[0].ingredient2_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+        if (randomMenu[0].ingredient3 != 0) {
+            this.recipe1_ingredient3 = this.add.sprite(1120, 130, randomMenu[0].ingredient3_texture, randomMenu[0].ingredient3_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+        if (randomMenu[0].ingredient3 != 0) {
+            this.recipe1_ingredient3 = this.add.sprite(1170, 130, randomMenu[0].ingredient4_texture, randomMenu[0].ingredient4_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+
+
+        this.recipe2_text = this.add.text(1010, 180, randomMenu[1].Name, recipe_TextConfig);
+        if (randomMenu[1].ingredient1 != 0) {
+            this.recipe2_ingredient1 = this.add.sprite(1020, 220, randomMenu[1].ingredient1_texture, randomMenu[1].ingredient1_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+        if (randomMenu[1].ingredient2 != 0) {
+            this.recipe2_ingredient2 = this.add.sprite(1070, 220, randomMenu[1].ingredient2_texture, randomMenu[1].ingredient2_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+        if (randomMenu[1].ingredient3 != 0) {
+            this.recipe2_ingredient3 = this.add.sprite(1120, 220, randomMenu[1].ingredient3_texture, randomMenu[1].ingredient3_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+        if (randomMenu[1].ingredient3 != 0) {
+            this.recipe2_ingredient3 = this.add.sprite(1170, 220, randomMenu[1].ingredient4_texture, randomMenu[1].ingredient4_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+
+        this.recipe3_text = this.add.text(1010, 270, randomMenu[2].Name, recipe_TextConfig);
+        if (randomMenu[2].ingredient1 != 0) {
+            this.recipe2_ingredient1 = this.add.sprite(1020, 310, randomMenu[2].ingredient1_texture, randomMenu[2].ingredient1_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+        if (randomMenu[2].ingredient2 != 0) {
+            this.recipe2_ingredient2 = this.add.sprite(1070, 310, randomMenu[2].ingredient2_texture, randomMenu[2].ingredient2_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+        if (randomMenu[2].ingredient3 != 0) {
+            this.recipe2_ingredient3 = this.add.sprite(1120, 310, randomMenu[2].ingredient3_texture, randomMenu[2].ingredient3_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+        if (randomMenu[2].ingredient3 != 0) {
+            this.recipe2_ingredient3 = this.add.sprite(1170, 310, randomMenu[2].ingredient4_texture, randomMenu[2].ingredient4_frame).setOrigin(0, 0).setScale(size_recipeIngre);
+        }
+
         let centerTextConfig = {
             align: 'center',
             fontFamily: 'Lobster',
             fontSize: "32px",
             color: "#000000",
         }
-         
-        this.text_budget = this.add.text(1150, 400, budget.toFixed(1),centerTextConfig);
+
+        this.text_budget = this.add.text(1150, 400, budget.toFixed(1), centerTextConfig);
     }
 
     //function that make add basket

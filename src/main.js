@@ -53,6 +53,7 @@ var GENERATION_FREQUENCY_P2 = GENERATION_FREQUENCY_P1 / 2;
 var GENERATION_FREQUENCY_P3 = GENERATION_FREQUENCY_P2 / 2;    
 var GENERATION_FREQUENCY_P4 = GENERATION_FREQUENCY_P3 / 2;    
 
+var ID_NONE = 0;
 var ID_GROCERY_SLUG = 1000;
 
 var ID_GROCERY_TOMATO = 1001;
@@ -80,6 +81,41 @@ var ID_GROCERY_PEPPER  = 1019;
 var ID_GROCERY_SOYSAUCE = 1020;
 //var ID_GROCERY_  = 
 
+/* README FOR MODIFY DISH ID
+    ID Explain: 110: 11 means the type of the dish for example POTATO_STEAM, 0 indicate the the various suffix
+    Suffix Explain:
+        TASTY means add salt and pepper
+        EPIC means add salt, pepper, and parsley
+        CHEESEY means add cheese
+        _ExtraIngrdientName  if it's not common
+    NOTE: put ingredients for original dish next to in, the combination MUST BE unique    
+          and don't make name too long
+*/
+
+//  steam potato: potato
+var ID_DISH_STEAM_POTATO = 110;
+var ID_DISH_STEAM_POTATO_TASTY = 112;
+var ID_DISH_STEAM_POTATO_EIPC = 113;
+
+//  tomato salad: tomato salt
+var ID_DISH_TOMATO_SALAD = 120;
+var ID_DISH_TOMATO_SALAD_TASTY = 121;
+
+//  roasted corn: corn
+var ID_DISH_ROASTED_COIN = 130;
+var ID_DISH_ROASTED_COIN_TASTY = 131;
+var ID_DISH_ROASTED_COIN_CHEESEY = 132;
+
+//  fried egg : egg soysauce
+var ID_DISH_FRY_EGG = 140;
+
+//  Chinese breakfast : egg soysauce milk
+var ID_DISH_CHINESE_BREAKFAST = 150;
+
+
+
+
+
 var INVENTORY_INCREMENT = 50;
 var INVENTORY_SPACING_ORIGINAL_X = -50;
 var INVENTORY_SPACING_ORIGINAL_Y = 0;
@@ -98,6 +134,10 @@ var BUDGET = 20;
 // WARNING: Dynamic varible may cause memory leak, free array before u restart the scene
 var groceries = [];
 var inventory = [];
+var menu = [];
+var randomMenu = [];
+var score = [];
+
 
 
 var inventory_spacing_x = INVENTORY_SPACING_ORIGINAL_X;   //this number is -INVENTORY_INCREMENT because first time, it will increment first
@@ -106,6 +146,10 @@ var inventory_stage2_spacing_x = INVENTORY_STAGE2_ORIGINAL_X;                 //
 var inventory_stage2_spacing_y = INVENTORY_STAGE2_ORIGINAL_Y; 
 var pot_spacing_x = POT_SPACING_ORIGINAL_X;                 //this number is -INVENTORY_INCREMENT because first time, it will increment first
 var pot_spacing_y = POT_SPACING_ORIGINAL_Y; 
+
+var INVENTORY_INCREMENT = 50;
+var INVENTORY_SPACING_ORIGINAL_X = 0;
+var INVENTORY_SPACING_ORIGINAL_Y = 0;
 
 var velocity = 0;
 

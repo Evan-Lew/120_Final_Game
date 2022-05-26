@@ -1,3 +1,8 @@
+5/26
+add score, sort, and recipes
+add algo for score calculating
+add recipe randomize and add it to canvas in stage one
+
 5/25
 add feature to cook
 
