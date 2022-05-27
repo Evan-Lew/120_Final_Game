@@ -110,7 +110,7 @@ var ID_DISH_ROASTED_COIN_CHEESEY = 132;
 var ID_DISH_FRY_EGG = 140;
 
 //  Chinese breakfast : egg soysauce milk
-var ID_DISH_CHINESE_BREAKFAST = 150;
+var ID_DISH_CHINESE_BREAKFAST = 141;
 
 
 
