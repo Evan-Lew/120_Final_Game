@@ -173,4 +173,7 @@ https://pixabay.com/music/elevator-music-elevator-music-5805/ - music used for t
 
 https://pixabay.com/music/traditional-jazz-cool-jazz-loops-2641/ - music used for the title bgm, we changed the reverb
 
+https://freesound.org/people/yottasounds/sounds/232136/ - cart noise sfx that we trimmed down
+
+https://freesound.org/people/NeoSpica/sounds/425090/ - door opening sfx
 */
