@@ -112,7 +112,11 @@ var ID_DISH_FRY_EGG = 140;
 //  Chinese breakfast : egg soysauce milk
 var ID_DISH_CHINESE_BREAKFAST = 150;
 
+// Beef stew : beef onion carrot
+var ID_DISH_BEEF_STEW = 210;
 
+// Scrambled eggs : eggs milk
+var ID_DISH_SCRAMBLED_EGGS = 220;
 
 
 
