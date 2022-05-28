@@ -14,6 +14,8 @@ class stage_two_cooking extends Phaser.Scene {
         this.total_quality = 1;
         this.qualityWeight = 0.4;
         this.slugCount = 0;
+        this.potIsWorking = false;
+
 
         this.dishTable = [];
         this.inventory_sprite = [];
@@ -30,7 +32,7 @@ class stage_two_cooking extends Phaser.Scene {
         // ------------------------------------------------------------------
         // mouse, keyboard setup
         this.input.mouse.disableContextMenu();
-        keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
+        keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         // mouse, keyboard setup end
         // ------------------------------------------------------------------
 
@@ -55,9 +57,9 @@ class stage_two_cooking extends Phaser.Scene {
 
 
         // ------------------------------------------------------------------
-        // Inventory setup
+        // pot setup
         this.potCook();
-        // Inventory setup end
+        // pot setup end
         // ------------------------------------------------------------------
 
 
@@ -70,10 +72,10 @@ class stage_two_cooking extends Phaser.Scene {
 
 
         //performance debugging
-        //console.log("inventory length is " + inventory.length);
-        //console.log("inventory sprite length is " + this.inventory_sprite.length);
-        //console.log("pot length is " + this.inPot.length);
-        // console.log("recipe length is " + menu.length);
+        console.log("inventory length is " + inventory.length);
+        console.log("inventory sprite length is " + this.inventory_sprite.length);
+        console.log("pot length is " + this.inPot.length);
+        console.log("recipe length is " + menu.length);
 
 
 
@@ -86,13 +88,11 @@ class stage_two_cooking extends Phaser.Scene {
     update() {
 
         this.UI_Update();
+        this.dishTable_Update();
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
             this.endGame_Update_Helper_reset();
             this.scene.start("title_screen");
         }
-
-
-        this.dishTable_Update();
 
     }
 
@@ -252,11 +252,8 @@ class stage_two_cooking extends Phaser.Scene {
 
         this.button_cook.on('pointerdown', function (pointer) {
 
-            if (this.inPot.length == 0) {
-
+            if (this.inPot.length == 0 || this.potIsWorking) {
             } else {
-
-
 
                 if (pointer.leftButtonDown()) {
 
@@ -366,11 +363,15 @@ class stage_two_cooking extends Phaser.Scene {
                 this.steam = this.add.sprite(660, 160, 'steam').setOrigin(0.5);
                 this.steam.play("steam_anim");
 
+                //set pot is working
+                this.potIsWorking = true;
+
                 //text and animation when cooking
                 this.steamEvent = this.time.addEvent({
                     delay: 1000,
                     callback: () => {
                         {
+
                             this.cookText1 = this.add.text(600, 100, "Made", cookconfig).setOrigin(0.5);
                             this.cookText2 = this.add.text(700, 150, this.tempName, cookconfig2).setOrigin(0.5);
                             this.cookText4 = this.add.text(600, 200, "  " + this.pt.toFixed(0) + " pts", cookconfig4).setOrigin(0.5);
@@ -381,6 +382,7 @@ class stage_two_cooking extends Phaser.Scene {
                             this.cookText3 = this.add.text(720, 250, "Next", cookconfig).setOrigin(0.5);
 
 
+
                             this.text3_rec.on('pointerdown', function (pointer) {
                                 if (pointer.leftButtonDown()) {
                                     this.cookText1.destroy();
@@ -389,6 +391,8 @@ class stage_two_cooking extends Phaser.Scene {
                                     this.cookText4.destroy();
                                     this.text3_rec.destroy();
                                     this.steam.destroy();
+                                    this.potIsWorking = false;
+                                    //this.button_cook.setInteractive();
                                 }
                             }, this) //mouse managment is done
 
@@ -464,41 +468,6 @@ class stage_two_cooking extends Phaser.Scene {
         }, this) //mouse managment is done
     }
 
-
-    //used for randomize the recipe
-    recipe_randomizer() {
-        randomMenu = null;
-        randomMenu = [];
-
-        var tempMenu = [];
-        var tempNum1;
-        var tempNum2;
-        var tempNum3;
-        //find all randomable meanu and push them into tempMenu
-        for (var i = 0; i < menu.length; i++) {
-            if (menu[i].randomable) {
-                tempMenu.push(new recipes(this, 0, 0, menu[i].key, menu[i].idle, menu[i].Name, menu[i].ID, menu[i].points, true, menu[i].ingredient1, menu[i].ingredient2, menu[i].ingredient3, menu[i].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
-            }
-        }
-
-        //then the tempMenu will have all randomable recipe, do random function
-        tempNum1 = Phaser.Math.Between(0, tempMenu.length - 1);
-        do {
-            tempNum2 = Phaser.Math.Between(0, tempMenu.length - 1);
-        } while (tempNum2 == tempNum1);
-        do {
-            tempNum3 = Phaser.Math.Between(0, tempMenu.length - 1);
-        } while (tempNum3 == tempNum1 || tempNum3 == tempNum2);
-
-        randomMenu.push(new recipes(this, 0, 0, tempMenu[tempNum1].key, tempMenu[tempNum1].idle, tempMenu[tempNum1].Name, tempMenu[tempNum1].ID, tempMenu[tempNum1].points, true, tempMenu[tempNum1].ingredient1, tempMenu[tempNum1].ingredient2, tempMenu[tempNum1].ingredient3, tempMenu[tempNum1].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
-        randomMenu.push(new recipes(this, 0, 0, tempMenu[tempNum2].key, tempMenu[tempNum2].idle, tempMenu[tempNum2].Name, tempMenu[tempNum2].ID, tempMenu[tempNum2].points, true, tempMenu[tempNum2].ingredient1, tempMenu[tempNum2].ingredient2, tempMenu[tempNum2].ingredient3, tempMenu[tempNum2].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
-        randomMenu.push(new recipes(this, 0, 0, tempMenu[tempNum3].key, tempMenu[tempNum3].idle, tempMenu[tempNum3].Name, tempMenu[tempNum3].ID, tempMenu[tempNum3].points, true, tempMenu[tempNum3].ingredient1, tempMenu[tempNum3].ingredient2, tempMenu[tempNum3].ingredient3, tempMenu[tempNum3].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
-
-        tempMenu.destroy;
-        tempMenu = null;
-    }
-
-
     //function that init the order area
     order_Init() {
 
@@ -554,9 +523,12 @@ class stage_two_cooking extends Phaser.Scene {
         }
     }
 
+
+
     //helper function used to reset globle variable
     endGame_Update_Helper_reset() {
-
+        //update score to score board
+        score.push(this.score);
         //free memory
         groceries = null;
         inventory = null;
@@ -584,7 +556,7 @@ class stage_two_cooking extends Phaser.Scene {
         this.score = 0;
         this.dishTable = null;
         this.dishTable = [];
-        this.recipe_randomizer();
+
     }
 }
 

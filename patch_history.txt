@@ -1,6 +1,6 @@
 5/28
 complete stage two
-
+complete scoreboard
 
 5/27 
 credited cart and door sfx

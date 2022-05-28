@@ -61,9 +61,12 @@ class load extends Phaser.Scene {
         // load title screen
         this.load.image('menu_background', 'menu_background.png');
 
-
-
-
+        // load img for score board
+        this.load.image('score_background1', 'score_background.png');        
+        this.load.image('score_background2', 'score_background2.png');
+        this.load.image('score_background3', 'score_background3.png');
+        this.load.image('score_background4', 'score_background4.png');
+        this.load.image('score_background5', 'score_background5.png');
     }
 
     create() {
@@ -81,8 +84,10 @@ class load extends Phaser.Scene {
         this.create_Animation_steam();
         this.create_Animation_dish();
         //this.scene.start("stage_two_cooking");
-        //this.scene.start("title_screen");
-        this.scene.start("stage_one_vegetables");
+        this.scene.start("title_screen");
+        //this.scene.start("stage_one_vegetables");
+        //this.scene.start("scoreboard");
+        
 
     }
     //function used to make and add recipe
