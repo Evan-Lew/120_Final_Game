@@ -159,6 +159,14 @@ class load extends Phaser.Scene {
         menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Buttered Chicken", ID_DISH_BUTTERED_CHICKEN, 27, true, ID_GROCERY_CHICKEN, ID_GROCERY_BUTTER, ID_GROCERY_GARLIC, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Chicken & Veggies", ID_DISH_CHICKEN_AND_VEGGIES, 23, true, ID_GROCERY_CHICKEN, ID_GROCERY_CARROT, ID_GROCERY_ONION, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Chili", ID_DISH_CHILI, 26, true, ID_GROCERY_BEEF, ID_GROCERY_TOMATO, ID_GROCERY_ONION, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Meatloaf", ID_DISH_MEATLOAF, 22, true, ID_GROCERY_BEEF, ID_GROCERY_TOMATO, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Beef burger", ID_DISH_BEEF_BURGER, 22, true, ID_GROCERY_BEEF, ID_GROCERY_ONION, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Beef casserole", ID_DISH_BEEF_CASSEROLE, 40.5, true, ID_GROCERY_BEEF, ID_GROCERY_CORN, ID_GROCERY_CHEESE, ID_GROCERY_MILK).setOrigin(0.5, 0.5).setVisible(false));
     }
 
     recipe_randomizer(){
