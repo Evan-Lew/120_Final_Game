@@ -183,6 +183,41 @@ var ID_DISH_BUTTERED_CHICKEN = 340;
 // Chicken and veggies : chicken, carrot, onion
 var ID_DISH_CHICKEN_AND_VEGGIES = 350;
 
+// --Beef Dishes--
+// Beef Dishes
+var ID_DISH_CHILI = 360;
+var ID_DISH_MEATLOAF = 370;
+var ID_DISH_BEEF_BURGER = 380;
+var ID_DISH_BEEF_CASSEROLE = 390;
+
+// --Egg Dishes--
+var ID_DISH_OMELETE = 400;
+var ID_DISH_YOGURT_EGGS = 410;
+var ID_DISH_SOY_SAUCE_EGGS = 420;
+
+// --Garlic Fries--
+var ID_DISH_GARLIC_FRIES = 430;
+var ID_DISH_MASHES_POTATOS = 440;
+var ID_DISH_BAKED_POTATO = 450;
+
+// --Yogurt Dishes--
+var ID_DISH_YOGURT_COLESLAW = 460;
+var ID_DISH_YOGURT_SALAD = 470;
+
+// --Corn Salad--
+var ID_DISH_CORN_SALSA = 480;
+var ID_DISH_POPCORN = 490;
+
+// --Misc Dishes--
+var ID_DISH_MAX_AND_CHEESE = 500;
+var ID_DISH_VEGGIE_SALAD = 510;
+
+// --Slug Dishes--
+var ID_DISH_DEAD_SLUG = 520;
+var ID_DISH_TWO_SLUGS = 530;
+var ID_DISH_THREE_SLUGS = 540;
+
+
 
 
 //-------------------------------------------------------------------------------------------------------------
