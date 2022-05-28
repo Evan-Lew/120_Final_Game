@@ -167,6 +167,36 @@ class load extends Phaser.Scene {
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Beef burger", ID_DISH_BEEF_BURGER, 22, true, ID_GROCERY_BEEF, ID_GROCERY_ONION, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Beef casserole", ID_DISH_BEEF_CASSEROLE, 40.5, true, ID_GROCERY_BEEF, ID_GROCERY_CORN, ID_GROCERY_CHEESE, ID_GROCERY_MILK).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Omelete", ID_DISH_OMELETE, 17, true, ID_GROCERY_EGGS, ID_GROCERY_BUTTER, ID_GROCERY_TOMATO, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Yogurt eggs", ID_DISH_YOGURT_EGGS, 9, false, ID_GROCERY_YOGURT, ID_GROCERY_EGGS, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Soy sauce eggs", ID_DISH_SOY_SAUCE_EGGS, 11, true, ID_GROCERY_SOYSAUCE, ID_GROCERY_EGGS).setOrigin(0.5, 0.5).setVisible(false));
+
+        // menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Garlic fries", ID_DISH_GARLIC_FRIES, 8, true, ID_GROCERY_POTATO, ID_GROCERY_GARLIC_POWDER, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Mashes potatos", ID_DISH_MASHES_POTATOS, 17, true, ID_GROCERY_POTATO, ID_GROCERY_MILK, ID_GROCERY_BUTTER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Baked potato", ID_DISH_YOGURT_EGGS, 17, true, ID_GROCERY_POTATO, ID_GROCERY_CHEESE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Yogurt coleslaw", ID_DISH_YOGURT_COLESLAW, 9.5, true, ID_GROCERY_YOGURT, ID_GROCERY_CARROT, ID_GROCERY_CORN, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Yogurt salad", ID_DISH_YOGURT_SALAD, 11, true, ID_GROCERY_YOGURT, ID_GROCERY_TOMATO, ID_GROCERY_CARROT, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Corn salsa", ID_DISH_CORN_SALSA, 9.5, true, ID_GROCERY_CORN, ID_GROCERY_TOMATO, ID_GROCERY_ONION, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Popcorn", ID_DISH_YOGURT_COLESLAW, 9.5, true, ID_GROCERY_CORN, ID_GROCERY_BUTTER, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Mac & Cheese", ID_DISH_MAX_AND_CHEESE, 18, true, ID_GROCERY_MILK, ID_GROCERY_CHEESE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Veggie salad", ID_DISH_VEGGIE_SALAD, 10.5, true, ID_GROCERY_CARROT, ID_GROCERY_TOMATO, ID_GROCERY_CORN, ID_GROCERY_ONION).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Dead slug", ID_DISH_DEAD_SLUG, -100, false, ID_GROCERY_SLUG,ID_GROCERY_SALT, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Two slugs", ID_DISH_TWO_SLUGS, 200, false, ID_GROCERY_SLUG, ID_GROCERY_SLUG, ID_GROCERY_SALT, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Three slugs", ID_DISH_THREE_SLUGS, 500, false, ID_GROCERY_SLUG, ID_GROCERY_SLUG, ID_GROCERY_SLUG, ID_GROCERY_SALT).setOrigin(0.5, 0.5).setVisible(false));
     }
 
     recipe_randomizer(){
