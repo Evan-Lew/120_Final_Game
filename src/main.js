@@ -95,16 +95,16 @@ var ID_GROCERY_SOYSAUCE = 1020;
 //  steam potato: potato
 var ID_DISH_STEAM_POTATO = 110;
 var ID_DISH_STEAM_POTATO_TASTY = 112;
-var ID_DISH_STEAM_POTATO_EIPC = 113;
+var ID_DISH_STEAM_POTATO_EPIC = 113;
 
 //  tomato salad: tomato salt
 var ID_DISH_TOMATO_SALAD = 120;
 var ID_DISH_TOMATO_SALAD_TASTY = 121;
 
 //  roasted corn: corn
-var ID_DISH_ROASTED_COIN = 130;
-var ID_DISH_ROASTED_COIN_TASTY = 131;
-var ID_DISH_ROASTED_COIN_CHEESEY = 132;
+var ID_DISH_ROASTED_CORN = 130;
+var ID_DISH_ROASTED_CORN_TASTY = 131;
+var ID_DISH_ROASTED_CORN_CHEESEY = 132;
 
 //  fried egg : egg soysauce
 var ID_DISH_FRY_EGG = 140;
@@ -112,7 +112,11 @@ var ID_DISH_FRY_EGG = 140;
 //  Chinese breakfast : egg soysauce milk
 var ID_DISH_CHINESE_BREAKFAST = 141;
 
+// Beef stew : beef onion carrot
+var ID_DISH_BEEF_STEW = 210;
 
+// Scrambled eggs : eggs milk
+var ID_DISH_SCRAMBLED_EGGS = 220;
 
 
 
@@ -169,4 +173,7 @@ https://pixabay.com/music/elevator-music-elevator-music-5805/ - music used for t
 
 https://pixabay.com/music/traditional-jazz-cool-jazz-loops-2641/ - music used for the title bgm, we changed the reverb
 
+https://freesound.org/people/yottasounds/sounds/232136/ - cart noise sfx that we trimmed down
+
+https://freesound.org/people/NeoSpica/sounds/425090/ - door opening sfx
 */

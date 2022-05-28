@@ -80,21 +80,28 @@ class load extends Phaser.Scene {
 
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "tasty steam potato", ID_DISH_STEAM_POTATO_TASTY, 15, false, ID_GROCERY_POTATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "epic steam potato", ID_DISH_STEAM_POTATO_EIPC, 20, false,  ID_GROCERY_POTATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_GROCERY_PARSLEY).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "epic steam potato", ID_DISH_STEAM_POTATO_EPIC, 20, false,  ID_GROCERY_POTATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_GROCERY_PARSLEY).setOrigin(0.5, 0.5).setVisible(false));
        
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "tomato salad", ID_DISH_TOMATO_SALAD, 13, true,  ID_GROCERY_TOMATO, ID_GROCERY_SALT, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "tasty tomato salad", ID_DISH_TOMATO_SALAD_TASTY, 18, false, ID_GROCERY_TOMATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "roasted corn", ID_DISH_ROASTED_COIN, 10, true, ID_GROCERY_CORN, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "roasted corn", ID_DISH_ROASTED_CORN, 10, true, ID_GROCERY_CORN, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
     
-        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "tasty roasted corn", ID_DISH_ROASTED_COIN_TASTY, 10, false, ID_GROCERY_CORN, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "tasty roasted corn", ID_DISH_ROASTED_CORN_TASTY, 10, false, ID_GROCERY_CORN, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "cheese roasted corn", ID_DISH_ROASTED_COIN_CHEESEY, 10, false, ID_GROCERY_CORN, ID_GROCERY_CHEESE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "cheese roasted corn", ID_DISH_ROASTED_CORN_CHEESEY, 10, false, ID_GROCERY_CORN, ID_GROCERY_CHEESE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
     
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "fried egg", ID_DISH_FRY_EGG, 20, true, ID_GROCERY_EGGS, ID_GROCERY_SOYSAUCE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
     
+        // Meat Dishes
+
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Chinese breakfast", ID_DISH_CHINESE_BREAKFAST, 30, true, ID_GROCERY_EGGS, ID_GROCERY_SOYSAUCE, ID_GROCERY_MILK, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+
+        // need to set points
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idel_01", "Beef stew", ID_DISH_BEEF_STEW, 0, true, ID_GROCERY_BEEF, ID_GROCERY_ONION, ID_GROCERY_CARROT, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idel_01", "Scrambled eggs", ID_DISH_SCRAMBLED_EGGS, 0, true, ID_GROCERY_EGGS, ID_GROCERY_MILK, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
     }
 
     recipe_randomizer(){

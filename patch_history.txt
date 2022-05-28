@@ -1,3 +1,6 @@
+5/27 
+credited cart and door sfx
+
 5/26
 add score, sort, and recipes
 add algo for score calculating
