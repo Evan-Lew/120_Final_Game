@@ -81,6 +81,7 @@ var ID_GROCERY_PEPPER  = 1019;
 var ID_GROCERY_SOYSAUCE = 1020;
 //var ID_GROCERY_  = 
 
+//-------------------------------------------------------------------------------------------------------------
 /* README FOR MODIFY DISH ID
     ID Explain: 110: 11 means the type of the dish for example POTATO_STEAM, 0 indicate the the various suffix
     Suffix Explain:
@@ -92,33 +93,84 @@ var ID_GROCERY_SOYSAUCE = 1020;
           and don't make name too long
 */
 
-//  steam potato: potato
+//  Steamed potato: potato
 var ID_DISH_STEAM_POTATO = 110;
 var ID_DISH_STEAM_POTATO_TASTY = 112;
 var ID_DISH_STEAM_POTATO_EPIC = 113;
 
-//  tomato salad: tomato salt
+//  Tomato salad: tomato salt
 var ID_DISH_TOMATO_SALAD = 120;
 var ID_DISH_TOMATO_SALAD_TASTY = 121;
 
-//  roasted corn: corn
+//  Roasted corn: corn
 var ID_DISH_ROASTED_CORN = 130;
 var ID_DISH_ROASTED_CORN_TASTY = 131;
 var ID_DISH_ROASTED_CORN_CHEESEY = 132;
 
-//  fried egg : egg soysauce
+//  Fried egg : egg soysauce
 var ID_DISH_FRY_EGG = 140;
 
 //  Chinese breakfast : egg soysauce milk
 var ID_DISH_CHINESE_BREAKFAST = 141;
 
 // Beef stew : beef onion carrot
-var ID_DISH_BEEF_STEW = 210;
+var ID_DISH_BEEF_STEW = 150;
 
 // Scrambled eggs : eggs milk
-var ID_DISH_SCRAMBLED_EGGS = 220;
+var ID_DISH_SCRAMBLED_EGGS = 160;
+
+// --One item recipes that are not shown--
+// Warm milk : milk
+var ID_DISH_WARM_MILK = 170;
+
+// Cooked chicken : chicken
+var ID_DISH_COOKED_CHICKEN = 180;
+
+// Cooked beef : beef
+var ID_DISH_COOKED_BEEF = 190;
+
+// Cooked fish : fish
+var ID_DISH_COOKED_FISH = 200;
+
+// Cooked shrimp : shrimp
+var ID_DISH_COOKED_SHRIMP = 210;
+
+// Cooked steak : steak
+var ID_DISH_COOKED_STEAK = 220;
+
+// Fried egg : egg
+var ID_DISH_FRIED_EGG = 230;
+
+// Steamed carrots : carrots
+var ID_DISH_STEAMED_CARROTS = 240;
+
+// --Steak Dishes--
+// Steak and veggies : steak, onion, carrot
+var ID_DISH_STEAK_AND_VEGGIES = 250;
+
+// Garlic steak : steak, garlic, butter
+var ID_DISH_GARLIC_STEAK = 260;
+
+// Steak and potatos : steak, potato
+var ID_DISH_STEAK_AND_POTATOS = 270;
+
+// --Shrimp and Fish Dishes--
+// Steamed fish : fish, parsley
+var ID_DISH_STEAMED_FISH = 280;
+
+// Seafood dish : fish, shrimp
+var ID_DISH_SEAFOOD_DISH = 290;
+
+// Shrimp gumbo : shrimp, beef, parsley, potato
+var ID_DISH_SHRIMP_GUMBO = 300;
+
+// Shrimp and eggs : shrimp, eggs
+var ID_DISH_SHRIMP_AND_EGGS = 310;
 
 
+
+
+//-------------------------------------------------------------------------------------------------------------
 
 var INVENTORY_INCREMENT = 50;
 var INVENTORY_SPACING_ORIGINAL_X = -50;
