@@ -174,6 +174,7 @@ class load extends Phaser.Scene {
         
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Soy sauce eggs", ID_DISH_SOY_SAUCE_EGGS, 11, true, ID_GROCERY_SOYSAUCE, ID_GROCERY_EGGS).setOrigin(0.5, 0.5).setVisible(false));
 
+        // There's no "garlic powder" in groceries.
         // menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Garlic fries", ID_DISH_GARLIC_FRIES, 8, true, ID_GROCERY_POTATO, ID_GROCERY_GARLIC_POWDER, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Mashes potatos", ID_DISH_MASHES_POTATOS, 17, true, ID_GROCERY_POTATO, ID_GROCERY_MILK, ID_GROCERY_BUTTER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
