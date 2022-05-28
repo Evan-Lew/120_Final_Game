@@ -1,7 +1,7 @@
 5/28
 complete stage two
 complete scoreboard
-added recipes up to chicken dishes
+added recipes up to beef dishes
 
 5/27 
 credited cart and door sfx

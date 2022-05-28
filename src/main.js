@@ -167,6 +167,21 @@ var ID_DISH_SHRIMP_GUMBO = 300;
 // Shrimp and eggs : shrimp, eggs
 var ID_DISH_SHRIMP_AND_EGGS = 310;
 
+// --Chicken Dishes--
+// Quesadilla : chicken, cheese
+var ID_DISH_QUESADILLA = 320;
+
+// Veggie Quesadilla : chicken, cheese, onion, tomato
+var ID_DISH_VEGGIE_QUESADILLA = 321;
+
+// Garlic soy chicken : chicken, soy sauce, garlic
+var ID_DISH_GARLIC_SOY_CHICKEN = 330;
+
+// Buttered chicken : chicken, garlic, butter
+var ID_DISH_BUTTERED_CHICKEN = 340;
+
+// Chicken and veggies : chicken, carrot, onion
+var ID_DISH_CHICKEN_AND_VEGGIES = 350;
 
 
 
