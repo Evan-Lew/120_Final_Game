@@ -14,7 +14,7 @@ let config = {
     },
 
 
-    scene: [load, title_screen, stage_one_vegetables, stage_one_meats, stage_one_dairy, stage_two_cooking, stage_one_seasoning]
+    scene: [load, title_screen, stage_one_vegetables, stage_one_meats, stage_one_dairy, stage_one_seasoning, stage_two_cooking, scoreboard]
     // the the starter scene in load.js
 }
 
@@ -124,13 +124,18 @@ var INVENTORY_INCREMENT = 50;
 var INVENTORY_SPACING_ORIGINAL_X = -50;
 var INVENTORY_SPACING_ORIGINAL_Y = 0;
 
-var INVENTORY_STAGE2_INCREMENT = 100;
-var INVENTORY_STAGE2_ORIGINAL_X = 100;
-var INVENTORY_STAGE2_ORIGINAL_Y = 100;
+var INVENTORY_STAGE2_INCREMENT = 70;
+var INVENTORY_STAGE2_ORIGINAL_X = 120;
+var INVENTORY_STAGE2_ORIGINAL_Y = 170;
 
-var POT_INCREMENT = 120;
-var POT_SPACING_ORIGINAL_X = 800;
-var POT_SPACING_ORIGINAL_Y = 170;
+var POT_INCREMENT_X = 100;
+var POT_INCREMENT_Y = 100;
+var POT_SPACING_ORIGINAL_X = 630;
+var POT_SPACING_ORIGINAL_Y = 300;
+
+var DISH_ORIGINAL_X = 1280;
+var DISH_ORIGINAL_Y = 650;
+//var DISH_INCREMENT = 100;
 
 var BUDGET = 20;
 
@@ -150,10 +155,8 @@ var inventory_stage2_spacing_x = INVENTORY_STAGE2_ORIGINAL_X;                 //
 var inventory_stage2_spacing_y = INVENTORY_STAGE2_ORIGINAL_Y; 
 var pot_spacing_x = POT_SPACING_ORIGINAL_X;                 //this number is -INVENTORY_INCREMENT because first time, it will increment first
 var pot_spacing_y = POT_SPACING_ORIGINAL_Y; 
-
-var INVENTORY_INCREMENT = 50;
-var INVENTORY_SPACING_ORIGINAL_X = 0;
-var INVENTORY_SPACING_ORIGINAL_Y = 0;
+//var dish_spacing_x = DISH_ORIGINAL_X;
+//var dish_spacing_y = DISH_ORIGINAL_Y;
 
 var velocity = 0;
 
@@ -162,6 +165,7 @@ var generation_frequency = GENERATION_FREQUENCY_P1;
 var timer = 0;           //this timer used as counter for time event so, timer = 1000 means 1 second
 var timer_countDown = TIME_PHASE_END/1000;
 var budget = BUDGET;
+var bonusPoint_fromStage1 = 0;
 var gameOver = false;
 var stageOneOver = false;
 

@@ -1,0 +1,94 @@
+{
+    "frames": {
+        "dish_good_01": {
+            "frame": {
+                "x": 528,
+                "y": 85,
+                "w": 150,
+                "h": 195
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 195
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 195
+            }
+        },
+        "dish_bad_01": {
+            "frame": {
+                "x": 328,
+                "y": 94,
+                "w": 150,
+                "h": 190
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 190
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 190
+            }
+        },
+        "dish_normal_01": {
+            "frame": {
+                "x": 122,
+                "y": 117,
+                "w": 150,
+                "h": 161
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 161
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 161
+            }
+        },
+        "dish_horrible_01": {
+            "frame": {
+                "x": 727,
+                "y": 117,
+                "w": 150,
+                "h": 161
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 161
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 161
+            }
+        }
+    },
+    "meta": {
+        "app": "https://www.leshylabs.com/apps/sstool/",
+        "version": "Leshy SpriteSheet Tool v0.8.4",
+        "image": "spritesheet.png",
+        "size": {
+            "w": 1000,
+            "h": 400
+        },
+        "scale": 1
+    }
+}

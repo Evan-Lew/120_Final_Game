@@ -30,17 +30,24 @@ class load extends Phaser.Scene {
         this.load.image('dairy_aisle', 'Dairy_Aisle.png');
         this.load.image('meat_aisle', 'Meat_Aisle.png');
         this.load.image('seasoning_aisle', 'Seasoning_Aisle.png');
+        this.load.image('stage2_bg', 'Stage_Two.png');
+        this.load.image('cook1', 'cook1.png');
+        this.load.image('cook2', 'cook2.png');
 
         // load the tab above the shelf
         this.load.spritesheet('Tab_left', 'Tab_left.png', { frameWidth: 335, frameHeight: 51 });
         this.load.spritesheet('Tab_mid', 'Tab_mid.png', { frameWidth: 394, frameHeight: 51 });
         this.load.spritesheet('Tab_right', 'Tab_right.png', { frameWidth: 337, frameHeight: 51 });
+        this.load.spritesheet('steam', 'steam.png', { frameWidth: 497, frameHeight: 269 });
 
         // load basket on left bottom
         this.load.spritesheet('basket', 'basket.png', { frameWidth: 940, frameHeight: 720 });
 
         // load conveyor belt
         this.load.atlas("belt_atlas", "coveyor_belt.png", "conveyor_belt_map.json");
+
+        // load dish atlats
+        this.load.atlas("dish_atlas", "Dishes.png", "dish_map.json");
 
         // load inventory
         this.load.image('inventory', 'inventory.png');
@@ -53,6 +60,8 @@ class load extends Phaser.Scene {
 
         // load title screen
         this.load.image('menu_background', 'menu_background.png');
+
+
 
 
     }
@@ -69,6 +78,8 @@ class load extends Phaser.Scene {
         this.create_Animation_dairy();
         this.create_Animation_seasoning();
         this.create_Animation_Belt();
+        this.create_Animation_steam();
+        this.create_Animation_dish();
         //this.scene.start("stage_two_cooking");
         //this.scene.start("title_screen");
         this.scene.start("stage_one_vegetables");
@@ -99,9 +110,9 @@ class load extends Phaser.Scene {
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Chinese breakfast", ID_DISH_CHINESE_BREAKFAST, 30, true, ID_GROCERY_EGGS, ID_GROCERY_SOYSAUCE, ID_GROCERY_MILK, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         // need to set points
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idel_01", "Beef stew", ID_DISH_BEEF_STEW, 0, true, ID_GROCERY_BEEF, ID_GROCERY_ONION, ID_GROCERY_CARROT, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Beef stew", ID_DISH_BEEF_STEW, 0, true, ID_GROCERY_BEEF, ID_GROCERY_ONION, ID_GROCERY_CARROT, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
         
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idel_01", "Scrambled eggs", ID_DISH_SCRAMBLED_EGGS, 0, true, ID_GROCERY_EGGS, ID_GROCERY_MILK, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Scrambled eggs", ID_DISH_SCRAMBLED_EGGS, 0, true, ID_GROCERY_EGGS, ID_GROCERY_MILK, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
     }
 
     recipe_randomizer(){
@@ -1434,6 +1445,83 @@ class load extends Phaser.Scene {
             frameRate: 30,
             repeat: -1,
         });
+    }
+
+
+    create_Animation_steam() {
+        this.anims.create({
+            key: "steam_idle",
+            frameRate: 1,
+            frames: this.anims.generateFrameNumbers('steam', { start: 12, end: 12 }),
+            repeat: 0
+        });
+
+        this.anims.create({
+            key: "steam_anim",
+            frameRate: 13,
+            frames: this.anims.generateFrameNumbers('steam', { start: 0, end: 12 }),
+            repeat: 0
+        });
+
+    }
+
+    create_Animation_dish(){
+
+        this.anims.create({
+            key: 'dish_normal',
+            frames: this.anims.generateFrameNames('dish_atlas', {
+                prefix: 'dish_normal_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: -1,
+        });
+
+
+        this.anims.create({
+            key: 'dish_horrible',
+            frames: this.anims.generateFrameNames('dish_atlas', {
+                prefix: 'dish_horrible_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: -1,
+        });
+
+
+        this.anims.create({
+            key: 'dish_bad',
+            frames: this.anims.generateFrameNames('dish_atlas', {
+                prefix: 'dish_bad_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: -1,
+        });
+
+
+        this.anims.create({
+            key: 'dish_good',
+            frames: this.anims.generateFrameNames('dish_atlas', {
+                prefix: 'dish_good_',
+                start: 1,
+                end: 1,
+                suffix: '',
+                zeroPad: 2
+            }),
+            frameRate: 5,
+            repeat: -1,
+        });
+
     }
 
 }

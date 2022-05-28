@@ -895,7 +895,7 @@ class stage_one_meats extends Phaser.Scene {
 
     //function that update the basket sprite animation
     basket_Update() {
-        if (inventory.length > 24) {
+        if (inventory.length > 23) {
             stageOneOver = true;
         } else if (inventory.length >= BASKET_FULL) {
             this.basket.play("basket_full");
@@ -935,7 +935,8 @@ class stage_one_meats extends Phaser.Scene {
         groceries = [];
         //reinitialize flag
         stageOneOver = false;
-        //reinitialize timer
+        //calculate the bonus point
+        bonusPoint_fromStage1 = (timer_countDown / (budget + 10)) * 15;
     }
 
     //function update the endgame parameter and variable
