@@ -1,0 +1,95 @@
+[
+	[
+		{
+			"speaker" : "Slug",
+			"dialog" : "We finally here! It's time to cook",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Yes. Mr. Slug, do you know how to cook?",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "That's simple, just left-click the groceries we have to add them into the pot",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "And then we click [cook] to cook? Am I right?"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Yes. You finally know something Mr. Slug. but do you know the recipes",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "No, but it's on the right, am I allowed to make something addition to that list?",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "You should, and you must if you are looking for high scores",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Because the groceries will be randomly generated, same as those recipes."
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "If you make something from that recipe, you get double points."
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "but there are some secret recipes that will never ever be displayed on the list!"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "Does that mean I should try as many combination as possible during the game play",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "That's right, you can put totally 4 groceries in the pot at same time",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "That means you can have so many combinations, I can't wait to eat, just click [finish], we have to eat"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "Sure, sure. By the way, Rick, can you please tell me some secret recipes?",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "No cheating! You tiny piece of XXOO, I wish someone can put a salt on [these] stupid slug[s]",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "It's time for me to leave, good luck then"
+		}
+
+	]
+
+]

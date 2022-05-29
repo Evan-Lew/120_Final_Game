@@ -74,7 +74,7 @@ class stage_one_dairy extends Phaser.Scene {
         // ------------------------------------------------------------------
         // mouse, keyboard setup
         this.input.mouse.disableContextMenu();
-        keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+        keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         // mouse, keyboard setup end
         // ------------------------------------------------------------------
 

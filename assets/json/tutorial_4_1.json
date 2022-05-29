@@ -1,0 +1,55 @@
+[
+	[
+		{
+			"speaker" : "Rick",
+			"dialog" : "The only thing you care about is money",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "Geez, I can't let money to limit my imagination",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Then don't ask me, what are those groceries",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "Ehh, can I ask?",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Carrot, tomato, potato, onion, and corn",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "second line, yogurt, butter, eggs, milk, and cheese"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "You never care about the name of things you bought, why asked "
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Hurry up, and click the next button on the top to see the rest, we gotta go shopping, don't waste time here "
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "Okay, okay",
+			"newSpeaker" : "true"
+		}
+	]
+
+]

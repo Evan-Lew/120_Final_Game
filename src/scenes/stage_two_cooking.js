@@ -556,6 +556,8 @@ class stage_two_cooking extends Phaser.Scene {
         this.score = 0;
         this.dishTable = null;
         this.dishTable = [];
+        this.inventory_sprite = null;
+        this.inventory_sprite = [];
 
     }
 }

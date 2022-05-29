@@ -12,7 +12,7 @@ class title_screen extends Phaser.Scene {
 
         // temp white background
         this.add.rectangle(0, 0, 1280, 720, 0xFFFFFF).setOrigin(0, 0);
-        
+
         // background
         this.add.tileSprite(0, 0, 1280, 720, 'menu_background').setOrigin(0, 0);
 
@@ -27,6 +27,11 @@ class title_screen extends Phaser.Scene {
         this.menu_Update();
 
 
+
+
+        //this.scene.start("tutorial_2");
+
+
     }
 
     update() {
@@ -38,7 +43,7 @@ class title_screen extends Phaser.Scene {
     }
 
 
-    selectFromMenu(){
+    selectFromMenu() {
         // enter key interaction
         if (Phaser.Input.Keyboard.JustDown(keyEnter)) {
             if (this.cart.locate == 1) {
@@ -51,10 +56,14 @@ class title_screen extends Phaser.Scene {
                 this.scene.start("stage_one_vegetables");
             }
             else if (this.cart.locate == 2) {
-                
+                // play door sfx
+                this.sound.play('sfx_door');
+                this.scene.start("tutorial_0");
             }
             else if (this.cart.locate == 3) {
-
+                // play door sfx
+                this.sound.play('sfx_door');
+                this.scene.start("credits");
             }
             else if (this.cart.locate == 4) {
                 close();
@@ -95,7 +104,7 @@ class title_screen extends Phaser.Scene {
         tempMenu = null;
     }
 
-    menu_Update(){
+    menu_Update() {
         this.recipe_randomizer();
     }
 }

@@ -1,0 +1,40 @@
+[
+	[
+		{
+			"speaker" : "Rick",
+			"dialog" : "It's parsley, garlic power, salt, pepper, and soy sauce",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Shrimps, beef, fish, steak, and chicken"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "I haven't said anything yet",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Are you going to ask?",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "Maybe yes....",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Then just shut up stupid slug, I am heading back to the tutorial with R key",
+			"newSpeaker" : "true"
+		}
+
+	]
+
+]

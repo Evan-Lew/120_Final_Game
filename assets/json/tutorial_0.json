@@ -1,0 +1,42 @@
+[
+	[
+		{
+			"speaker" : "Slug",
+			"dialog" : "Hello there, I am Mr.Slug, press space to continue the dialog",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "That's enough Slug, do you remember what are we here for, I will press R to return if you don't want to play",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "Oh no, I want to play, what is this game about?",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Shopping, cooking, and make points",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "That sounds too easy for me!",
+			"newSpeaker" : "true"
+		},
+
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Only people with IQ 200 know how to play this, now choose the options from above to see what you want to learn",
+			"newSpeaker" : "true"
+		}
+
+	]
+
+]

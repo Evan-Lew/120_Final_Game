@@ -14,7 +14,7 @@ let config = {
     },
 
 
-    scene: [load, title_screen, stage_one_vegetables, stage_one_meats, stage_one_dairy, stage_one_seasoning, stage_two_cooking, scoreboard]
+    scene: [load, title_screen, credits,  tutorial_0, tutorial_1, tutorial_2,  tutorial_4_1, tutorial_4_2, stage_one_vegetables, stage_one_meats, stage_one_dairy, stage_one_seasoning, stage_two_cooking, scoreboard]
     // the the starter scene in load.js
 }
 
@@ -22,6 +22,10 @@ var game = new Phaser.Game(config);
 var borderUISize = game.config.height / 20;
 var borderPadding = borderUISize / 3;
 
+// variable for dialog
+const centerX = game.config.width / 2;
+const centerY = game.config.height / 2;
+let cursors = null;
 
 // input key variables
 var keyLeft, keyRight, keyR;
@@ -81,7 +85,6 @@ var ID_GROCERY_PEPPER  = 1019;
 var ID_GROCERY_SOYSAUCE = 1020;
 //var ID_GROCERY_  = 
 
-//-------------------------------------------------------------------------------------------------------------
 /* README FOR MODIFY DISH ID
     ID Explain: 110: 11 means the type of the dish for example POTATO_STEAM, 0 indicate the the various suffix
     Suffix Explain:
@@ -220,8 +223,6 @@ var ID_DISH_THREE_SLUGS = 540;
 
 
 
-//-------------------------------------------------------------------------------------------------------------
-
 var INVENTORY_INCREMENT = 50;
 var INVENTORY_SPACING_ORIGINAL_X = -50;
 var INVENTORY_SPACING_ORIGINAL_Y = 0;
@@ -240,6 +241,7 @@ var DISH_ORIGINAL_Y = 650;
 //var DISH_INCREMENT = 100;
 
 var BUDGET = 20;
+var BUDGET_TUTOR = 2;
 
 // globle variables
 // WARNING: Dynamic varible may cause memory leak, free array before u restart the scene
@@ -248,6 +250,15 @@ var inventory = [];
 var menu = [];
 var randomMenu = [];
 var score = [];
+
+
+//variable for tutor
+var budget_tutor = BUDGET_TUTOR;
+var groceries_tutor = [];
+var inventory_tutor = [];
+var randomMenu_tutor = [];
+
+
 
 
 

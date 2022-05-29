@@ -1,7 +1,9 @@
+5/29
+complete tutorial
 5/28
 complete stage two
 complete scoreboard
-added recipes up to beef dishes
+add recipes
 
 5/27 
 credited cart and door sfx

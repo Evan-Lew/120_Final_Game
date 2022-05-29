@@ -62,17 +62,48 @@ class load extends Phaser.Scene {
         this.load.image('menu_background', 'menu_background.png');
 
         // load img for score board
-        this.load.image('score_background1', 'score_background.png');        
+        this.load.image('score_background1', 'score_background.png');
         this.load.image('score_background2', 'score_background2.png');
         this.load.image('score_background3', 'score_background3.png');
         this.load.image('score_background4', 'score_background4.png');
         this.load.image('score_background5', 'score_background5.png');
+
+
+        // load everything needed for tutorial
+        this.load.bitmapFont('gem_font', 'font/gem.png', 'font/gem.xml');
+        this.load.image('score_background1', 'score_background.png');
+        this.load.image('dialogbox', 'dialogbox.png');
+
+        this.load.image('Slug', 'Slug.png');
+        this.load.image('Rick', 'Rick.png');
+
+        this.load.json('tutorial_0', 'json/tutorial_0.json');
+        this.load.json('tutorial_1', 'json/tutorial_1.json');
+        this.load.json('tutorial_2', 'json/tutorial_2.json');
+        this.load.json('tutorial_4_1', 'json/tutorial_4_1.json');
+        this.load.json('tutorial_4_2', 'json/tutorial_4_2.json');
+
+
+        this.load.image('Tutorial_menu', 'Tutorial_menu.png');
+        
+        this.load.image('price_list1', 'price_list1.png');
+        
+        this.load.image('price_list2', 'price_list2.png');
+        this.load.image('Tutorial_1', 'Tutorial_1.png');
+
+        // load credit
+        this.load.image('Credits', 'Credits.png');
+
+
     }
+
+
 
     create() {
         // start the game
         this.create_recipes();
         this.recipe_randomizer();
+        this.create_dialog();
         this.create_Animation_Tabs();
         this.create_Animation_Basket();
         this.create_Animation_Slug();
@@ -83,11 +114,14 @@ class load extends Phaser.Scene {
         this.create_Animation_Belt();
         this.create_Animation_steam();
         this.create_Animation_dish();
+        this.makeTutor();
+
+
         //this.scene.start("stage_two_cooking");
         this.scene.start("title_screen");
         //this.scene.start("stage_one_vegetables");
         //this.scene.start("scoreboard");
-        
+
 
     }
     //function used to make and add recipe
@@ -207,7 +241,16 @@ class load extends Phaser.Scene {
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Three slugs", ID_DISH_THREE_SLUGS, 500, false, ID_GROCERY_SLUG, ID_GROCERY_SLUG, ID_GROCERY_SLUG, ID_GROCERY_SALT).setOrigin(0.5, 0.5).setVisible(false));
     }
 
-    recipe_randomizer(){
+    create_dialog() {
+        // add title text
+        this.add.bitmapText(centerX, centerY - 32, 'gem_font', 'THE ODYSSEY', 32).setOrigin(0.5);
+        this.add.bitmapText(centerX, centerY, 'gem_font', 'Press SPACE to start', 16).setOrigin(0.5);
+        // create input
+        cursors = this.input.keyboard.createCursorKeys();
+    }
+
+
+    recipe_randomizer() {
         randomMenu = null;
         randomMenu = [];
 
@@ -216,24 +259,24 @@ class load extends Phaser.Scene {
         var tempNum2;
         var tempNum3;
         //find all randomable meanu and push them into tempMenu
-        for(var i = 0; i < menu.length; i++){
-            if(menu[i].randomable){
-                tempMenu.push(new recipes(this,  0, 0, menu[i].key, menu[i].idle, menu[i].Name, menu[i].ID, menu[i].points, true, menu[i].ingredient1, menu[i].ingredient2, menu[i].ingredient3, menu[i].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
+        for (var i = 0; i < menu.length; i++) {
+            if (menu[i].randomable) {
+                tempMenu.push(new recipes(this, 0, 0, menu[i].key, menu[i].idle, menu[i].Name, menu[i].ID, menu[i].points, true, menu[i].ingredient1, menu[i].ingredient2, menu[i].ingredient3, menu[i].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
             }
         }
 
         //then the tempMenu will have all randomable recipe, do random function
         tempNum1 = Phaser.Math.Between(0, tempMenu.length - 1);
-        do{
+        do {
             tempNum2 = Phaser.Math.Between(0, tempMenu.length - 1);
-        }while(tempNum2 == tempNum1);
-        do{
+        } while (tempNum2 == tempNum1);
+        do {
             tempNum3 = Phaser.Math.Between(0, tempMenu.length - 1);
-        }while(tempNum3 == tempNum1 || tempNum3 == tempNum2);
+        } while (tempNum3 == tempNum1 || tempNum3 == tempNum2);
 
-        randomMenu.push(new recipes(this,  0, 0, tempMenu[tempNum1].key, tempMenu[tempNum1].idle, tempMenu[tempNum1].Name, tempMenu[tempNum1].ID, tempMenu[tempNum1].points, true, tempMenu[tempNum1].ingredient1, tempMenu[tempNum1].ingredient2, tempMenu[tempNum1].ingredient3, tempMenu[tempNum1].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
-        randomMenu.push(new recipes(this,  0, 0, tempMenu[tempNum2].key, tempMenu[tempNum2].idle, tempMenu[tempNum2].Name, tempMenu[tempNum2].ID, tempMenu[tempNum2].points, true, tempMenu[tempNum2].ingredient1, tempMenu[tempNum2].ingredient2, tempMenu[tempNum2].ingredient3, tempMenu[tempNum2].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
-        randomMenu.push(new recipes(this,  0, 0, tempMenu[tempNum3].key, tempMenu[tempNum3].idle, tempMenu[tempNum3].Name, tempMenu[tempNum3].ID, tempMenu[tempNum3].points, true, tempMenu[tempNum3].ingredient1, tempMenu[tempNum3].ingredient2, tempMenu[tempNum3].ingredient3, tempMenu[tempNum3].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
+        randomMenu.push(new recipes(this, 0, 0, tempMenu[tempNum1].key, tempMenu[tempNum1].idle, tempMenu[tempNum1].Name, tempMenu[tempNum1].ID, tempMenu[tempNum1].points, true, tempMenu[tempNum1].ingredient1, tempMenu[tempNum1].ingredient2, tempMenu[tempNum1].ingredient3, tempMenu[tempNum1].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
+        randomMenu.push(new recipes(this, 0, 0, tempMenu[tempNum2].key, tempMenu[tempNum2].idle, tempMenu[tempNum2].Name, tempMenu[tempNum2].ID, tempMenu[tempNum2].points, true, tempMenu[tempNum2].ingredient1, tempMenu[tempNum2].ingredient2, tempMenu[tempNum2].ingredient3, tempMenu[tempNum2].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
+        randomMenu.push(new recipes(this, 0, 0, tempMenu[tempNum3].key, tempMenu[tempNum3].idle, tempMenu[tempNum3].Name, tempMenu[tempNum3].ID, tempMenu[tempNum3].points, true, tempMenu[tempNum3].ingredient1, tempMenu[tempNum3].ingredient2, tempMenu[tempNum3].ingredient3, tempMenu[tempNum3].ingredient4).setOrigin(0.5, 0.5).setVisible(false));
 
         tempMenu.destroy;
         tempMenu = null;
@@ -1557,7 +1600,7 @@ class load extends Phaser.Scene {
 
     }
 
-    create_Animation_dish(){
+    create_Animation_dish() {
 
         this.anims.create({
             key: 'dish_normal',
@@ -1613,6 +1656,16 @@ class load extends Phaser.Scene {
             frameRate: 5,
             repeat: -1,
         });
+
+    }
+
+
+    makeTutor(){
+        
+        randomMenu_tutor.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "steam potato", ID_DISH_STEAM_POTATO, 10, true, ID_GROCERY_POTATO, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        inventory_tutor.push(new Inventory(this, 0, 0, 'vegetables_atlas', 'potato_normal_02', 0, ID_GROCERY_POTATO, 1).setOrigin(0.5, 0.5).setScale(this.inventory_scale).setVisible(false));
+        inventory_tutor.push(new Inventory(this, 0, 0, 'vegetables_atlas', 'potato_good_02', 1, ID_GROCERY_POTATO, 1).setOrigin(0.5, 0.5).setScale(this.inventory_scale).setVisible(false));
+        inventory_tutor.push(new Inventory(this, 0, 0, 'vegetables_atlas', 'potato_bad_02', -1, ID_GROCERY_POTATO, 1).setOrigin(0.5, 0.5).setScale(this.inventory_scale).setVisible(false));
 
     }
 
