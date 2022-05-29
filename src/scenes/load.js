@@ -208,7 +208,7 @@ class load extends Phaser.Scene {
 
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Yogurt eggs", ID_DISH_YOGURT_EGGS, 9, false, ID_GROCERY_YOGURT, ID_GROCERY_EGGS, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
         
-        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Soy sauce eggs", ID_DISH_SOY_SAUCE_EGGS, 11, true, ID_GROCERY_SOYSAUCE, ID_GROCERY_EGGS).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Soy sauce eggs", ID_DISH_SOY_SAUCE_EGGS, 11, true, ID_GROCERY_SOYSAUCE, ID_GROCERY_EGGS, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         // Potato Dishes
         // There's no "garlic powder" in groceries.
@@ -239,6 +239,8 @@ class load extends Phaser.Scene {
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Two slugs", ID_DISH_TWO_SLUGS, 200, false, ID_GROCERY_SLUG, ID_GROCERY_SLUG, ID_GROCERY_SALT, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Three slugs", ID_DISH_THREE_SLUGS, 500, false, ID_GROCERY_SLUG, ID_GROCERY_SLUG, ID_GROCERY_SLUG, ID_GROCERY_SALT).setOrigin(0.5, 0.5).setVisible(false));
+   
+   
     }
 
     create_dialog() {

@@ -135,7 +135,7 @@ class recipes extends Phaser.GameObjects.Sprite {
                 this.ingredient1_texture = "seasoning_atlas";
                 this.ingredient1_frame = "pepper_normal_01";
             } else {
-                console.log("Error: ID not found");
+                console.log("Error: ID not found " + this.ingredient1);
             }            
         }
 
@@ -202,7 +202,7 @@ class recipes extends Phaser.GameObjects.Sprite {
                 this.ingredient2_texture = "seasoning_atlas";
                 this.ingredient2_frame = "pepper_normal_01";
             } else {
-                console.log("Error: ID not found");
+                console.log("Error: ID not found " + this.ingredient2);
             }
         }
 
@@ -270,7 +270,7 @@ class recipes extends Phaser.GameObjects.Sprite {
                 this.ingredient3_texture = "seasoning_atlas";
                 this.ingredient3_frame = "pepper_normal_01";
             } else {
-                console.log("Error: ID not found");
+                console.log("Error: ID not found " + this.ingredient3);
             }
         }
 
@@ -338,7 +338,7 @@ class recipes extends Phaser.GameObjects.Sprite {
                 this.ingredient4_texture = "seasoning_atlas";
                 this.ingredient4_frame = "pepper_normal_01";
             } else {
-                console.log("Error: ID not found");
+                console.log("Error: ID not found " + this.ingredient4);
             }
         }
     }
