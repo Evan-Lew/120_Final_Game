@@ -63,10 +63,12 @@ class tutorial_0 extends Phaser.Scene {
         // check for spacebar press
         if (Phaser.Input.Keyboard.JustDown(cursors.space) && !this.dialogTyping) {
             // trigger dialog
+            this.sound.play("sfx_dialog");            
             this.typeText();
         }
 
         if(Phaser.Input.Keyboard.JustDown(keyR) ){
+            this.sound.play("sfx_button");
             this.dialog_reset();
             this.scene.start("title_screen");
         }
@@ -115,6 +117,7 @@ class tutorial_0 extends Phaser.Scene {
 
         this.menu1_rec.on('pointerdown', function (pointer) {
             if (pointer.leftButtonDown()) {
+                this.sound.play("sfx_button");
                 this.dialog_reset();
                 this.scene.start("tutorial_1");
                 this.menu1_text.destroy();
@@ -140,6 +143,7 @@ class tutorial_0 extends Phaser.Scene {
 
         this.menu2_rec.on('pointerdown', function (pointer) {
             if (pointer.leftButtonDown()) {
+                this.sound.play("sfx_button");
                 this.dialog_reset();
                 this.scene.start("tutorial_2");
                 this.menu2_text.destroy();
@@ -165,6 +169,7 @@ class tutorial_0 extends Phaser.Scene {
 
         this.menu3_rec.on('pointerdown', function (pointer) {
             if (pointer.leftButtonDown()) {
+                this.sound.play("sfx_button");
                 this.dialog_reset();
                 this.scene.start("tutorial_4_1");
                 this.menu3_text.destroy();
@@ -240,7 +245,7 @@ class tutorial_0 extends Phaser.Scene {
         if (this.dialogConvo >= this.dialog.length) {
             // here I'm simply "exiting" the last speaker and removing the dialog box,
             // but you could build other logic to change game states here
-            console.log('End of Conversations');
+            //console.log('End of Conversations');
             // tween out prior speaker's image
             if (this.dialogLastSpeaker) {
                 this.tweens.add({

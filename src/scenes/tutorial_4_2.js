@@ -63,11 +63,13 @@ class tutorial_4_2 extends Phaser.Scene {
         // check for spacebar press
         if (Phaser.Input.Keyboard.JustDown(cursors.space) && !this.dialogTyping) {
             // trigger dialog
+            this.sound.play("sfx_dialog");    
             this.typeText();
         }
 
         if(Phaser.Input.Keyboard.JustDown(keyR) ){
             this.dialog_reset();
+            this.sound.play("sfx_button");
             this.scene.start("tutorial_0");
         }
     }
@@ -126,6 +128,7 @@ class tutorial_4_2 extends Phaser.Scene {
 
         
         if(Phaser.Input.Keyboard.JustDown(keyR) ){
+            this.sound.play("sfx_button");
             this.scene.start("tutorial_0");
         }
 

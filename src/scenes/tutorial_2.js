@@ -106,10 +106,12 @@ class tutorial_2 extends Phaser.Scene {
         // check for spacebar press
         if (Phaser.Input.Keyboard.JustDown(cursors.space) && !this.dialogTyping) {
             // trigger dialog
+            this.sound.play("sfx_dialog");    
             this.typeText();
         }
 
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
+            this.sound.play("sfx_button");
             this.dialog_reset();
             this.endGame_Update_Helper_reset()
             this.scene.start("tutorial_0");
@@ -291,6 +293,7 @@ class tutorial_2 extends Phaser.Scene {
             this.inventory_sprite[i].on('pointerdown', function (pointer) {
                 if (pointer.leftButtonDown()) {
                     if (this.inPot.length < 4) {
+                        this.sound.play("sfx_pot_add");
                         this.inventory_sprite[i].visible = false;
                         this.inPot.push(new Inventory(this, pot_spacing_x, pot_spacing_y, inventory_tutor[i].key, inventory_tutor[i].idle, inventory_tutor[i].quality, inventory_tutor[i].ID, inventory_tutor[i].price).setOrigin(0.5, 0.5).setScale(this.pot_scale));
                         pot_spacing_x += POT_INCREMENT_X;
@@ -301,6 +304,7 @@ class tutorial_2 extends Phaser.Scene {
                         }
                     } else {
                         //too many ingredients warning
+                        this.sound.play("sfx_pot_add_fail");
                         this.cameras.main.shake(200, 0.05);
     
                         let Text_ingreWarn = {
@@ -420,6 +424,8 @@ class tutorial_2 extends Phaser.Scene {
                 } else {
     
                     if (pointer.leftButtonDown()) {
+
+                        this.sound.play("sfx_cook");
     
                         //check if they cook slug 
                         for (var index = 0; index < this.inPot.length; index++) {
@@ -531,6 +537,7 @@ class tutorial_2 extends Phaser.Scene {
     
                                 this.text3_rec.on('pointerdown', function (pointer) {
                                     if (pointer.leftButtonDown()) {
+                                        this.sound.play("sfx_dialog");
                                         this.cookText1.destroy();
                                         this.cookText2.destroy();
                                         this.cookText3.destroy();
@@ -596,6 +603,7 @@ class tutorial_2 extends Phaser.Scene {
     
             this.end_rec.on('pointerdown', function (pointer) {
                 if (pointer.leftButtonDown()) {
+                    this.sound.play("sfx_button");
                     this.dialog_reset();
                     this.endGame_Update_Helper_reset()
                     this.scene.start("tutorial_0");

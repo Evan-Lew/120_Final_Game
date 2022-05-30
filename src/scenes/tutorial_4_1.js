@@ -64,12 +64,14 @@ class tutorial_4_1 extends Phaser.Scene {
     update() {
         // check for spacebar press
         if (Phaser.Input.Keyboard.JustDown(cursors.space) && !this.dialogTyping) {
+            this.sound.play("sfx_dialog");    
             // trigger dialog
             this.typeText();
         }
 
 
         if(Phaser.Input.Keyboard.JustDown(keyR) ){
+            this.sound.play("sfx_button");
             this.dialog_reset();
             this.scene.start("tutorial_0");
         }
@@ -109,6 +111,7 @@ class tutorial_4_1 extends Phaser.Scene {
         this.menu1_rec.on('pointerdown', function (pointer) {
             if (pointer.leftButtonDown()) {
                 this.dialog_reset();
+                this.sound.play("sfx_button");
                 this.scene.start("tutorial_4_2");
                 this.menu1_text.destroy();
                 this.menu1_rec.destroy();

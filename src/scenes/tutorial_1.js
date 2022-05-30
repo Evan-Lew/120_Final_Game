@@ -90,10 +90,12 @@ class tutorial_1 extends Phaser.Scene {
         // check for spacebar press
         if (Phaser.Input.Keyboard.JustDown(cursors.space) && !this.dialogTyping) {
             // trigger dialog
+            this.sound.play("sfx_dialog");    
             this.typeText();
         }
 
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
+            this.sound.play("sfx_button");
             this.dialog_reset();
             this.reset();
             this.scene.start("tutorial_0");
@@ -284,6 +286,7 @@ class tutorial_1 extends Phaser.Scene {
             this.checkout_text.destroy();
         }, this);
         this.canvas_inventory.on("pointerdown", () => {
+            this.sound.play("sfx_check_out");
             this.scene.start("tutorial_2");
             this.dialog_reset();
             this.reset();
@@ -420,6 +423,7 @@ class tutorial_1 extends Phaser.Scene {
         groceries_tutor[i].on('pointerdown', function (pointer) {
             if (pointer.rightButtonDown()) {
                 //case right click 
+                this.sound.play("sfx_check_quality");
                 groceries_tutor[i].flipGrocery();
             } else if (pointer.leftButtonDown()) {
                 //case left click 
@@ -430,6 +434,7 @@ class tutorial_1 extends Phaser.Scene {
                 //valid only if u have enough money to purchase
                 if (this.budgetCheck < 0) {
                     //shake the screen
+                    this.sound.play("sfx_iventory_add_fail");
                     this.cameras.main.shake(200, 0.05);
                     //highlight the money
                     this.highlight = this.time.addEvent({
@@ -456,6 +461,7 @@ class tutorial_1 extends Phaser.Scene {
                     });
 
                 } else {
+                    this.sound.play("sfx_iventory_add");
                     //will add to inventory if u can purchase it
                     //spacing for inventory
                     if (inventory_spacing_x < 250) {

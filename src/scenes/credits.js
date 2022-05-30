@@ -26,6 +26,7 @@ class credits extends Phaser.Scene {
     update() {
 
         if(Phaser.Input.Keyboard.JustDown(keyR) ){
+            this.sound.play("sfx_button");
             this.scene.start("title_screen");
         }
     }

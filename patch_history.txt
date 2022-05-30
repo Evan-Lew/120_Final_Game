@@ -1,3 +1,6 @@
+5/30
+bug fixed 
+add sound effect
 5/29
 complete tutorial
 5/28

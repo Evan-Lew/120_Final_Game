@@ -11,10 +11,22 @@ class load extends Phaser.Scene {
         // sounds effects
         this.load.audio('sfx_door', 'door_open.wav');
         this.load.audio('sfx_cart', 'rolling_cart.mp3');
+        this.load.audio('sfx_dialog', 'space.wav');
+        this.load.audio('sfx_button', 'clickSound.wav');
+        this.load.audio('sfx_iventory_add_fail', 'failed_toAdd.wav');
+        this.load.audio('sfx_iventory_add', 'addToInventory.wav');
+        this.load.audio('sfx_check_quality', 'checkQuality.wav');
+        this.load.audio('sfx_check_out', 'checkout.wav');
+        this.load.audio('sfx_cook', 'cook_sound.mp3');
+        this.load.audio('sfx_pot_add', 'addToPot.wav');
+        this.load.audio('sfx_pot_add_fail', 'failed_toAdd.wav');
+
+
 
         // background music
         this.load.audio('store_bgm', 'store_music.mp3');
         this.load.audio('title_bgm', 'jazz_music.mp3');
+        this.load.audio('cook_bgm', 'stage_2BGM.mp3');
 
         // -----loading assets-----
         // load vegetables/dairy/meats atlas

@@ -47,6 +47,7 @@ class scoreboard extends Phaser.Scene {
                     close();
          }
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
+            this.sound.play("sfx_button");
             this.endGame_Update_Helper_reset();
             this.scene.start("title_screen");
         } else {

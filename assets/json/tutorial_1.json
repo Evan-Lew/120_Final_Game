@@ -12,109 +12,114 @@
 			"newSpeaker" : "true"
 		},
 
+
 		{
 			"speaker" : "Rick",
-			"dialog" : "Let me explain the what is what first."
+			"dialog" : "In the real game, click the tab on the top to switch the aisles, but for now, I am showing you my private aisle"
 
 		},
 
-		{
-			"speaker" : "Rick",
-			"dialog" : "The biggest play area on the left is the actual shop, "
 
+		{
+			"speaker" : "Slug",
+			"dialog" : "That's cool Rick, What if I get lost. ",
+			"newSpeaker" : "true"
 		},
 
-		{
-			"speaker" : "Rick",
-			"dialog" : "You can click the tabs on the top to go anywhere you want to in real game. "
-
-		},
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "If you get lost, I will sell you out here, and you will become dinner on these people's dish"
+			"dialog" : "You can press [R] to return to the title at anytime from any where. However, you are stupid slug, I will leave you here! ",
+			"newSpeaker" : "true"
 
 		},
 
 		{
 			"speaker" : "Slug",
-			"dialog" : "No Rick, you can't do this, I don't want to poison these people. ",
+			"dialog" : "Please Rick, don't do that to me. Okay, Okay I am going to shop now, what should I do?",
+			"newSpeaker" : "true"
+		},
+
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "First, watch your budget, that's the money you have for all groceries, if your camera is shaking, that means you don't have enough money",
+			"newSpeaker" : "true"
+
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "ok, so the second step just to [left-click] to pick the potato I want to buy?",
+			"newSpeaker" : "true"
+		},
+
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Yes, but NO. You always need to check the quality first. Now [right-click]",
 			"newSpeaker" : "true"
 		},
 
 		{
 			"speaker" : "Slug",
-			"dialog" : "What can I do with those potatoes?"
-		},
-
-		{
-			"speaker" : "Rick",
-			"dialog" : "Why you always ask these obvious questions, you need to check the quality and pick as you did everyday",
+			"dialog" : "I get it. I get it Rick, so better quality means more points in cooking am I right. ",
 			"newSpeaker" : "true"
 		},
 
-		{
-			"speaker" : "Rick",
-			"dialog" : "Now listen to me. Try right-click to check each potato's quality"
-		},
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "and then use left-click to buy"
+			"dialog" : "Finally, you know something. yes, that's correct, if you make dish with shXt, you got negative points as well",
+			"newSpeaker" : "true"
 		},
+
 
 		{
 			"speaker" : "Slug",
-			"dialog" : "These potatoes look nice, I will buy all of them. ouch! why my camera is shaking",
+			"dialog" : "Jeez! I will be careful then",
 			"newSpeaker" : "true"
 		},
 
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "That means you don't have enough money you dumbass, bad quality and good quality have the same price",
+			"dialog" : "Hurry up, you idiot. The coveyor belt is moving, people will pick you and grab your wallet!!",
 			"newSpeaker" : "true"
 		},
+
 
 		{
 			"speaker" : "Rick",
 			"dialog" : "So be cautious when you choose your groceries"
 		},
 
-		{
-			"speaker" : "Rick",
-			"dialog" : "Once you pick them, they will be added to the basket, the bottom right area."
-		},
 
 		{
 			"speaker" : "Slug",
-			"dialog" : "But what does this big order thing does",
+			"dialog" : "Thanks man, that was close..... by the way, I got what the order is asking for",
 			"newSpeaker" : "true"
 		},
 
-		{
-			"speaker" : "Rick",
-			"dialog" : "It's order menu for those people who want higher points, I will explain it later",
-			"newSpeaker" : "true"
-		},
+
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "Also, you will get bonus points, if you spend almost all budget in shopping"
+			"dialog" : "Good, but that's not enough, you can make whatever you want in cooking, so better spend all of your budget on groceries",
+			"newSpeaker" : "true"
 		},
 
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "Hurry up Slug, my stomach is growling let's head to another stage"
+			"dialog" : "You will get bonus point based on how much budget you left as well."
 		},
 
+
 		{
-			"speaker" : "Slug",
-			"dialog" : "Ok man, Let me move my mouse to the basket to check out",
-			"newSpeaker" : "true"
+			"speaker" : "Rick",
+			"dialog" : "but since we are slugs, we have bigger dream other than that, so for now, just [move your mouse to the basket] to [check out]"
 		}
-
 	]
 
 ]

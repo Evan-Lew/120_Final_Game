@@ -1,6 +1,9 @@
 class title_screen extends Phaser.Scene {
     constructor() {
         super("title_screen");
+
+
+       
     }
 
     create() {
@@ -17,24 +20,36 @@ class title_screen extends Phaser.Scene {
         this.add.tileSprite(0, 0, 1280, 720, 'menu_background').setOrigin(0, 0);
 
         // intialize the cart
-        this.cart = new menu_cart(this, 155, 575, 'cart').setOrigin(0, 0);
+        this.cart = new menu_cart(this, 155 + 315, 575, 'cart').setOrigin(0, 0);
 
+ 
         // initialize the bgm
-        this.title_bgm = this.sound.add('title_bgm', { volume: 0.5 });
+        if(!title_bgm_isPlaying){
+        this.title_bgm = this.sound.add('title_bgm', { volume: 0.4 });
         this.title_bgm.play();
+        title_bgm_isPlaying = true;
+        }
 
         //randomlize menu
         this.menu_Update();
 
 
-
-
         //this.scene.start("tutorial_2");
+
+
+        if(store_bgm_isPlaying){
+            store_bgm.stop();
+            store_bgm_isPlaying = false;
+        }
 
 
     }
 
     update() {
+
+
+
+
         // update cart
         this.cart.update();
         this.selectFromMenu();
@@ -46,11 +61,18 @@ class title_screen extends Phaser.Scene {
     selectFromMenu() {
         // enter key interaction
         if (Phaser.Input.Keyboard.JustDown(keyEnter)) {
+            // stop title screen bgm and start store bgm
+
             if (this.cart.locate == 1) {
-                // stop title screen bgm and start store bgm
                 this.title_bgm.stop();
-                this.store_bgm = this.sound.add('store_bgm', { volume: 0.5 });
-                this.store_bgm.play();
+                title_bgm_isPlaying = false;
+                if(!store_bgm_isPlaying){
+                    store_bgm = this.sound.add('store_bgm', { volume: 0.4 });
+                    store_bgm.play();
+                    store_bgm_isPlaying = true;
+                }
+
+
                 // play door sfx
                 this.sound.play('sfx_door');
                 this.scene.start("stage_one_vegetables");

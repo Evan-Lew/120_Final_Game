@@ -6,7 +6,6 @@ class stage_two_cooking extends Phaser.Scene {
     }
 
     create() {
-
         //local variable
         this.inventory_scale = 0.3;
         this.pot_scale = 0.4;
@@ -28,6 +27,16 @@ class stage_two_cooking extends Phaser.Scene {
 
         this.add.rectangle(600, 100, 400, 550, 0xEFC0C0).setOrigin(0, 0);
 
+        // ------------------------------------------------------------------
+        // music setup
+        if(store_bgm_isPlaying){
+            store_bgm.stop();
+            store_bgm_isPlaying = false;
+        }
+        this.cook_bgm = this.sound.add('cook_bgm', { volume: 0.4 });
+        this.cook_bgm.play();
+        // music setup end
+        // ------------------------------------------------------------------
 
         // ------------------------------------------------------------------
         // mouse, keyboard setup
@@ -72,10 +81,10 @@ class stage_two_cooking extends Phaser.Scene {
 
 
         //performance debugging
-        console.log("inventory length is " + inventory.length);
-        console.log("inventory sprite length is " + this.inventory_sprite.length);
-        console.log("pot length is " + this.inPot.length);
-        console.log("recipe length is " + menu.length);
+        //console.log("inventory length is " + inventory.length);
+       //console.log("inventory sprite length is " + this.inventory_sprite.length);
+        //console.log("pot length is " + this.inPot.length);
+        //console.log("recipe length is " + menu.length);
 
 
 
@@ -90,6 +99,7 @@ class stage_two_cooking extends Phaser.Scene {
         this.UI_Update();
         this.dishTable_Update();
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
+            this.sound.play("sfx_button");
             this.endGame_Update_Helper_reset();
             this.scene.start("title_screen");
         }
@@ -127,6 +137,7 @@ class stage_two_cooking extends Phaser.Scene {
         this.inventory_sprite[i].on('pointerdown', function (pointer) {
             if (pointer.leftButtonDown()) {
                 if (this.inPot.length < 4) {
+                    this.sound.play("sfx_pot_add");
                     this.inventory_sprite[i].visible = false;
                     this.inPot.push(new Inventory(this, pot_spacing_x, pot_spacing_y, inventory[i].key, inventory[i].idle, inventory[i].quality, inventory[i].ID, inventory[i].price).setOrigin(0.5, 0.5).setScale(this.pot_scale));
                     pot_spacing_x += POT_INCREMENT_X;
@@ -136,6 +147,7 @@ class stage_two_cooking extends Phaser.Scene {
                         pot_spacing_y += POT_INCREMENT_Y;
                     }
                 } else {
+                    this.sound.play("sfx_pot_add_fail");
                     //too many ingredients warning
                     this.cameras.main.shake(200, 0.05);
 
@@ -253,9 +265,12 @@ class stage_two_cooking extends Phaser.Scene {
         this.button_cook.on('pointerdown', function (pointer) {
 
             if (this.inPot.length == 0 || this.potIsWorking) {
+                
             } else {
 
                 if (pointer.leftButtonDown()) {
+
+                    this.sound.play("sfx_cook");
 
                     //check if they cook slug 
                     for (var index = 0; index < this.inPot.length; index++) {
@@ -385,6 +400,7 @@ class stage_two_cooking extends Phaser.Scene {
 
                             this.text3_rec.on('pointerdown', function (pointer) {
                                 if (pointer.leftButtonDown()) {
+                                    this.sound.play("sfx_dialog");
                                     this.cookText1.destroy();
                                     this.cookText2.destroy();
                                     this.cookText3.destroy();
@@ -450,6 +466,7 @@ class stage_two_cooking extends Phaser.Scene {
 
         this.end_rec.on('pointerdown', function (pointer) {
             if (pointer.leftButtonDown()) {
+                this.sound.play("sfx_button");
                 this.endGame_Update_Helper_reset();
                 this.scene.start("scoreboard");
                 this.endText.destroy();
@@ -558,7 +575,8 @@ class stage_two_cooking extends Phaser.Scene {
         this.dishTable = [];
         this.inventory_sprite = null;
         this.inventory_sprite = [];
-
+        //stop music
+        this.cook_bgm.stop();
     }
 }
 

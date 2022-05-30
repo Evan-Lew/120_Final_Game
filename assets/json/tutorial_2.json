@@ -25,30 +25,33 @@
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "Yes. You finally know something Mr. Slug. but do you know the recipes",
+			"dialog" : "Perfect! but just be careful, don't fall into the pot.",
 			"newSpeaker" : "true"
 		},
 
 		{
 			"speaker" : "Slug",
-			"dialog" : "No, but it's on the right, am I allowed to make something addition to that list?",
+			"dialog" : "Oh! right, I don't want to mess up the pot with my Slug Slug body, but do we taste good",
 			"newSpeaker" : "true"
 		},
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "You should, and you must if you are looking for high scores",
+			"dialog" : "Such a stupid question, you can try, or just simply let me add some salt on you.",
 			"newSpeaker" : "true"
 		},
 
 		{
-			"speaker" : "Rick",
-			"dialog" : "Because the groceries will be randomly generated, same as those recipes."
+			"speaker" : "Slug",
+			"dialog" : "No Rick, are you going to kill me! Forget about that, so those dishes from order gives me more points ",
+			"newSpeaker" : "true"
 		},
+
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "If you make something from that recipe, you get double points."
+			"dialog" : "And they are also randomly generated.",
+			"newSpeaker" : "true"
 		},
 
 		{
@@ -64,13 +67,13 @@
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "That's right, you can put totally 4 groceries in the pot at same time",
+			"dialog" : "That's right, you can put totally 4 groceries in the pot at same time, otherwise error message will be popped up",
 			"newSpeaker" : "true"
 		},
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "That means you can have so many combinations, I can't wait to eat, just click [finish], we have to eat"
+			"dialog" : "let's stop talking, I can't wait to eat, just click [finish]"
 		},
 
 		{
@@ -81,13 +84,13 @@
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "No cheating! You tiny piece of XXOO, I wish someone can put a salt on [these] stupid slug[s]",
+			"dialog" : "No cheating! You tiny piece of XXOO, we are the secret already, so shut up and leave this place",
 			"newSpeaker" : "true"
 		},
 
 		{
 			"speaker" : "Rick",
-			"dialog" : "It's time for me to leave, good luck then"
+			"dialog" : "good luck then"
 		}
 
 	]

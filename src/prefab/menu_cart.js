@@ -6,7 +6,7 @@ class menu_cart extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);
 
         // var declare
-        this.locate = 1;
+        this.locate = 2;
         this.moveSpeed_12 = 315;
         this.moveSpeed_23 = 265;
         this.moveSpeed_34 = 275;
@@ -18,7 +18,7 @@ class menu_cart extends Phaser.GameObjects.Sprite {
     }
 
     update() {
-        // move right
+        // move right                               
         if (Phaser.Input.Keyboard.JustDown(keyD)) {
             if (this.locate == 1) {
                 this.x += this.moveSpeed_12;

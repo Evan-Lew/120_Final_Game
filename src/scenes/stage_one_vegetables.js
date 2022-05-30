@@ -199,6 +199,7 @@ class stage_one_vegetables extends Phaser.Scene {
         groceries[i].on('pointerdown', function (pointer) {
             if (pointer.rightButtonDown()) {
                 //case right click 
+                this.sound.play("sfx_check_quality");
                 groceries[i].flipGrocery();
             } else if (pointer.leftButtonDown()) {
                 //case left click 
@@ -209,6 +210,7 @@ class stage_one_vegetables extends Phaser.Scene {
                 //valid only if u have enough money to purchase
                 if (this.budgetCheck < 0) {
                     //shake the screen
+                    this.sound.play("sfx_iventory_add_fail");
                     this.cameras.main.shake(200, 0.05);
                     //highlight the money
                     this.highlight = this.time.addEvent({
@@ -237,6 +239,7 @@ class stage_one_vegetables extends Phaser.Scene {
                 } else {
                     //will add to inventory if u can purchase it
                     //spacing for inventory
+                    this.sound.play("sfx_iventory_add");
                     if (inventory_spacing_x < 250) {
                         inventory_spacing_x += INVENTORY_INCREMENT;
                     } else {
@@ -771,6 +774,7 @@ class stage_one_vegetables extends Phaser.Scene {
             this.tab_left_text = this.add.text(90, -3, "Dairy", tab_TextConfig);
         });
         this.tab_left.on("pointerdown", () => {
+            this.sound.play("sfx_button");
             this.scene.start("stage_one_dairy");
         });
 
@@ -788,6 +792,7 @@ class stage_one_vegetables extends Phaser.Scene {
         });
 
         this.tab_mid.on("pointerdown", () => {
+            this.sound.play("sfx_button");
             this.scene.start("stage_one_seasoning");
         });
 
@@ -805,6 +810,7 @@ class stage_one_vegetables extends Phaser.Scene {
         });
 
         this.tab_right.on("pointerdown", () => {
+            this.sound.play("sfx_button");
             this.scene.start("stage_one_meats");
 
         });
@@ -956,11 +962,13 @@ class stage_one_vegetables extends Phaser.Scene {
         // inventory.length() > 24, this will cause         gameOver = true;
         // check detail in basket_Update
         if (stageOneOver) {
+            this.sound.play("sfx_check_out");
             this.endStage_Update_Helper_reset();
             this.scene.start("stage_two_cooking");
         }
 
         if (gameOver) {
+            this.sound.play("sfx_button");
             this.endGame_Update_Helper_reset();
             this.scene.start("title_screen");
         } //if end

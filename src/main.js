@@ -43,8 +43,8 @@ var QUALITY_GOOD = 1;
 
 var VELOCITY_EASY = 2;
 var VELOCITY_NORMAL = 4;
-var VELOCITY_HARD = 8;
-var VELOCITY_EXPERT = 10;
+var VELOCITY_HARD = 7;
+var VELOCITY_EXPERT = 9;
 
 var TIME_PHASE_ONE = 0;     //  NUM/1000 seconds, used in time event
 var TIME_PHASE_TWO = 20000;          //set to 20000
@@ -281,16 +281,8 @@ var budget = BUDGET;
 var bonusPoint_fromStage1 = 0;
 var gameOver = false;
 var stageOneOver = false;
+// sound related flag
+var title_bgm_isPlaying = false;
+var store_bgm_isPlaying = false;
+var store_bgm = null;
 
-
-/* Submission Description
-
-Credit:
-https://pixabay.com/music/elevator-music-elevator-music-5805/ - music used for the store bgm, we changed the reverb
-
-https://pixabay.com/music/traditional-jazz-cool-jazz-loops-2641/ - music used for the title bgm, we changed the reverb
-
-https://freesound.org/people/yottasounds/sounds/232136/ - cart noise sfx that we trimmed down
-
-https://freesound.org/people/NeoSpica/sounds/425090/ - door opening sfx
-*/
