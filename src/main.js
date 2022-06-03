@@ -83,7 +83,9 @@ var ID_GROCERY_GARLIC  = 1017;
 var ID_GROCERY_SALT  = 1018;
 var ID_GROCERY_PEPPER  = 1019;
 var ID_GROCERY_SOYSAUCE = 1020;
-//var ID_GROCERY_  = 
+
+// If ever want to add more items
+// var ID_GROCERY_  = 
 
 /* README FOR MODIFY DISH ID
     ID Explain: 110: 11 means the type of the dish for example POTATO_STEAM, 0 indicate the the various suffix
@@ -188,31 +190,47 @@ var ID_DISH_CHICKEN_AND_VEGGIES = 350;
 
 // --Beef Dishes--
 // Beef Dishes
+// Chili : beef, tomato, onion
 var ID_DISH_CHILI = 360;
+// Meatloaf : beef, tomato
 var ID_DISH_MEATLOAF = 370;
+// Beef burger : beef, onion
 var ID_DISH_BEEF_BURGER = 380;
+// Beef casserole : beef, corn, cheese, milk
 var ID_DISH_BEEF_CASSEROLE = 390;
 
 // --Egg Dishes--
+// Omelete : eggs, butter, tomato
 var ID_DISH_OMELETE = 400;
+// Yogurt eggs : yogurt, eggs
 var ID_DISH_YOGURT_EGGS = 410;
+// Soy sauce eggs : soy sauce, eggs
 var ID_DISH_SOY_SAUCE_EGGS = 420;
 
 // --Garlic Fries--
+// Garlic fries : potato, garlic
 var ID_DISH_GARLIC_FRIES = 430;
-var ID_DISH_MASHES_POTATOS = 440;
+// Mashed potatos : potato, milk, butter
+var ID_DISH_MASHED_POTATOS = 440;
+// Baked potato : potato, cheese
 var ID_DISH_BAKED_POTATO = 450;
 
 // --Yogurt Dishes--
+// Yogurt coleslaw : yogurt, carrot, corn
 var ID_DISH_YOGURT_COLESLAW = 460;
+// Yogurt salad : yogurt, tomato, carrot
 var ID_DISH_YOGURT_SALAD = 470;
 
 // --Corn Salad--
+// Corn salsa : corn, tomato, onion
 var ID_DISH_CORN_SALSA = 480;
+// Popcorn : corn, butter
 var ID_DISH_POPCORN = 490;
 
 // --Misc Dishes--
+// Mac and cheese : milk, cheese
 var ID_DISH_MAX_AND_CHEESE = 500;
+// Veggie salad : yogurt, tomato, carrot
 var ID_DISH_VEGGIE_SALAD = 510;
 
 // --Slug Dishes--
@@ -220,6 +238,43 @@ var ID_DISH_DEAD_SLUG = 520;
 var ID_DISH_TWO_SLUGS = 530;
 var ID_DISH_THREE_SLUGS = 540;
 
+// --Pepper & Salt Dishes--
+// Seasoned steak : salt, pepper, steak, butter
+var ID_DISH_SEASONED_STEAK = 550;
+// Seasoned chicken : salt, pepper, chicken, butter
+var ID_DISH_SEASONED_CHICKEN = 560;
+// Seasoned meatballs : salt, pepper, soy sauce, beef
+var ID_DISH_SEASONED_MEATBALLS = 570;
+// Seasoned fries : salt, pepper, tomato, potato
+var ID_DISH_SEASONED_FRIES = 580;
+// Seasoned fish : salt, pepper, parsley, fish
+var ID_DISH_SEASONED_FISH = 590;
+// Seasoned shrimp : salt, pepper, soy sauce, shrimp
+var ID_DISH_SEASONED_SHRIMP = 600;
+// Over-easy eggs : salt, pepper, butter, eggs
+var ID_DISH_OVER_EASY_EGGS = 610;
+// Stir fried carrots : salt, pepper, onion, carrot
+var ID_DISH_STIR_FRIED_CARROTS = 620;
+
+// --Hidden Dishes--
+// Ketchup : tomato, salt, garlic
+var ID_DISH_KETCHUP = 630;
+// Onion rings : onion
+var ID_DISH_ONION_RINGS = 640;
+// Roast tomato : tomato
+var ID_DISH_ROASTED_TOMATO = 650;
+// Cheese cubes : cheese
+var ID_DISH_CHEESE_CUBES = 660;
+// Seasoning rub : parsley, garlic, salt, pepper
+var ID_DISH_SEASONING_RUB = 670;
+// Salt & pepper: salt, pepper
+var ID_DISH_SALT_AND_PEPPER = 680;
+// Yogurt cake : yogurt, butter, eggs, milk
+var ID_DISH_YOGURT_CAKE = 690;
+// Meat roast : chicken, steak, beef
+var ID_DISH_MEAT_ROAST = 700;
+// Yogurt carrots : yogurt, carrot
+var ID_DISH_YOGURT_CARROTS = 710;
 
 
 
