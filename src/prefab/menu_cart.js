@@ -4,57 +4,38 @@ class menu_cart extends Phaser.GameObjects.Sprite {
 
         // add object object to existing scene
         scene.add.existing(this);
-
+        this.scene = scene;
         // var declare
         this.locate = 2;
-        this.moveSpeed_12 = 315;
-        this.moveSpeed_23 = 265;
-        this.moveSpeed_34 = 275;
 
-        this.scene = scene;
+        this.locate_1_x = 145;
+        this.locate_2_x = 460;
+        this.locate_3_x = 725;
+        this.locate_4_x = 1000;
 
         // add sound effect
         this.sfx_cart = scene.sound.add("sfx_cart");
     }
 
-    update() {
-        // move right                               
-        if (Phaser.Input.Keyboard.JustDown(keyD)) {
-            if (this.locate == 1) {
-                this.x += this.moveSpeed_12;
-                this.sfx_cart.play();
-                this.locate++;
-            }
-            else if (this.locate == 2) {
-                this.x += this.moveSpeed_23;
-                this.sfx_cart.play();
-                this.locate++;
-            }
-            else if (this.locate == 3) {
-                this.x += this.moveSpeed_34;
-                this.sfx_cart.play();
-                this.locate++;
-            }
-        }
 
-        // move left
-        if (Phaser.Input.Keyboard.JustDown(keyA)) {
-            if (this.locate == 2) {
-                this.x -= this.moveSpeed_12;
-                this.sfx_cart.play();
-                this.locate--;
-                
-            }
-            else if (this.locate == 3) {
-                this.x -= this.moveSpeed_23;
-                this.sfx_cart.play();
-                this.locate--;
-            }
-            else if (this.locate == 4) {
-                this.x -= this.moveSpeed_34;
-                this.sfx_cart.play();
-                this.locate--;
-            }
-        }
+    setToLocate_1(){
+        this.x =  this.locate_1_x;
+        this.sfx_cart.play();
     }
+
+    setToLocate_2(){
+        this.x =  this.locate_2_x;
+        this.sfx_cart.play();
+    }
+
+    setToLocate_3(){
+        this.x =  this.locate_3_x;
+        this.sfx_cart.play();
+    }
+
+    setToLocate_4(){
+        this.x =  this.locate_4_x;
+        this.sfx_cart.play();
+    }
+
 }

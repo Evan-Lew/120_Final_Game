@@ -43,8 +43,8 @@ var QUALITY_GOOD = 1;
 
 var VELOCITY_EASY = 2;
 var VELOCITY_NORMAL = 4;
-var VELOCITY_HARD = 7;
-var VELOCITY_EXPERT = 9;
+var VELOCITY_HARD = 6;
+var VELOCITY_EXPERT = 8;
 
 var TIME_PHASE_ONE = 0;     //  NUM/1000 seconds, used in time event
 var TIME_PHASE_TWO = 20000;          //set to 20000

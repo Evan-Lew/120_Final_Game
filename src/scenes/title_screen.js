@@ -2,16 +2,11 @@ class title_screen extends Phaser.Scene {
     constructor() {
         super("title_screen");
 
-
-       
     }
 
     create() {
         // key input init
-        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        keyEnter = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
-        keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+        this.input.mouse.disableContextMenu();
 
         // temp white background
         this.add.rectangle(0, 0, 1280, 720, 0xFFFFFF).setOrigin(0, 0);
@@ -20,14 +15,14 @@ class title_screen extends Phaser.Scene {
         this.add.tileSprite(0, 0, 1280, 720, 'menu_background').setOrigin(0, 0);
 
         // intialize the cart
-        this.cart = new menu_cart(this, 155 + 315, 575, 'cart').setOrigin(0, 0);
+        this.cart = new menu_cart(this, 460, 575, 'cart').setOrigin(0, 0);
 
- 
+
         // initialize the bgm
-        if(!title_bgm_isPlaying){
-        this.title_bgm = this.sound.add('title_bgm', { volume: 0.4 });
-        this.title_bgm.play();
-        title_bgm_isPlaying = true;
+        if (!title_bgm_isPlaying) {
+            this.title_bgm = this.sound.add('title_bgm', { volume: 0.4 });
+            this.title_bgm.play();
+            title_bgm_isPlaying = true;
         }
 
         //randomlize menu
@@ -37,60 +32,99 @@ class title_screen extends Phaser.Scene {
         //this.scene.start("tutorial_2");
 
 
-        if(store_bgm_isPlaying){
+        if (store_bgm_isPlaying) {
             store_bgm.stop();
             store_bgm_isPlaying = false;
         }
 
-
+        this.selectFromMenu();
     }
 
     update() {
 
+        this.cartMove();
 
+    }
 
+    cartMove() {
+        if (game.input.mousePointer.x > 88.5 && game.input.mousePointer.x < 334.5) {
+            if (this.cart.locate != 1) {
+                this.cart.setToLocate_1();
+            }
 
-        // update cart
-        this.cart.update();
-        this.selectFromMenu();
+            this.cart.locate = 1;
+        } else if (game.input.mousePointer.x > 442.5 && game.input.mousePointer.x < 610) {
+            if (this.cart.locate != 2) {
+                this.cart.setToLocate_2();
+            }
 
+            this.cart.locate = 2;
+        } else if (game.input.mousePointer.x > 704 && game.input.mousePointer.x < 875) {
+            if (this.cart.locate != 3) {
+                this.cart.setToLocate_3();
+            }
+
+            this.cart.locate = 3;
+        } else if (game.input.mousePointer.x > 981 && game.input.mousePointer.x < 1151) {
+            if (this.cart.locate != 4) {
+                this.cart.setToLocate_4();
+            }
+
+            this.cart.locate = 4;
+        } else { }
 
     }
 
 
+
     selectFromMenu() {
-        // enter key interaction
-        if (Phaser.Input.Keyboard.JustDown(keyEnter)) {
-            // stop title screen bgm and start store bgm
 
-            if (this.cart.locate == 1) {
-                this.title_bgm.stop();
-                title_bgm_isPlaying = false;
-                if(!store_bgm_isPlaying){
-                    store_bgm = this.sound.add('store_bgm', { volume: 0.4 });
-                    store_bgm.play();
-                    store_bgm_isPlaying = true;
-                }
+        this.input.on('pointerdown', function (pointer) {
+
+            if (pointer.leftButtonDown()) {
+
+                if (game.input.mousePointer.x > 88.5 && game.input.mousePointer.x < 334.5) {
+
+                    if (game.input.mousePointer.y > 415 && game.input.mousePointer.y < 600) {
+                        this.title_bgm.stop();
+                        title_bgm_isPlaying = false;
+                        if (!store_bgm_isPlaying) {
+                            store_bgm = this.sound.add('store_bgm', { volume: 0.4 });
+                            store_bgm.play();
+                            store_bgm_isPlaying = true;
+                        }
+
+                        // play door sfx
+                        this.sound.play('sfx_door');
+                        this.scene.start("stage_one_vegetables");
+                    }
+
+                } else if (game.input.mousePointer.x > 442.5 && game.input.mousePointer.x < 610) {
+                    if (game.input.mousePointer.y > 343 && game.input.mousePointer.y < 533) {
+                        // play door sfx
+                        this.sound.play('sfx_door');
+                        this.scene.start("tutorial_0");
+                    }
+
+                } else if (game.input.mousePointer.x > 704 && game.input.mousePointer.x < 875) {
+                    if (game.input.mousePointer.y > 343 && game.input.mousePointer.y < 533) {
+                        // play door sfx
+                        this.sound.play('sfx_door');
+                        this.scene.start("credits");
+                    }
+
+                } else if (game.input.mousePointer.x > 981 && game.input.mousePointer.x < 1151) {
+                    if (game.input.mousePointer.y > 343 && game.input.mousePointer.y < 533) {
+
+                        close();
+                    }
+                } else { }
 
 
-                // play door sfx
-                this.sound.play('sfx_door');
-                this.scene.start("stage_one_vegetables");
             }
-            else if (this.cart.locate == 2) {
-                // play door sfx
-                this.sound.play('sfx_door');
-                this.scene.start("tutorial_0");
-            }
-            else if (this.cart.locate == 3) {
-                // play door sfx
-                this.sound.play('sfx_door');
-                this.scene.start("credits");
-            }
-            else if (this.cart.locate == 4) {
-                close();
-            }
-        }
+
+        }, this)
+
     }
 
     //used for randomize the recipe

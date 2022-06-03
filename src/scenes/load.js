@@ -140,19 +140,19 @@ class load extends Phaser.Scene {
     create_recipes(){
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Steamed Potato", ID_DISH_STEAM_POTATO, 3, true, ID_GROCERY_POTATO, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Tasty Steamed Potato", ID_DISH_STEAM_POTATO_TASTY, 6.2, false, ID_GROCERY_POTATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Tasty Steamed Potato", ID_DISH_STEAM_POTATO_TASTY, 8, false, ID_GROCERY_POTATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Epic Steamed Potato", ID_DISH_STEAM_POTATO_EPIC, 9.2, false,  ID_GROCERY_POTATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_GROCERY_PARSLEY).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Epic Steamed Potato", ID_DISH_STEAM_POTATO_EPIC, 13, false,  ID_GROCERY_POTATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_GROCERY_PARSLEY).setOrigin(0.5, 0.5).setVisible(false));
        
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Tomato Salad", ID_DISH_TOMATO_SALAD, 5.6, true,  ID_GROCERY_TOMATO, ID_GROCERY_SALT, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Tasty Tomato Salad", ID_DISH_TOMATO_SALAD_TASTY, 6.2, false, ID_GROCERY_TOMATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Tasty Tomato Salad", ID_DISH_TOMATO_SALAD_TASTY, 8, false, ID_GROCERY_TOMATO, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Roasted Corn", ID_DISH_ROASTED_CORN, 1.5, true, ID_GROCERY_CORN, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
     
-        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Tasty Roasted Corn", ID_DISH_ROASTED_CORN_TASTY, 4.7, false, ID_GROCERY_CORN, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Tasty Roasted Corn", ID_DISH_ROASTED_CORN_TASTY, 6, false, ID_GROCERY_CORN, ID_GROCERY_SALT, ID_GROCERY_PEPPER, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Cheese Roasted Corn", ID_DISH_ROASTED_CORN_CHEESEY, 15.5, false, ID_GROCERY_CORN, ID_GROCERY_CHEESE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Cheese Roasted Corn", ID_DISH_ROASTED_CORN_CHEESEY, 20, false, ID_GROCERY_CORN, ID_GROCERY_CHEESE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
     
         menu.push(new recipes(this,  0, 0, "slug_atlas", 'bananaslug_idle_01', "Fried Egg", ID_DISH_FRY_EGG, 11, true, ID_GROCERY_EGGS, ID_GROCERY_SOYSAUCE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
     
@@ -163,21 +163,21 @@ class load extends Phaser.Scene {
         menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Scrambled Eggs", ID_DISH_SCRAMBLED_EGGS, 12, true, ID_GROCERY_EGGS, ID_GROCERY_MILK, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         // One item recipes that are not shown
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Warm Milk", ID_DISH_WARM_MILK, 6, false, ID_GROCERY_MILK, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Warm Milk", ID_DISH_WARM_MILK, 8, false, ID_GROCERY_MILK, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Chicken", ID_DISH_COOKED_CHICKEN, 9, false, ID_GROCERY_CHICKEN, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Chicken", ID_DISH_COOKED_CHICKEN, 13, false, ID_GROCERY_CHICKEN, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Beef", ID_DISH_COOKED_BEEF, 18, false, ID_GROCERY_BEEF, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Beef", ID_DISH_COOKED_BEEF, 23, false, ID_GROCERY_BEEF, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Fish", ID_DISH_COOKED_FISH, 15, false, ID_GROCERY_FISH, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Fish", ID_DISH_COOKED_FISH, 18, false, ID_GROCERY_FISH, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Shrimp", ID_DISH_COOKED_SHRIMP, 18, false, ID_GROCERY_SHRIMP, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Shrimp", ID_DISH_COOKED_SHRIMP, 21, false, ID_GROCERY_SHRIMP, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
     
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Steak", ID_DISH_COOKED_STEAK, 21, false, ID_GROCERY_STEAK, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Cooked Steak", ID_DISH_COOKED_STEAK, 24, false, ID_GROCERY_STEAK, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Fried Egg", ID_DISH_FRIED_EGG, 6, false, ID_GROCERY_EGGS, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Fried Egg", ID_DISH_FRIED_EGG, 8, false, ID_GROCERY_EGGS, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Steamed Carrots", ID_DISH_STEAMED_CARROTS, 3, false, ID_GROCERY_CARROT, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Steamed Carrots", ID_DISH_STEAMED_CARROTS, 4, false, ID_GROCERY_CARROT, ID_NONE, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
         // Steak Dishes
         menu.push(new recipes(this, 0, 0, "slug_atlas", "bananaslug_idle_01", "Steak and Veggies", ID_DISH_STEAK_AND_VEGGIES, 29, true, ID_GROCERY_STEAK, ID_GROCERY_ONION, ID_GROCERY_CARROT, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
@@ -218,7 +218,7 @@ class load extends Phaser.Scene {
         // Egg Dishes
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Omelete", ID_DISH_OMELETE, 17, true, ID_GROCERY_EGGS, ID_GROCERY_BUTTER, ID_GROCERY_TOMATO, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
-        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Yogurt eggs", ID_DISH_YOGURT_EGGS, 9, false, ID_GROCERY_YOGURT, ID_GROCERY_EGGS, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
+        menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Yogurt eggs", ID_DISH_YOGURT_EGGS, 11, false, ID_GROCERY_YOGURT, ID_GROCERY_EGGS, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
         
         menu.push(new recipes(this, 0, 0, "slug_atlas", 'bananaslug_idle_01', "Soy sauce eggs", ID_DISH_SOY_SAUCE_EGGS, 11, true, ID_GROCERY_SOYSAUCE, ID_GROCERY_EGGS, ID_NONE, ID_NONE).setOrigin(0.5, 0.5).setVisible(false));
 
