@@ -39,6 +39,7 @@ class load extends Phaser.Scene {
         this.load.image('dairy_aisle', 'Dairy_Aisle.png');
         this.load.image('meat_aisle', 'Meat_Aisle.png');
         this.load.image('seasoning_aisle', 'Seasoning_Aisle.png');
+        this.load.image('Bonus_Aisle', 'Bonus_Aisle.png');
         this.load.image('stage2_bg', 'Stage_Two.png');
         this.load.image('cook1', 'cook1.png');
         this.load.image('cook2', 'cook2.png');

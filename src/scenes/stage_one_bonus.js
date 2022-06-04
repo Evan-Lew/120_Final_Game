@@ -1,6 +1,6 @@
-class stage_one_dairy extends Phaser.Scene {
+class stage_one_bonus extends Phaser.Scene {
     constructor() {
-        super("stage_one_dairy");
+        super("stage_one_bonus");
 
 
 
@@ -38,7 +38,7 @@ class stage_one_dairy extends Phaser.Scene {
         // Canvas setup 
 
         // canvas_play
-        this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'dairy_aisle').setOrigin(0, 0);
+        this.canvas_play = this.add.tileSprite(0, 0, 940, 720, 'Bonus_Aisle').setOrigin(0, 0);
 
         // canvas_play basket
         this.basket_Init();
@@ -275,13 +275,13 @@ class stage_one_dairy extends Phaser.Scene {
     //HELPER function determine which to generate
     groceries_Helper_MakeRandomGrocery_group1() {
 
-            this.randomGrocery_ID = ID_GROCERY_SLUG;
-            this.randomGrocery_frame = 'bananaslug_idle_01';
-            this.randomGrocery_idle_bad = 'bananaslug_normal_02';
-            this.randomGrocery_idle_normal = 'bananaslug_normal_02';
-            this.randomGrocery_idle_good = 'bananaslug_normal_02';
-            this.randomQuality = 0;
-    
+        this.randomGrocery_ID = ID_GROCERY_SLUG;
+        this.randomGrocery_frame = 'bananaslug_idle_01';
+        this.randomGrocery_idle_bad = 'bananaslug_normal_02';
+        this.randomGrocery_idle_normal = 'bananaslug_normal_02';
+        this.randomGrocery_idle_good = 'bananaslug_normal_02';
+        this.randomQuality = 0;
+
     }
 
     //HELPER function determine which to generate
@@ -662,22 +662,22 @@ class stage_one_dairy extends Phaser.Scene {
             color: "#000814",
         }
 
-        this.tab_main_text = this.add.text(380, 42, "Dairy", tab_main_TextConfig);
+        this.tab_main_text = this.add.text(380, 42, "Rick", tab_main_TextConfig);
 
         this.tab_left = this.add.sprite(0, 0, 'Tab_left').setOrigin(0, 0);
         this.tab_left.setInteractive();
         this.tab_left.play("Tab_left_idle");
-        this.tab_left_text = this.add.text(100, -3, "Meats", tab_TextConfig);
+        this.tab_left_text = this.add.text(100, -3, "Slug", tab_TextConfig);
 
         this.tab_mid = this.add.sprite(274, 0, 'Tab_mid').setOrigin(0, 0);
         this.tab_mid.setInteractive();
         this.tab_mid.play("Tab_mid_idle");
-        this.tab_mid_text = this.add.text(380, -3, "Seasoning", tab_TextConfig);
+        this.tab_mid_text = this.add.text(430, -3, "Slug", tab_TextConfig);
 
         this.tab_right = this.add.sprite(604, -1, 'Tab_right').setOrigin(0, 0);
         this.tab_right.setInteractive();
         this.tab_right.play("Tab_right_idle");
-        this.tab_right_text = this.add.text(690, -3, "Vegetables", tab_TextConfig);
+        this.tab_right_text = this.add.text(720, -3, "Slug", tab_TextConfig);
 
     }
 
@@ -703,17 +703,17 @@ class stage_one_dairy extends Phaser.Scene {
             this.tab_left.play("Tab_left_onOver");
             //destory the old text and add new color to it
             this.tab_left_text.destroy();
-            this.tab_left_text = this.add.text(100, -3, "Meats", tab_colorChange_TextConfig);
+            this.tab_left_text = this.add.text(100, -3, "Slug", tab_colorChange_TextConfig);
         });
         this.tab_left.on("pointerout", () => {
             this.tab_left.play("Tab_left_idle");
             //destory the old text and add new color to it
             this.tab_left_text.destroy();
-            this.tab_left_text = this.add.text(100, -3, "Meats", tab_TextConfig);
+            this.tab_left_text = this.add.text(100, -3, "Slug", tab_TextConfig);
         });
         this.tab_left.on("pointerdown", () => {
             this.sound.play("sfx_button");
-            this.scene.start("stage_one_meats");
+            //this.scene.start("stage_one_meats");
         });
 
 
@@ -721,35 +721,35 @@ class stage_one_dairy extends Phaser.Scene {
         this.tab_mid.on("pointerover", () => {
             this.tab_mid.play("Tab_mid_onOver");
             this.tab_mid_text.destroy();
-            this.tab_mid_text = this.add.text(380, -3, "Seasoning", tab_colorChange_TextConfig);
+            this.tab_mid_text = this.add.text(430, -3, "Slug", tab_colorChange_TextConfig);
         });
         this.tab_mid.on("pointerout", () => {
             this.tab_mid.play("Tab_mid_idle");
             this.tab_mid_text.destroy();
-            this.tab_mid_text = this.add.text(380, -3, "Seasoning", tab_TextConfig);
+            this.tab_mid_text = this.add.text(430, -3, "Slug", tab_TextConfig);
         });
 
         this.tab_mid.on("pointerdown", () => {
             this.sound.play("sfx_button");
-            this.scene.start("stage_one_seasoning");
+            //this.scene.start("stage_one_seasoning");
         });
 
 
         this.tab_right.on("pointerover", () => {
             this.tab_right.play("Tab_right_onOver");
             this.tab_right_text.destroy();
-            this.tab_right_text = this.add.text(690, -3, "Vegetables", tab_colorChange_TextConfig);
+            this.tab_right_text = this.add.text(720, -3, "Slug", tab_colorChange_TextConfig);
         });
 
         this.tab_right.on("pointerout", () => {
             this.tab_right.play("Tab_right_idle");
             this.tab_right_text.destroy();
-            this.tab_right_text = this.add.text(690, -3, "Vegetables", tab_TextConfig);
+            this.tab_right_text = this.add.text(720, -3, "Slug", tab_TextConfig);
         });
 
         this.tab_right.on("pointerdown", () => {
             this.sound.play("sfx_button");
-            this.scene.start("stage_one_vegetables");
+            //this.scene.start("stage_one_vegetables");
 
         });
 
@@ -907,7 +907,7 @@ class stage_one_dairy extends Phaser.Scene {
 
         if (gameOver) {
             this.sound.play("sfx_button");
-            this.endGame_Update_Helper_reset();            
+            this.endGame_Update_Helper_reset();
             this.scene.start("title_screen");
         } //if end
     }

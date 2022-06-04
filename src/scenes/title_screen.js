@@ -96,7 +96,13 @@ class title_screen extends Phaser.Scene {
 
                         // play door sfx
                         this.sound.play('sfx_door');
-                        this.scene.start("stage_one_vegetables");
+                        if (total_gamePlay >= 7) {
+                            this.scene.start("stage_one_bonus");
+                        } else {
+                            this.scene.start("stage_one_vegetables");
+                        }
+
+
                     }
 
                 } else if (game.input.mousePointer.x > 442.5 && game.input.mousePointer.x < 610) {

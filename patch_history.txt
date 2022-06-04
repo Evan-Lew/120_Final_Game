@@ -1,3 +1,10 @@
+6/3
+Patch 1.1
+update tutorial
+add price in shopping stage
+add bonus stage
+adjust belt speed at high difficuty level
+
 5/30
 bug fixed 
 add sound effect

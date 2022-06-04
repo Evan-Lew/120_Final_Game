@@ -178,6 +178,7 @@ class scoreboard extends Phaser.Scene {
         //reinitialize the bonus
         bonusPoint_fromStage1 = 0;
         //reinitialize those local variable
+        total_gamePlay++;
 
     }
 }

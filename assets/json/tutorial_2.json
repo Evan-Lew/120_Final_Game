@@ -91,8 +91,62 @@
 		{
 			"speaker" : "Rick",
 			"dialog" : "good luck then"
-		}
+		},
 
+		
+		{
+			"speaker" : "Rick",
+			"dialog" : "."
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "."
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "."
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "..."
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "......"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "..........."
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "What Rick? Are you not leaving",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Ehh, just one more thing Slug. Some horrible thing will happen, if you play this game 7 times ",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Slug",
+			"dialog" : "???",
+			"newSpeaker" : "true"
+		},
+
+		{
+			"speaker" : "Rick",
+			"dialog" : "Never mind, let's go home. ",
+			"newSpeaker" : "true"
+		}
 	]
 
 ]

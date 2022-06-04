@@ -14,7 +14,7 @@ let config = {
     },
 
 
-    scene: [load, title_screen, credits,  tutorial_0, tutorial_1, tutorial_2,  tutorial_4_1, tutorial_4_2, stage_one_vegetables, stage_one_meats, stage_one_dairy, stage_one_seasoning, stage_two_cooking, scoreboard]
+    scene: [load, title_screen, credits,  tutorial_0, tutorial_1, tutorial_2,  tutorial_4_1, tutorial_4_2, stage_one_vegetables, stage_one_meats, stage_one_dairy, stage_one_seasoning , stage_one_bonus, stage_two_cooking, scoreboard]
     // the the starter scene in load.js
 }
 
@@ -327,6 +327,7 @@ var pot_spacing_y = POT_SPACING_ORIGINAL_Y;
 //var dish_spacing_y = DISH_ORIGINAL_Y;
 
 var velocity = 0;
+var total_gamePlay = 1;
 
 var generation_frequency = GENERATION_FREQUENCY_P1;
 
@@ -340,4 +341,6 @@ var stageOneOver = false;
 var title_bgm_isPlaying = false;
 var store_bgm_isPlaying = false;
 var store_bgm = null;
+
+
 
