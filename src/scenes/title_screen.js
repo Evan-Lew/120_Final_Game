@@ -21,7 +21,9 @@ class title_screen extends Phaser.Scene {
         // initialize the bgm
         if (!title_bgm_isPlaying) {
             this.title_bgm = this.sound.add('title_bgm', { volume: 0.4 });
+            this.title_bgm.loop = true;
             this.title_bgm.play();
+            
             title_bgm_isPlaying = true;
         }
 

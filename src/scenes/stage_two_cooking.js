@@ -34,6 +34,7 @@ class stage_two_cooking extends Phaser.Scene {
             store_bgm_isPlaying = false;
         }
         this.cook_bgm = this.sound.add('cook_bgm', { volume: 0.4 });
+        this.cook_bgm.loop = true;
         this.cook_bgm.play();
         // music setup end
         // ------------------------------------------------------------------
